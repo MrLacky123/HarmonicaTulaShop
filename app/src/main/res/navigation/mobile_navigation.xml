@@ -12,14 +12,17 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_catalog"
         android:name="com.example.harmonicatulashop.ui.catalog.CatalogFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_catalog"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_cart"
         android:name="com.example.harmonicatulashop.ui.cart.CartFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_cart"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_account"
+        android:label="@string/title_account" />
 </navigation>
