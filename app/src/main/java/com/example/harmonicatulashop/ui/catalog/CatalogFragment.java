@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.harmonicatulashop.databinding.FragmentDashboardBinding;
+import com.example.harmonicatulashop.databinding.FragmentCatalogBinding;
 
 public class CatalogFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentCatalogBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         CatalogViewModel catalogViewModel =
                 new ViewModelProvider(this).get(CatalogViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentCatalogBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
+        final TextView textView = binding.textCatalog;
         catalogViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
