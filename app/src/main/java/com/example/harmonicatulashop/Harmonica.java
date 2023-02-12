@@ -9,9 +9,10 @@ public class Harmonica {
     private final char tone;
     private final String color;
     private final List<Integer> range;
-    private final ArrayList<Options> options;
 
-    public Harmonica(HarmonicaType type, char tone, String color, List<Integer> range, ArrayList<Options> options) {
+    private final ArrayList<String> options;
+
+    public Harmonica(HarmonicaType type, char tone, String color, List<Integer> range, ArrayList<String> options) {
         this.type = type;
         this.tone = tone;
         this.color = color;
@@ -35,7 +36,7 @@ public class Harmonica {
         return range;
     }
 
-    public ArrayList<Options> getOptions() {
+    public ArrayList<String> getOptions() {
         return options;
     }
 }

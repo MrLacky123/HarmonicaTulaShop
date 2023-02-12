@@ -7,8 +7,4 @@ public enum HarmonicaType {
     KONTSERTNAYA,
     ZAKAZNAYA,
     MNOGOTEMBROVAYA;
-
-    private HarmonicaType() {
-
-    }
 }

@@ -18,12 +18,6 @@
         tools:layout="@layout/fragment_catalog" />
 
     <fragment
-        android:id="@+id/shopping_cart"
-        android:name="com.example.harmonicatulashop.ui.cart.CartFragment"
-        android:label="@string/title_cart"
-        tools:layout="@layout/fragment_cart" />
-
-    <fragment
         android:id="@+id/navigation_account"
         android:name="com.example.harmonicatulashop.ui.account.AccountFragment"
         android:label="@string/title_account"
