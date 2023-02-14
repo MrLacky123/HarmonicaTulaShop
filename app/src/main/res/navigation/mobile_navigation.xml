@@ -22,4 +22,17 @@
         android:name="com.example.harmonicatulashop.ui.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.example.harmonicatulashop.ui.cart.CartFragment"
+        android:label="@string/title_cart"
+        tools:layout="@layout/fragment_cart" />
+
+    <fragment
+        android:id="@+id/navigation_favourite"
+        android:name="com.example.harmonicatulashop.ui.favourite.FavouriteFragment"
+        android:label="fragment_favourite"
+        tools:layout="@layout/fragment_favourite" />
+
 </navigation>

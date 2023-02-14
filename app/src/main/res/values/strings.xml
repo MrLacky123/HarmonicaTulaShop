@@ -3,7 +3,7 @@
     <string name="title_home">Главная</string>
     <string name="title_catalog">Каталог</string>
     <string name="title_cart">Корзина</string>
-    <string name="title_account">Личный кабинет</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_account">Аккаунт</string>
+    <string name="favourite">Моё</string>
+    <string name="harmonica">Harmonica</string>
 </resources>

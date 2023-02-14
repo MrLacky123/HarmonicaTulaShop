@@ -24,8 +24,6 @@ public class CatalogFragment extends Fragment {
         binding = FragmentCatalogBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCatalog;
-        catalogViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
