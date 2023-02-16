@@ -6,4 +6,5 @@
     <string name="title_account">Аккаунт</string>
     <string name="favourite">Моё</string>
     <string name="harmonica">Harmonica</string>
+    <string name="move_to_cart">В корзину</string>
 </resources>
