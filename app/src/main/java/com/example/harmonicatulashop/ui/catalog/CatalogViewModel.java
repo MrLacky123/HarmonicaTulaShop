@@ -6,6 +6,14 @@ import androidx.lifecycle.ViewModel;
 
 public class CatalogViewModel extends ViewModel {
 
+    private final MutableLiveData<String> mText;
+
     public CatalogViewModel() {
+        mText = new MutableLiveData<>();
+        mText.setValue("Гармони");
+    }
+
+    public LiveData<String> getText() {
+        return mText;
     }
 }

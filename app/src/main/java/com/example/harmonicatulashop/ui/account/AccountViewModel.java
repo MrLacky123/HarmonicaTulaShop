@@ -1,20 +1,21 @@
 package com.example.harmonicatulashop.ui.account;
 
+import android.widget.Button;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class AccountViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private final MutableLiveData<Button> signUpButton;
 
     public AccountViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is account fragment");
+        signUpButton = new MutableLiveData<>();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<Button> getButton() {
+        return signUpButton;
     }
 
 }
