@@ -6,12 +6,12 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:title="@string/title_home"/>
 
     <item
         android:id="@+id/navigation_catalog"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_catalog" />
+        android:title="@string/title_catalog"/>
 
     <item
         android:id="@+id/navigation_account"
