@@ -10,6 +10,8 @@
     <string name="sign_up">Зарегистрироваться</string>
     <string name="harmonica_catalog">Каталог гармоней</string>
     <string name="bayan_catalog">Каталог баянов</string>
+    <string name="accordion_catalog">Каталог Аккордеонов</string>
     <string name="title_harmonica">Гармони</string>
     <string name="title_bayan">Баяны</string>
+    <string name="catalog_accordion">Аккордеоны</string>
 </resources>
