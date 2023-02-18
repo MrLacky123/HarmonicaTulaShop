@@ -24,9 +24,6 @@ public class AccountFragment extends Fragment {
         binding = FragmentAccountBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final Button signUpButton = binding.signUpButton;
-        signUpButton.setOnClickListener(v -> signUp());
-
         return root;
     }
 
