@@ -8,8 +8,8 @@
     <string name="move_to_cart">В корзину</string>
     <string name="sign_in">Войти</string>
     <string name="sign_up">Зарегистрироваться</string>
-    <string name="bayan_catalog">Bayans</string>
-    <string name="title_bayans">Баяны</string>
     <string name="harmonica_catalog">Каталог гармоней</string>
+    <string name="bayan_catalog">Каталог баянов</string>
     <string name="title_harmonica">Гармони</string>
+    <string name="title_bayan">Баяны</string>
 </resources>
