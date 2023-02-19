@@ -1,10 +1,9 @@
 package com.example.harmonicatulashop.ui.catalog;
 
+import android.util.Log;
+
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
-
-import com.example.harmonicatulashop.MainActivity;
-import com.google.android.material.snackbar.Snackbar;
 
 public class CatalogViewModel extends ViewModel {
 
@@ -15,14 +14,14 @@ public class CatalogViewModel extends ViewModel {
     }
 
     public void onClickHarmonica () {
-        Snackbar.make(MainActivity.view, "Гармошки", Snackbar.LENGTH_LONG).show();
+        Log.d("RRRR", "Harmonica Click");
     }
 
     public void onClickBayan () {
-        Snackbar.make(MainActivity.view, "Баяны", Snackbar.LENGTH_LONG).show();
+        Log.d("RRRR", "Bayan Click");
     }
 
     public void onClickAccordion () {
-        Snackbar.make(MainActivity.view, "Аккордеоны", Snackbar.LENGTH_LONG).show();
+        Log.d("RRRR", "Accordion Click");
     }
 }
