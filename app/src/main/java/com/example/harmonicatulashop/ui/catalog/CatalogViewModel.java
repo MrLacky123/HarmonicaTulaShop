@@ -1,19 +1,28 @@
 package com.example.harmonicatulashop.ui.catalog;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
+
+import com.example.harmonicatulashop.MainActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 public class CatalogViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    public ObservableField<CatalogFragment> fragment = new ObservableField<>();
 
     public CatalogViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("Гармони");
+        fragment.set(new CatalogFragment());
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public void onClickHarmonica () {
+        Snackbar.make(MainActivity.view, "Гармошки", Snackbar.LENGTH_LONG).show();
+    }
+
+    public void onClickBayan () {
+        Snackbar.make(MainActivity.view, "Баяны", Snackbar.LENGTH_LONG).show();
+    }
+
+    public void onClickAccordion () {
+        Snackbar.make(MainActivity.view, "Аккордеоны", Snackbar.LENGTH_LONG).show();
     }
 }

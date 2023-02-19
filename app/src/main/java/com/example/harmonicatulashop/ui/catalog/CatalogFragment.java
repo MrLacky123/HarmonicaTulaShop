@@ -21,6 +21,7 @@ public class CatalogFragment extends Fragment {
                 new ViewModelProvider(this).get(CatalogViewModel.class);
 
         binding = FragmentCatalogBinding.inflate(inflater, container, false);
+
         View root = binding.getRoot();
 
         return root;
