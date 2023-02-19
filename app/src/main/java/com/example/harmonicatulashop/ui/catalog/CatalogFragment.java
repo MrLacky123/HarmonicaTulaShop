@@ -6,10 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.harmonicatulashop.databinding.FragmentCatalogBinding;
+import com.example.harmonicatulashop.ui.catalog.harmonica.HarmonicaCatalogViewModel;
 
 public class CatalogFragment extends Fragment {
 
@@ -17,10 +20,11 @@ public class CatalogFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CatalogViewModel catalogViewModel =
-                new ViewModelProvider(this).get(CatalogViewModel.class);
+        CatalogViewModel catalogViewModel = new ViewModelProvider(this).get(CatalogViewModel.class);
 
         binding = FragmentCatalogBinding.inflate(inflater, container, false);
+        binding.setViewmodel(catalogViewModel);
+        binding.executePendingBindings();
 
         View root = binding.getRoot();
 
