@@ -1,39 +1,37 @@
 package com.example.harmonicatulashop.ui.catalog.harmonica;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.databinding.FragmentCatalogBinding;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.harmonicatulashop.databinding.FragmentHarmonicaCatalogBinding;
 
 public class HarmonicaCatalogFragment extends Fragment {
 
-    private HarmonicaCatalogViewModel mViewModel;
+    private FragmentHarmonicaCatalogBinding binding;
 
-    public static HarmonicaCatalogFragment newInstance() {
-        return new HarmonicaCatalogFragment();
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        HarmonicaCatalogViewModel viewModel = new ViewModelProvider(this).get(HarmonicaCatalogViewModel.class);
+
+        binding = FragmentHarmonicaCatalogBinding.inflate(inflater, container, false);
+        binding.setViewmodel(viewModel);
+        binding.executePendingBindings();
+
+        return binding.getRoot();
+
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_harmonica_catalog, container, false);
-
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HarmonicaCatalogViewModel.class);
-        // TODO: Use the ViewModel
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

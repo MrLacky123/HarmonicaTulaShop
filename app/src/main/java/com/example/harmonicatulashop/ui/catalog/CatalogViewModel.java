@@ -14,14 +14,14 @@ public class CatalogViewModel extends ViewModel {
     }
 
     public void onClickHarmonica () {
-        Log.d("RRRR", "Harmonica Click");
+        Log.d("RRR", "Harmonica Click");
     }
 
     public void onClickBayan () {
-        Log.d("RRRR", "Bayan Click");
+        Log.d("RRR", "Bayan Click");
     }
 
     public void onClickAccordion () {
-        Log.d("RRRR", "Accordion Click");
+        Log.d("RRR", "Accordion Click");
     }
 }
