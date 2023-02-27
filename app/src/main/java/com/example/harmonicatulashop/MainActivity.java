@@ -1,25 +1,19 @@
 package com.example.harmonicatulashop;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.harmonicatulashop.databinding.ActivityMainBinding;
-import com.example.harmonicatulashop.ui.catalog.harmonica.HarmonicaCatalogFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private View btnH, btnB, btnA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +31,5 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
-        btnH = findViewById(R.id.layoutHarmonica);
-        btnB = findViewById(R.id.layoutBayan);
-        btnA = findViewById(R.id.layoutAccordion);
-
-        listenClick();
-    }
-
-    public void listenClick() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        btnA.setOnClickListener(v -> {
-
-            fragmentTransaction.replace(R.id.layout_catalog, new HarmonicaCatalogFragment()).commit();
-        });
     }
 }

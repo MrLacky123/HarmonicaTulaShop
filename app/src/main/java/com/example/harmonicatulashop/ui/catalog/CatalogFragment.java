@@ -19,11 +19,13 @@ public class CatalogFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(this).get(CatalogViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(CatalogViewModel.class);
 
         binding = FragmentCatalogBinding.inflate(inflater, container, false);
-        binding.setViewmodel(viewModel);
-        binding.executePendingBindings();
+        //binding.setViewmodel(viewModel);
+        //binding.executePendingBindings();
+
+
 
         return binding.getRoot();
     }
