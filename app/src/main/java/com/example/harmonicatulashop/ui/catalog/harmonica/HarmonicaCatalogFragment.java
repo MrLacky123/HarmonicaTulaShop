@@ -15,11 +15,12 @@ import com.example.harmonicatulashop.databinding.FragmentHarmonicaCatalogBinding
 public class HarmonicaCatalogFragment extends Fragment {
 
     private FragmentHarmonicaCatalogBinding binding;
+    private HarmonicaCatalogViewModel viewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        HarmonicaCatalogViewModel viewModel = new ViewModelProvider(this).get(HarmonicaCatalogViewModel.class);
+        viewModel = new ViewModelProvider(this).get(HarmonicaCatalogViewModel.class);
 
         binding = FragmentHarmonicaCatalogBinding.inflate(inflater, container, false);
         binding.setViewmodel(viewModel);

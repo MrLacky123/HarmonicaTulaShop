@@ -9,18 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentCatalogBinding;
 
 public class CatalogFragment extends Fragment {
 
     private FragmentCatalogBinding binding;
+    private CatalogViewModel viewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CatalogViewModel catalogViewModel = new ViewModelProvider(this).get(CatalogViewModel.class);
+        viewModel = new ViewModelProvider(this).get(CatalogViewModel.class);
 
         binding = FragmentCatalogBinding.inflate(inflater, container, false);
-        binding.setViewmodel(catalogViewModel);
+        binding.setViewmodel(viewModel);
         binding.executePendingBindings();
 
         return binding.getRoot();
