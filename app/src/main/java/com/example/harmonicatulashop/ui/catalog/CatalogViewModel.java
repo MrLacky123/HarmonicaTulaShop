@@ -1,10 +1,12 @@
 package com.example.harmonicatulashop.ui.catalog;
 
+import android.os.Bundle;
 import android.util.Log;
 
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
 
+import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.ui.catalog.harmonica.HarmonicaCatalogFragment;
 
 public class CatalogViewModel extends ViewModel {
@@ -18,7 +20,8 @@ public class CatalogViewModel extends ViewModel {
     public void onClickHarmonica () {
         Log.d("RRR", "Harmonica Click");
 
-        fragment.get().addFragment(new HarmonicaCatalogFragment());
+        Bundle args = new Bundle();
+        MainActivity.Instance.setFragment(HarmonicaCatalogFragment.class, args);
     }
 
     public void onClickBayan () {
