@@ -50,8 +50,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public <T extends Fragment> void setFragment(Class<T> customClass, int id, @Nullable Bundle args) {
+
         Optional<Fragment> fragment = Iterables.tryFind(fragments, frag -> frag.getClass().isInstance(customClass));
+
         if (!fragment.isPresent()){
+
             fragmentManager.beginTransaction()
                     .replace(id, customClass, args)
                     .addToBackStack("open fragment")
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i("INFO", "Created fragment: " + newFragment.getClass().getName());
             fragments.add(newFragment);
             return;
+
         }
 
         fragment.get().setArguments(args);
@@ -70,5 +74,18 @@ public class MainActivity extends AppCompatActivity {
                 .addToBackStack("open fragment")
                 .commit();
 
+    }
+
+    public <T extends Fragment> void removeFragment(Class<T> customClass) {
+
+        Optional<Fragment> fragment = Iterables.tryFind(fragments, frag -> frag.getClass().isInstance(customClass));
+
+        if (fragment.isPresent()) {
+
+            fragmentManager.beginTransaction()
+                    .remove(fragment.get())
+                    .commit();
+
+        }
     }
 }

@@ -17,6 +17,7 @@ public class HarmonicaCatalogViewModel extends ViewModel {
 
     public void goBack() {
 
-        MainActivity.Instance.setFragment(CatalogFragment.class, R.id.harmonica_catalog_layout, null);
+        MainActivity.Instance.removeFragment(HarmonicaCatalogFragment.class);
+
     }
 }

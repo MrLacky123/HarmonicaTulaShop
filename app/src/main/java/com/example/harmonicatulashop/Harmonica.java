@@ -12,18 +12,23 @@ public class Harmonica implements Parcelable {
 
     public int id;
 
+    public static final String NAME = "Гармонь";
+
     public String iconUrl;
 
     public String type;
+
+    public String tone;
 
     public ArrayList<String> options;
 
     public Harmonica() {}
 
-    public Harmonica(int id, String iconUrl, String type, ArrayList<String> options) {
+    public Harmonica(int id, String iconUrl, String type, String tone, ArrayList<String> options) {
         this.id = id;
         this.iconUrl = iconUrl;
         this.type = type;
+        this.tone = tone;
         this.options = options;
     }
 
