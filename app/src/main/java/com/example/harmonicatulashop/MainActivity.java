@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
     }
 
-    public <T extends Fragment> void setFragment(Class<T> customClass, @Nullable Bundle args) {
+    public <T extends Fragment> void setFragment(Class<T> customClass, int id, @Nullable Bundle args) {
         Optional<Fragment> fragment = Iterables.tryFind(fragments, frag -> frag.getClass().isInstance(customClass));
         if (!fragment.isPresent()){
             fragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_activity_main, customClass, args)
+                    .replace(id, customClass, args)
                     .addToBackStack("open fragment")
                     .commit();
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         fragment.get().setArguments(args);
 
         fragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_activity_main, fragment.get())
+                .replace(id, fragment.get())
                 .addToBackStack("open fragment")
                 .commit();
 

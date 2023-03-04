@@ -14,8 +14,4 @@
     <string name="title_harmonica">Гармони</string>
     <string name="title_bayan">Баяны</string>
     <string name="catalog_accordion">Аккордеоны</string>
-
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
 </resources>
