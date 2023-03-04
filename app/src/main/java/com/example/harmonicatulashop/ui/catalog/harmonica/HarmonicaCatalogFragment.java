@@ -29,15 +29,6 @@ public class HarmonicaCatalogFragment extends Fragment {
         return binding.getRoot();
 
     }
-
-    public static HarmonicaCatalogFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        HarmonicaCatalogFragment fragment = new HarmonicaCatalogFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
     
     @Override
     public void onDestroyView() {
