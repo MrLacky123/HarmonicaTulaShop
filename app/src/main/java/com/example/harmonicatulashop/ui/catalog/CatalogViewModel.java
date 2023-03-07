@@ -6,7 +6,6 @@ import android.util.Log;
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
 
-import com.example.harmonicatulashop.Harmonica;
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.ui.catalog.harmonica.HarmonicaCatalogFragment;
@@ -24,7 +23,7 @@ public class CatalogViewModel extends ViewModel {
 
         Bundle args = new Bundle();
 
-        args.putParcelable("Harmonica", new Harmonica());
+        //args.putParcelable("Harmonica", new Harmonica());
         MainActivity.Instance.setFragment(HarmonicaCatalogFragment.class, R.id.catalog_layout, args);
     }
 

@@ -30,11 +30,8 @@ public class FavouriteFragment extends Fragment {
         FavouriteViewModel favouriteViewModel = new ViewModelProvider(this).get(FavouriteViewModel.class);
 
         binding = FragmentFavouriteBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        final TextView textView = binding.textFavourite;
-        favouriteViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        return binding.getRoot();
     }
 
 

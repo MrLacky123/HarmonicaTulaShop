@@ -7,25 +7,53 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
-//@Entity(tableName = "harmonicas",indices = @Index(value = {"id"},unique = true))
 public class Harmonica implements Parcelable {
-
-    public int id;
 
     public static final String NAME = "Гармонь";
 
-    public String iconUrl;
+    private String iconUrl;
 
-    public String type;
+    private String type;
 
-    public String tone;
+    private String tone;
 
-    public ArrayList<String> options;
+    private ArrayList<String> options;
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
+    }
+
+    public String getIconUrl() {
+        return iconUrl;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setTone(String tone) {
+        this.tone = tone;
+    }
+
+    public String getTone() {
+        return tone;
+    }
+
+    public void setOptions(ArrayList<String> options) {
+        this.options = options;
+    }
+
+    public ArrayList<String> getOptions() {
+        return options;
+    }
 
     public Harmonica() {}
 
-    public Harmonica(int id, String iconUrl, String type, String tone, ArrayList<String> options) {
-        this.id = id;
+    public Harmonica(String iconUrl, String type, String tone, ArrayList<String> options) {
         this.iconUrl = iconUrl;
         this.type = type;
         this.tone = tone;
@@ -33,9 +61,9 @@ public class Harmonica implements Parcelable {
     }
 
     protected Harmonica(Parcel in) {
-        id = in.readInt();
         iconUrl = in.readString();
         type = in.readString();
+        tone = in.readString();
         options = in.createStringArrayList();
     }
 
@@ -58,9 +86,9 @@ public class Harmonica implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(id);
         dest.writeString(iconUrl);
         dest.writeString(type);
+        dest.writeString(tone);
         dest.writeStringList(options);
     }
 }

@@ -75,17 +75,4 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
 
     }
-
-    public <T extends Fragment> void removeFragment(Class<T> customClass) {
-
-        Optional<Fragment> fragment = Iterables.tryFind(fragments, frag -> frag.getClass().isInstance(customClass));
-
-        if (fragment.isPresent()) {
-
-            fragmentManager.beginTransaction()
-                    .remove(fragment.get())
-                    .commit();
-
-        }
-    }
 }

@@ -9,13 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.harmonicatulashop.Harmonica;
 import com.example.harmonicatulashop.MainActivity;
-import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentCatalogBinding;
-import com.example.harmonicatulashop.ui.catalog.harmonica.HarmonicaCatalogFragment;
-
-import java.util.ArrayList;
 
 public class CatalogFragment extends Fragment {
 
