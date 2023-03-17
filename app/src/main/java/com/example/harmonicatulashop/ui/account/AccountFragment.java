@@ -21,14 +21,10 @@ public class AccountFragment extends Fragment {
         AccountViewModel accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
 
         binding = FragmentAccountBinding.inflate(inflater, container, false);
+        binding.setViewModel(accountViewModel);
+        binding.executePendingBindings();
 
         return binding.getRoot();
-    }
-
-    public void signUp() {
-
-        
-
     }
 
     @Override
