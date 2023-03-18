@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaViewModel" />
+            type="com.example.harmonicatulashop.ui.catalog.viewmodels.BayanViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,26 +15,26 @@
         android:background="@color/white">
 
         <ImageView
-            android:id="@+id/harmonica_icon"
+            android:id="@+id/bayan_icon"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@{viewModel.harmonica.iconUrl}"
-            android:contentDescription="@string/harmonica_image" />
+            android:src="@{}"
+            android:contentDescription="@string/bayan_image" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.harmonica.NAME + viewModel.harmonica.type}"
+            android:text="@={}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/harmonica_icon"
+            app:layout_constraintStart_toEndOf="@+id/bayan_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.04" />
 
@@ -45,7 +45,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:text="@string/add_to_cart"
-            app:layout_constraintStart_toEndOf="@+id/harmonica_icon"
+            app:layout_constraintStart_toEndOf="@+id/bayan_icon"
             app:layout_constraintTop_toBottomOf="@+id/name"
             android:onClick="@{()->viewModel.addToCart()}"/>
 

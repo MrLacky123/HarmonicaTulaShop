@@ -4,7 +4,7 @@
     <string name="title_home">Главная</string>
     <string name="title_catalog">Каталог</string>
     <string name="title_account">Аккаунт</string>
-    <string name="favourite">Моё</string>
+    <string name="title_favourite">Моё</string>
     <string name="title_cart">Корзина</string>
 
     <string name="sign_in">Войти</string>
@@ -19,8 +19,8 @@
     <string name="catalog_accordion">Аккордеоны</string>
 
     <string name="add_to_cart">В корзину</string>
-    <string name="added_to_cart">В корзине</string>
+    <string name="add_to_favourites">Отложить инструмент</string>
 
     <string name="harmonica_image">Harmonica Image</string>
-    <string name="add_to_favourites">Отложить гармонь</string>
+    <string name="bayan_image">Bayan Image</string>
 </resources>
