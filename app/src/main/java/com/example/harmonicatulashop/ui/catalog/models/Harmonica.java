@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 public class Harmonica implements Parcelable {
 
-    private ItemHarmonicaBinding binding;
-
     public static final String NAME = "Гармонь";
 
     private String iconUrl;
