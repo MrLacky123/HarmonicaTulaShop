@@ -1,13 +1,17 @@
-package com.example.harmonicatulashop;
+package com.example.harmonicatulashop.ui.catalog.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import com.example.harmonicatulashop.databinding.ItemHarmonicaBinding;
+
 import java.util.ArrayList;
 
 public class Harmonica implements Parcelable {
+
+    private ItemHarmonicaBinding binding;
 
     public static final String NAME = "Гармонь";
 

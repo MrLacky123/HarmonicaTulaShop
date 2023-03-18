@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.ui.catalog;
+package com.example.harmonicatulashop.ui.catalog.viewmodels;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +8,8 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.ui.catalog.harmonica.HarmonicaCatalogFragment;
+import com.example.harmonicatulashop.ui.catalog.fragments.CatalogFragment;
+import com.example.harmonicatulashop.ui.catalog.fragments.HarmonicaCatalogFragment;
 
 public class CatalogViewModel extends ViewModel {
 

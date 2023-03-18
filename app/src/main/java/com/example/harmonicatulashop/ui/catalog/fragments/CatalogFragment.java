@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.ui.catalog;
+package com.example.harmonicatulashop.ui.catalog.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.databinding.FragmentCatalogBinding;
+import com.example.harmonicatulashop.ui.catalog.viewmodels.CatalogViewModel;
 
 public class CatalogFragment extends Fragment {
 

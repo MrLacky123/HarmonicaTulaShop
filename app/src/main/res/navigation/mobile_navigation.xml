@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_catalog"
-        android:name="com.example.harmonicatulashop.ui.catalog.CatalogFragment"
+        android:name="com.example.harmonicatulashop.ui.catalog.fragments.CatalogFragment"
         android:label="@string/title_catalog"
         tools:layout="@layout/fragment_catalog" />
 
