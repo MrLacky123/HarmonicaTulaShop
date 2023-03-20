@@ -30,7 +30,7 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.harmonica.NAME + viewModel.harmonica.type}"
+            android:text="@{viewModel.harmonica.NAME + ' ' + viewModel.harmonica.type + ' ' + viewModel.harmonica.range + ' ' + viewModel.harmonica.tone}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -13,32 +13,32 @@ public class Accordion implements Parcelable {
 
     public static final String NAME = "Аккордеон";
 
-    private String iconPath;
+    private String iconUri;
 
     private String range;
 
     private ArrayList<String> options;
 
-    public String getIconPath() {
-        return iconPath;
+    public String getIconUri() {
+        return iconUri;
     }
 
-    public void setIconPath(String iconPath) {
-        this.iconPath = iconPath;
+    public void setIconUri(String iconUri) {
+        this.iconUri = iconUri;
     }
 
     public Accordion() {}
 
 
     protected Accordion(Parcel in) {
-        iconPath = in.readString();
+        iconUri = in.readString();
         range = in.readString();
         options = in.createStringArrayList();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(iconPath);
+        dest.writeString(iconUri);
         dest.writeString(range);
         dest.writeStringList(options);
     }

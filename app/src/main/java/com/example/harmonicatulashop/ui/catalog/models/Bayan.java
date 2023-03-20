@@ -5,9 +5,42 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
+
 public class Bayan implements Parcelable {
 
+    public static final String NAME = "Баян";
+
+    private String range;
+
+    private String iconUri;
+
+    private ArrayList<String> options = new ArrayList<>();
+
+    public Bayan() {}
+
+    public Bayan(String range, String iconUri, ArrayList<String> options) {
+        this.range = range;
+        this.iconUri = iconUri;
+        this.options = options;
+    }
+
     protected Bayan(Parcel in) {
+        range = in.readString();
+        iconUri = in.readString();
+        options = in.createStringArrayList();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(range);
+        dest.writeString(iconUri);
+        dest.writeStringList(options);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Bayan> CREATOR = new Creator<Bayan>() {
@@ -22,12 +55,27 @@ public class Bayan implements Parcelable {
         }
     };
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getRange() {
+        return range;
     }
 
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
+    public void setRange(String range) {
+        this.range = range;
+    }
+
+    public String getIconUri() {
+        return iconUri;
+    }
+
+    public void setIconUri(String iconUri) {
+        this.iconUri = iconUri;
+    }
+
+    public ArrayList<String> getOptions() {
+        return options;
+    }
+
+    public void setOptions(ArrayList<String> options) {
+        this.options = options;
     }
 }

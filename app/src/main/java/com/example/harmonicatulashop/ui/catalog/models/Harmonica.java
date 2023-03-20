@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
 
 import com.example.harmonicatulashop.databinding.ItemHarmonicaBinding;
 
@@ -13,20 +14,22 @@ public class Harmonica implements Parcelable {
 
     public static final String NAME = "Гармонь";
 
-    private String iconUrl;
+    private String iconUri;
 
     private String type;
 
     private String tone;
 
+    private String range;
+
     private ArrayList<String> options;
 
-    public void setIconUrl(String iconUrl) {
-        this.iconUrl = iconUrl;
+    public void setIconUrl(String iconUri) {
+        this.iconUri = iconUri;
     }
 
     public String getIconUrl() {
-        return iconUrl;
+        return iconUri;
     }
 
     public void setType(String type) {
@@ -45,6 +48,14 @@ public class Harmonica implements Parcelable {
         return tone;
     }
 
+    public String getRange() {
+        return range;
+    }
+
+    public void setRange(String range) {
+        this.range = range;
+    }
+
     public void setOptions(ArrayList<String> options) {
         this.options = options;
     }
@@ -56,14 +67,14 @@ public class Harmonica implements Parcelable {
     public Harmonica() {}
 
     public Harmonica(String iconUrl, String type, String tone, ArrayList<String> options) {
-        this.iconUrl = iconUrl;
+        this.iconUri = iconUrl;
         this.type = type;
         this.tone = tone;
         this.options = options;
     }
 
     protected Harmonica(Parcel in) {
-        iconUrl = in.readString();
+        iconUri = in.readString();
         type = in.readString();
         tone = in.readString();
         options = in.createStringArrayList();
@@ -88,7 +99,7 @@ public class Harmonica implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeString(iconUrl);
+        dest.writeString(iconUri);
         dest.writeString(type);
         dest.writeString(tone);
         dest.writeStringList(options);

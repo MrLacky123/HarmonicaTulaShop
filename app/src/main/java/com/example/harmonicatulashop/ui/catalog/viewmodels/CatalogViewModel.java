@@ -13,12 +13,6 @@ import com.example.harmonicatulashop.ui.catalog.fragments.HarmonicaCatalogFragme
 
 public class CatalogViewModel extends ViewModel {
 
-    public ObservableField<CatalogFragment> fragment = new ObservableField<>();
-
-    public CatalogViewModel() {
-        fragment.set(new CatalogFragment());
-    }
-
     public void onClickHarmonica () {
         Log.d("RRR", "Harmonica Click");
 

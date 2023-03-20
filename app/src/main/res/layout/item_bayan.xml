@@ -22,6 +22,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:src="@{viewModel.bayan.iconUri}"
             android:contentDescription="@string/bayan_image" />
 
         <TextView
@@ -29,7 +30,7 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:text="@={}"
+            android:text="@={viewModel.bayan.NAME + ' ' + viewModel.bayan.range}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
