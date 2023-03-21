@@ -27,6 +27,22 @@ public class Accordion implements Parcelable {
         this.iconUri = iconUri;
     }
 
+    public String getRange() {
+        return range;
+    }
+
+    public void setRange(String range) {
+        this.range = range;
+    }
+
+    public ArrayList<String> getOptions() {
+        return options;
+    }
+
+    public void setOptions(ArrayList<String> options) {
+        this.options = options;
+    }
+
     public Accordion() {}
 
 

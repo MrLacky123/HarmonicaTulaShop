@@ -3,8 +3,6 @@ package com.example.harmonicatulashop.ui.catalog.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
 
 public class Bayan implements Parcelable {

@@ -21,7 +21,7 @@
     <string name="add_to_cart">В корзину</string>
     <string name="add_to_favourites">Отложить инструмент</string>
 
-    <string name="harmonica_image">Harmonica Image</string>
-    <string name="bayan_image">Bayan Image</string>
-    <string name="accordion_image">Accordion image</string>
+    <string name="harmonica_icon">Harmonica Image</string>
+    <string name="bayan_icon">Bayan Image</string>
+    <string name="accordion_icon">Accordion image</string>
 </resources>

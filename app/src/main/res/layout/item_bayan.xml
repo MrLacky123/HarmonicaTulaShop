@@ -23,31 +23,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:src="@{viewModel.bayan.iconUri}"
-            android:contentDescription="@string/bayan_image" />
+            android:contentDescription="@string/bayan_icon" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:text="@={viewModel.bayan.NAME + ' ' + viewModel.bayan.range}"
+            android:text="@{viewModel.bayan.NAME + ' ' + viewModel.bayan.range}"
             android:textColor="@color/black"
             android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bayan_icon"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.04" />
 
         <Button
             android:id="@+id/add_to_cart"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
+            android:layout_marginStart="16dp"
             android:text="@string/add_to_cart"
             app:layout_constraintStart_toEndOf="@+id/bayan_icon"
             app:layout_constraintTop_toBottomOf="@+id/name"
-            android:onClick="@{()->viewModel.addToCart()}"/>
+            android:onClick="@{()->viewModel.addToCart()}" />
 
         <ImageButton
             android:id="@+id/add_to_favourites"
@@ -55,11 +55,11 @@
             android:layout_height="50dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="28dp"
-            app:layout_constraintStart_toEndOf="@+id/add_to_cart"
             app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintStart_toEndOf="@+id/add_to_cart"
             app:srcCompat="@drawable/baseline_favorite_border_24"
             android:contentDescription="@string/add_to_favourites"
             android:onClick="@{()->viewModel.addToFavourites()}"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
