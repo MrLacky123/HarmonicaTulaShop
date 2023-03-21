@@ -4,9 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
-import androidx.room.Entity;
-
-import com.example.harmonicatulashop.databinding.ItemHarmonicaBinding;
 
 import java.util.ArrayList;
 
@@ -21,6 +18,8 @@ public class Harmonica implements Parcelable {
     private String tone;
 
     private String range;
+
+    private int price;
 
     private ArrayList<String> options;
 
@@ -56,6 +55,14 @@ public class Harmonica implements Parcelable {
         this.range = range;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public void setOptions(ArrayList<String> options) {
         this.options = options;
     }
@@ -66,10 +73,12 @@ public class Harmonica implements Parcelable {
 
     public Harmonica() {}
 
-    public Harmonica(String iconUrl, String type, String tone, ArrayList<String> options) {
+    public Harmonica(String iconUrl, String type, String tone, String range, int price, ArrayList<String> options) {
         this.iconUri = iconUrl;
         this.type = type;
         this.tone = tone;
+        this.range = range;
+        this.price = price;
         this.options = options;
     }
 
@@ -77,6 +86,8 @@ public class Harmonica implements Parcelable {
         iconUri = in.readString();
         type = in.readString();
         tone = in.readString();
+        range = in.readString();
+        price = in.readInt();
         options = in.createStringArrayList();
     }
 
@@ -102,6 +113,8 @@ public class Harmonica implements Parcelable {
         dest.writeString(iconUri);
         dest.writeString(type);
         dest.writeString(tone);
+        dest.writeString(range);
+        dest.writeInt(price);
         dest.writeStringList(options);
     }
 }
