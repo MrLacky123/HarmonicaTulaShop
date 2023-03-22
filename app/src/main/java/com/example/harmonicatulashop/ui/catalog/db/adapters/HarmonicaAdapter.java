@@ -35,12 +35,12 @@ public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder
 
         @Override
         public boolean areItemsTheSame(@NonNull Harmonica oldItem, @NonNull Harmonica newItem) {
-            return oldItem == newItem;
+            return oldItem.equals(newItem);
         }
 
         @Override
         public boolean areContentsTheSame(@NonNull Harmonica oldItem, @NonNull Harmonica newItem) {
-            return oldItem.getType().equals(newItem.getType());
+            return oldItem.getId() == newItem.getId();
         }
     }
 }

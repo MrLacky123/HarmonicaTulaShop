@@ -37,7 +37,7 @@ public class Harmonica implements Parcelable {
     private int price;
 
     //@NonNull
-    //@ColumnInfo(name = "options")
+    //**@ColumnInfo(name = "options")
     private String options;
 
     public int getId() {
@@ -146,5 +146,14 @@ public class Harmonica implements Parcelable {
         dest.writeString(range);
         dest.writeInt(price);
         dest.writeString(options);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Harmonica){
+            Harmonica harmonica = (Harmonica) obj;
+            return this.getId() == harmonica.getId();
+        }
+        return false;
     }
 }
