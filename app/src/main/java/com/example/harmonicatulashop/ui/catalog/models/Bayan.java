@@ -11,20 +11,24 @@ public class Bayan implements Parcelable {
 
     private String range;
 
+    private int price;
+
     private String iconUri;
 
     private ArrayList<String> options = new ArrayList<>();
 
     public Bayan() {}
 
-    public Bayan(String range, String iconUri, ArrayList<String> options) {
+    public Bayan(String range, int price, String iconUri, ArrayList<String> options) {
         this.range = range;
+        this.price = price;
         this.iconUri = iconUri;
         this.options = options;
     }
 
     protected Bayan(Parcel in) {
         range = in.readString();
+        price = in.readInt();
         iconUri = in.readString();
         options = in.createStringArrayList();
     }
@@ -59,6 +63,14 @@ public class Bayan implements Parcelable {
 
     public void setRange(String range) {
         this.range = range;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getIconUri() {

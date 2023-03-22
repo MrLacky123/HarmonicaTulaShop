@@ -11,7 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
         android:background="@color/white">
 
         <ImageView
@@ -19,9 +19,9 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:src="@{viewModel.bayan.iconUri}"
             android:contentDescription="@string/bayan_icon" />
 
@@ -33,17 +33,29 @@
             android:text="@{viewModel.bayan.NAME + ' ' + viewModel.bayan.range}"
             android:textColor="@color/black"
             android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/bayan_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.145" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:text="@{viewModel.bayan.price}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/bayan_icon"
-            app:layout_constraintVertical_bias="0.04" />
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintBottom_toTopOf="@+id/add_to_cart" />
 
         <Button
             android:id="@+id/add_to_cart"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="28dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
             android:text="@string/add_to_cart"
             app:layout_constraintStart_toEndOf="@+id/bayan_icon"
             app:layout_constraintTop_toBottomOf="@+id/name"
@@ -54,9 +66,9 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="28dp"
-            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:layout_marginTop="40dp"
             app:layout_constraintStart_toEndOf="@+id/add_to_cart"
+            app:layout_constraintTop_toBottomOf="@+id/name"
             app:srcCompat="@drawable/baseline_favorite_border_24"
             android:contentDescription="@string/add_to_favourites"
             android:onClick="@{()->viewModel.addToFavourites()}"/>

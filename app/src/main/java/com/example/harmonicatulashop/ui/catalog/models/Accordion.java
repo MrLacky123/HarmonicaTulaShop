@@ -17,6 +17,8 @@ public class Accordion implements Parcelable {
 
     private String range;
 
+    private int price;
+
     private ArrayList<String> options;
 
     public String getIconUri() {
@@ -33,6 +35,14 @@ public class Accordion implements Parcelable {
 
     public void setRange(String range) {
         this.range = range;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public ArrayList<String> getOptions() {
