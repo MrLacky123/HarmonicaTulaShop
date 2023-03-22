@@ -24,8 +24,10 @@ public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder
     @Override
     public void onBindViewHolder(HarmonicaViewHolder holder, int position) {
         Harmonica current = getItem(position);
-        holder.bindName(current.getType());
-        holder.bindPrice(current.getPrice());
+        String name = Harmonica.NAME + " " + current.getType() + " " + current.getTone() + " " + current.getRange();
+        holder.bindName(name);
+        String price = current.getPrice() + " ₽";
+        holder.bindPrice(price);
         holder.bindImage(current.getIconUri());
     }
 

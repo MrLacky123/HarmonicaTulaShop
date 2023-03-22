@@ -48,10 +48,10 @@ public abstract class HarmonicasRoomDatabase extends RoomDatabase {
                 HarmonicaDao dao = INSTANCE.harmonicaDao();
                 dao.deleteAll();
 
-                Harmonica harmonica = new Harmonica("D:\\HarmonicaTulaShop\\app\\src\\main\\res\\drawable\\tulskaya301m.jpg",
+                Harmonica harmonica = new Harmonica("app\\src\\main\\res\\drawable\\tulskaya301m.jpg",
                         "Тульская 301М", "Ля мажор", "25/25", 60000, "");
                 dao.insert(harmonica);
-                harmonica = new Harmonica("D:\\HarmonicaTulaShop\\app\\src\\main\\res\\drawable\\tulskaya301m_1.jpg",
+                harmonica = new Harmonica("app\\src\\main\\res\\drawable\\tulskaya301m_1.jpg",
                         "Тульская 301М", "До мажор", "27/25", 67000, "");
                 dao.insert(harmonica);
             });

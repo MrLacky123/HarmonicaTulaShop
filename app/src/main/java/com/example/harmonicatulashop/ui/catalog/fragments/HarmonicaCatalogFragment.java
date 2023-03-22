@@ -21,6 +21,7 @@ import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaCatalogViewM
 public class HarmonicaCatalogFragment extends Fragment {
 
     private FragmentHarmonicaCatalogBinding binding;
+
     private HarmonicaCatalogViewModel viewModel;
 
     @Override
@@ -32,7 +33,7 @@ public class HarmonicaCatalogFragment extends Fragment {
         binding.setViewmodel(viewModel);
         binding.executePendingBindings();
 
-        RecyclerView recyclerView = MainActivity.Instance.findViewById(R.id.harmonica_list);
+        RecyclerView recyclerView = binding.harmonicaList;
         final HarmonicaAdapter adapter = new HarmonicaAdapter(new HarmonicaAdapter.HarmonicaDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));

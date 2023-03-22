@@ -21,15 +21,9 @@ public class HarmonicaViewModel extends ViewModel {
 
     public void addToCart() {
 
-        Button button = MainActivity.Instance.findViewById(R.id.add_harmonica_to_cart);
-        button.setText("В корзине");
-
     }
 
     public void addToFavourites() {
-
-        ImageButton imageButton = MainActivity.Instance.findViewById(R.id.add_harmonica_to_favourites);
-        imageButton.setImageIcon(Icon.createWithFilePath("D:\\HarmonicaTulaShop\\app\\src\\main\\res\\drawable\\baseline_favorite_24.xml"));
 
     }
 }

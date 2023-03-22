@@ -1,5 +1,6 @@
 package com.example.harmonicatulashop.ui.catalog.holders;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.Icon;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,7 @@ public class HarmonicaViewHolder extends RecyclerView.ViewHolder {
         harmonicaNameView.setText(name);
     }
 
-    public void bindPrice(int price) {
+    public void bindPrice(String price) {
         harmonicaPriceView.setText(price);
     }
 

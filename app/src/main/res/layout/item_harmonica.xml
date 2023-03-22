@@ -12,7 +12,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/harmonica_item"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="190dp"
+        android:layout_margin="8dp"
         android:background="@color/white"
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
@@ -20,23 +21,21 @@
 
         <ImageView
             android:id="@+id/harmonica_icon"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@{viewModel.harmonica.iconUri}"
             android:contentDescription="@string/harmonica_icon" />
 
         <TextView
             android:id="@+id/harmonica_name"
             android:layout_width="200dp"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.harmonica.NAME + ' ' + viewModel.harmonica.type + ' ' + viewModel.harmonica.range + ' ' + viewModel.harmonica.tone}"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/harmonica_icon"
             app:layout_constraintTop_toTopOf="parent"
@@ -47,9 +46,8 @@
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.harmonica.price}"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/harmonica_icon"
             app:layout_constraintTop_toBottomOf="@+id/harmonica_name"
             app:layout_constraintBottom_toTopOf="@+id/add_harmonica_to_cart"/>
