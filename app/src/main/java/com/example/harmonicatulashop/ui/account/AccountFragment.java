@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.databinding.FragmentAccountBinding;
 
 public class AccountFragment extends Fragment {
@@ -18,7 +19,7 @@ public class AccountFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        AccountViewModel accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
+        AccountViewModel accountViewModel = new ViewModelProvider(MainActivity.Instance).get(AccountViewModel.class);
 
         binding = FragmentAccountBinding.inflate(inflater, container, false);
         binding.setViewModel(accountViewModel);

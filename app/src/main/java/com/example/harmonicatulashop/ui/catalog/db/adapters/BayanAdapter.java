@@ -1,11 +1,11 @@
-package com.example.harmonicatulashop.ui.catalog.adapters;
+package com.example.harmonicatulashop.ui.catalog.db.adapters;
 
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class HarmonicaAdapter extends RecyclerView.Adapter {
+public class BayanAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

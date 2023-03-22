@@ -4,24 +4,49 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 
+@Entity(tableName = "harmonica")
 public class Harmonica implements Parcelable {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
 
     public static final String NAME = "Гармонь";
 
     private String iconUri;
 
+    @NonNull
+    @ColumnInfo(name = "type")
     private String type;
 
+    @NonNull
+    @ColumnInfo(name = "tone")
     private String tone;
 
+    @NonNull
+    @ColumnInfo(name = "range")
     private String range;
 
+    @NonNull
+    @ColumnInfo(name = "price")
     private int price;
 
+    @NonNull
+    @ColumnInfo(name = "options")
     private ArrayList<String> options;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setIconUrl(String iconUri) {
         this.iconUri = iconUri;
@@ -63,15 +88,16 @@ public class Harmonica implements Parcelable {
         this.price = price;
     }
 
-    public void setOptions(ArrayList<String> options) {
-        this.options = options;
-    }
-
     public ArrayList<String> getOptions() {
         return options;
     }
 
-    public Harmonica() {}
+    public void setOptions(ArrayList<String> options) {
+        this.options = options;
+    }
+
+    public Harmonica() {
+    }
 
     public Harmonica(String iconUrl, String type, String tone, String range, int price, ArrayList<String> options) {
         this.iconUri = iconUrl;

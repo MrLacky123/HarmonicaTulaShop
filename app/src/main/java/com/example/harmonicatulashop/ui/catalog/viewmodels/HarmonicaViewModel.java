@@ -1,22 +1,34 @@
 package com.example.harmonicatulashop.ui.catalog.viewmodels;
 
+import android.app.Application;
 import android.graphics.drawable.Icon;
 
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.harmonicatulashop.databinding.ItemHarmonicaBinding;
+import com.example.harmonicatulashop.ui.catalog.db.HarmonicaRepository;
 import com.example.harmonicatulashop.ui.catalog.models.Harmonica;
 
-public class HarmonicaViewModel extends ViewModel {
+import java.util.List;
 
-    public MutableLiveData<Harmonica> harmonica = new MutableLiveData<Harmonica>();
+public class HarmonicaViewModel extends AndroidViewModel {
+
+    public MutableLiveData<List<Harmonica>> harmonicas = new MutableLiveData<List<Harmonica>>();
 
     private ItemHarmonicaBinding binding;
 
-    public HarmonicaViewModel() {
-        harmonica.setValue(new Harmonica());
+    private HarmonicaRepository mRepository;
+
+    public HarmonicaViewModel (Application application) {
+        super(application);
+        mRepository = new HarmonicaRepository(application);
+        harmonicas = mRepository.getAllWords();
     }
+
+    MutableLiveData<List<Harmonica>> getAllHarmonicas() { return harmonicas; }
+
+    public void insert(Harmonica harmonica) { mRepository.insert(harmonica); }
 
     public void addToCart() {
 

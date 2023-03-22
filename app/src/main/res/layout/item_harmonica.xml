@@ -10,6 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/harmonica_item"
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:background="@color/white"
@@ -25,15 +26,15 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@{viewModel.harmonica.iconUrl}"
+            android:src="@{viewModel.harmonicas.get(0).iconUrl}"
             android:contentDescription="@string/harmonica_icon" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/harmonica_name"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.harmonica.NAME + ' ' + viewModel.harmonica.type + ' ' + viewModel.harmonica.range + ' ' + viewModel.harmonica.tone}"
+            android:text="@{viewModel.harmonicas.get(0).NAME + ' ' + viewModel.harmonicas.get(0).type + ' ' + viewModel.harmonicas.get(0).range + ' ' + viewModel.harmonicas.get(0).tone}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -42,19 +43,19 @@
             app:layout_constraintVertical_bias="0.145" />
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/harmonica_price"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.harmonica.price}"
+            android:text="@{viewModel.harmonicas.get(0).price}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/harmonica_icon"
-            app:layout_constraintTop_toBottomOf="@+id/name"
-            app:layout_constraintBottom_toTopOf="@+id/add_to_cart"/>
+            app:layout_constraintTop_toBottomOf="@+id/harmonica_name"
+            app:layout_constraintBottom_toTopOf="@+id/add_harmonica_to_cart"/>
 
         <Button
-            android:id="@+id/add_to_cart"
+            android:id="@+id/add_harmonica_to_cart"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
@@ -62,18 +63,18 @@
             android:onClick="@{()->viewModel.addToCart()}"
             android:text="@string/add_to_cart"
             app:layout_constraintStart_toEndOf="@+id/harmonica_icon"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            app:layout_constraintTop_toBottomOf="@+id/harmonica_name" />
 
         <ImageButton
-            android:id="@+id/add_to_favourites"
+            android:id="@+id/add_harmonica_to_favourites"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="40dp"
             android:contentDescription="@string/add_to_favourites"
             android:onClick="@{()->viewModel.addToFavourites()}"
-            app:layout_constraintStart_toEndOf="@+id/add_to_cart"
-            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintStart_toEndOf="@+id/add_harmonica_to_cart"
+            app:layout_constraintTop_toBottomOf="@+id/harmonica_name"
             app:srcCompat="@drawable/baseline_favorite_border_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

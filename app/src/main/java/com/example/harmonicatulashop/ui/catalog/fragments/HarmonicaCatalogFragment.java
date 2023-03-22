@@ -9,8 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentHarmonicaCatalogBinding;
+import com.example.harmonicatulashop.ui.catalog.db.adapters.HarmonicaAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaCatalogViewModel;
 
 public class HarmonicaCatalogFragment extends Fragment {
@@ -26,6 +31,11 @@ public class HarmonicaCatalogFragment extends Fragment {
         binding = FragmentHarmonicaCatalogBinding.inflate(inflater, container, false);
         binding.setViewmodel(viewModel);
         binding.executePendingBindings();
+
+        RecyclerView recyclerView = MainActivity.Instance.findViewById(R.id.harmonica_list);
+        final HarmonicaAdapter adapter = new HarmonicaAdapter(new HarmonicaAdapter.WordDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 
         return binding.getRoot();
 
