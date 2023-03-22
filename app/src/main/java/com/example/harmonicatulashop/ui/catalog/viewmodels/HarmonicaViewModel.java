@@ -1,44 +1,35 @@
 package com.example.harmonicatulashop.ui.catalog.viewmodels;
 
-import android.app.Application;
 import android.graphics.drawable.Icon;
+import android.widget.Button;
+import android.widget.ImageButton;
 
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.example.harmonicatulashop.databinding.ItemHarmonicaBinding;
-import com.example.harmonicatulashop.ui.catalog.db.HarmonicaRepository;
+import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.ui.catalog.models.Harmonica;
 
-import java.util.List;
+public class HarmonicaViewModel extends ViewModel {
 
-public class HarmonicaViewModel extends AndroidViewModel {
+    public MutableLiveData<Harmonica> harmonica = new MutableLiveData<Harmonica>();
 
-    public MutableLiveData<List<Harmonica>> harmonicas = new MutableLiveData<List<Harmonica>>();
-
-    private ItemHarmonicaBinding binding;
-
-    private HarmonicaRepository mRepository;
-
-    public HarmonicaViewModel (Application application) {
-        super(application);
-        mRepository = new HarmonicaRepository(application);
-        harmonicas = mRepository.getAllWords();
+    public HarmonicaViewModel() {
+        harmonica.setValue(new Harmonica());
     }
-
-    MutableLiveData<List<Harmonica>> getAllHarmonicas() { return harmonicas; }
-
-    public void insert(Harmonica harmonica) { mRepository.insert(harmonica); }
 
     public void addToCart() {
 
-        binding.addToCart.setText("В корзине");
+        Button button = MainActivity.Instance.findViewById(R.id.add_harmonica_to_cart);
+        button.setText("В корзине");
 
     }
 
     public void addToFavourites() {
 
-        binding.addToFavourites.setImageIcon(Icon.createWithFilePath("D:\\HarmonicaTulaShop\\app\\src\\main\\res\\drawable\\baseline_favorite_24.xml"));
+        ImageButton imageButton = MainActivity.Instance.findViewById(R.id.add_harmonica_to_favourites);
+        imageButton.setImageIcon(Icon.createWithFilePath("D:\\HarmonicaTulaShop\\app\\src\\main\\res\\drawable\\baseline_favorite_24.xml"));
 
     }
 }

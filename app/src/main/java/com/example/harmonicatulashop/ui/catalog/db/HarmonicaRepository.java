@@ -2,6 +2,7 @@ package com.example.harmonicatulashop.ui.catalog.db;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.harmonicatulashop.ui.catalog.db.dao.HarmonicaDao;
@@ -12,7 +13,7 @@ import java.util.List;
 public class HarmonicaRepository {
 
     private HarmonicaDao mHarmonicaDao;
-    private MutableLiveData<List<Harmonica>> mAllHarmonicas;
+    private LiveData<List<Harmonica>> mAllHarmonicas;
 
     public HarmonicaRepository(Application application) {
         HarmonicasRoomDatabase db = HarmonicasRoomDatabase.getDatabase(application);
@@ -20,7 +21,7 @@ public class HarmonicaRepository {
         mAllHarmonicas = mHarmonicaDao.getHarmonicas();
     }
 
-    public MutableLiveData<List<Harmonica>> getAllWords() {
+    public LiveData<List<Harmonica>> getAllWords() {
         return mAllHarmonicas;
     }
 

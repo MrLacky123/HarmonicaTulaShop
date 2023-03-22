@@ -11,6 +11,7 @@ import com.example.harmonicatulashop.ui.catalog.holders.HarmonicaViewHolder;
 import com.example.harmonicatulashop.ui.catalog.models.Harmonica;
 
 public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder> {
+
     public HarmonicaAdapter(@NonNull DiffUtil.ItemCallback<Harmonica> diffCallback) {
         super(diffCallback);
     }
@@ -21,17 +22,14 @@ public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
-    }
-
-    @Override
     public void onBindViewHolder(HarmonicaViewHolder holder, int position) {
         Harmonica current = getItem(position);
-        holder.bind(current.getWord());
+        holder.bindName(current.getType());
+        holder.bindPrice(current.getPrice());
+        holder.bindImage(current.getIconUri());
     }
 
-    public static class WordDiff extends DiffUtil.ItemCallback<Harmonica> {
+    public static class HarmonicaDiff extends DiffUtil.ItemCallback<Harmonica> {
 
         @Override
         public boolean areItemsTheSame(@NonNull Harmonica oldItem, @NonNull Harmonica newItem) {
@@ -40,7 +38,7 @@ public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder
 
         @Override
         public boolean areContentsTheSame(@NonNull Harmonica oldItem, @NonNull Harmonica newItem) {
-            return oldItem.getWord().equals(newItem.getWord());
+            return oldItem.getType().equals(newItem.getType());
         }
     }
 }

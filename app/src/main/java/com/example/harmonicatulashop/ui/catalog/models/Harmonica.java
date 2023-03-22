@@ -36,9 +36,9 @@ public class Harmonica implements Parcelable {
     @ColumnInfo(name = "price")
     private int price;
 
-    @NonNull
-    @ColumnInfo(name = "options")
-    private ArrayList<String> options;
+    //@NonNull
+    //@ColumnInfo(name = "options")
+    private String options;
 
     public int getId() {
         return id;
@@ -48,35 +48,38 @@ public class Harmonica implements Parcelable {
         this.id = id;
     }
 
-    public void setIconUrl(String iconUri) {
+    public void setIconUri(String iconUri) {
         this.iconUri = iconUri;
     }
 
-    public String getIconUrl() {
+    public String getIconUri() {
         return iconUri;
     }
 
-    public void setType(String type) {
+    public void setType(@NonNull String type) {
         this.type = type;
     }
 
+    @NonNull
     public String getType() {
         return type;
     }
 
-    public void setTone(String tone) {
+    public void setTone(@NonNull String tone) {
         this.tone = tone;
     }
 
+    @NonNull
     public String getTone() {
         return tone;
     }
 
+    @NonNull
     public String getRange() {
         return range;
     }
 
-    public void setRange(String range) {
+    public void setRange(@NonNull String range) {
         this.range = range;
     }
 
@@ -88,18 +91,19 @@ public class Harmonica implements Parcelable {
         this.price = price;
     }
 
-    public ArrayList<String> getOptions() {
+    @NonNull
+    public String getOptions() {
         return options;
     }
 
-    public void setOptions(ArrayList<String> options) {
+    public void setOptions(@NonNull String options) {
         this.options = options;
     }
 
     public Harmonica() {
     }
 
-    public Harmonica(String iconUrl, String type, String tone, String range, int price, ArrayList<String> options) {
+    public Harmonica(String iconUrl, @NonNull String type, @NonNull String tone, @NonNull String range, int price, @NonNull String options) {
         this.iconUri = iconUrl;
         this.type = type;
         this.tone = tone;
@@ -114,7 +118,7 @@ public class Harmonica implements Parcelable {
         tone = in.readString();
         range = in.readString();
         price = in.readInt();
-        options = in.createStringArrayList();
+        options = in.readString();
     }
 
     public static final Creator<Harmonica> CREATOR = new Creator<Harmonica>() {
@@ -141,6 +145,6 @@ public class Harmonica implements Parcelable {
         dest.writeString(tone);
         dest.writeString(range);
         dest.writeInt(price);
-        dest.writeStringList(options);
+        dest.writeString(options);
     }
 }

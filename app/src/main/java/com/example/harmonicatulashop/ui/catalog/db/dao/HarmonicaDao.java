@@ -1,5 +1,6 @@
 package com.example.harmonicatulashop.ui.catalog.db.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -23,6 +24,6 @@ public interface HarmonicaDao {
     void delete(Harmonica harmonica);
 
     @Query("SELECT * FROM harmonica ORDER BY id")
-    MutableLiveData<List<Harmonica>> getHarmonicas();
+    LiveData<List<Harmonica>> getHarmonicas();
 
 }

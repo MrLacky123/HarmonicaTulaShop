@@ -2,13 +2,16 @@ package com.example.harmonicatulashop.ui.catalog.db;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.harmonicatulashop.ui.catalog.db.dao.HarmonicaDao;
 import com.example.harmonicatulashop.ui.catalog.models.Harmonica;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -28,10 +31,30 @@ public abstract class HarmonicasRoomDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     HarmonicasRoomDatabase.class, "harmonica_database")
+                            .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
             }
         }
         return INSTANCE;
     }
+
+    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+
+            databaseWriteExecutor.execute(() -> {
+                HarmonicaDao dao = INSTANCE.harmonicaDao();
+                dao.deleteAll();
+
+                Harmonica harmonica = new Harmonica("D:\\HarmonicaTulaShop\\app\\src\\main\\res\\drawable\\tulskaya301m.jpg",
+                        "Тульская 301М", "Ля мажор", "25/25", 60000, "");
+                dao.insert(harmonica);
+                harmonica = new Harmonica("D:\\HarmonicaTulaShop\\app\\src\\main\\res\\drawable\\tulskaya301m_1.jpg",
+                        "Тульская 301М", "До мажор", "27/25", 67000, "");
+                dao.insert(harmonica);
+            });
+        }
+    };
 }

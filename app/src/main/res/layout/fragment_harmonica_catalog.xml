@@ -14,6 +14,7 @@
         android:id="@+id/harmonica_catalog_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         tools:context=".ui.catalog.fragments.HarmonicaCatalogFragment">
 
         <androidx.recyclerview.widget.RecyclerView

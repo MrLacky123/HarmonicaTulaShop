@@ -33,9 +33,13 @@ public class HarmonicaCatalogFragment extends Fragment {
         binding.executePendingBindings();
 
         RecyclerView recyclerView = MainActivity.Instance.findViewById(R.id.harmonica_list);
-        final HarmonicaAdapter adapter = new HarmonicaAdapter(new HarmonicaAdapter.WordDiff());
+        final HarmonicaAdapter adapter = new HarmonicaAdapter(new HarmonicaAdapter.HarmonicaDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
+
+        viewModel.getAllHarmonicas().observe(MainActivity.Instance, words -> {
+            adapter.submitList(words);
+        });
 
         return binding.getRoot();
 
