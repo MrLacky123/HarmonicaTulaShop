@@ -67,7 +67,7 @@
             android:id="@+id/add_harmonica_to_favourites"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:contentDescription="@string/add_to_favourites"
             android:onClick="@{()->viewModel.addToFavourites()}"

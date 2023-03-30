@@ -15,40 +15,42 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentHarmonicaCatalogBinding;
+import com.example.harmonicatulashop.databinding.ItemHarmonicaBinding;
 import com.example.harmonicatulashop.ui.catalog.db.adapters.HarmonicaAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaCatalogViewModel;
+import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaViewModel;
 
 public class HarmonicaCatalogFragment extends Fragment {
 
-    private FragmentHarmonicaCatalogBinding binding;
+    private FragmentHarmonicaCatalogBinding catalogBinding;
 
-    private HarmonicaCatalogViewModel viewModel;
+    private HarmonicaCatalogViewModel catalogViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        viewModel = new ViewModelProvider(this).get(HarmonicaCatalogViewModel.class);
+        catalogViewModel = new ViewModelProvider(this).get(HarmonicaCatalogViewModel.class);
 
-        binding = FragmentHarmonicaCatalogBinding.inflate(inflater, container, false);
-        binding.setViewmodel(viewModel);
-        binding.executePendingBindings();
+        catalogBinding = FragmentHarmonicaCatalogBinding.inflate(inflater, container, false);
+        catalogBinding.setViewmodel(catalogViewModel);
+        catalogBinding.executePendingBindings();
 
-        RecyclerView recyclerView = binding.harmonicaList;
+        RecyclerView recyclerView = catalogBinding.harmonicaList;
         final HarmonicaAdapter adapter = new HarmonicaAdapter(new HarmonicaAdapter.HarmonicaDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 
-        viewModel.getAllHarmonicas().observe(MainActivity.Instance, words -> {
+        catalogViewModel.getAllHarmonicas().observe(MainActivity.Instance, words -> {
             adapter.submitList(words);
         });
 
-        return binding.getRoot();
+        return catalogBinding.getRoot();
 
     }
     
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+        catalogBinding = null;
     }
 }

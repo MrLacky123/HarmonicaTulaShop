@@ -40,19 +40,20 @@ public abstract class HarmonicasRoomDatabase extends RoomDatabase {
     }
 
     private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
 
             databaseWriteExecutor.execute(() -> {
                 HarmonicaDao dao = INSTANCE.harmonicaDao();
-                //dao.deleteAll();
+                dao.deleteAll();
 
-                Harmonica harmonica = new Harmonica("",
+                Harmonica harmonica = new Harmonica("https://drive.google.com/file/d/1GIyFhwi3A7rTc11iGxQwFDiOTZ7emn5u/view",
                         "Тульская 301М", "Ля мажор", "25/25", 60000, "");
                 dao.insert(harmonica);
-                harmonica = new Harmonica("tulskaya301m_1.jpg",
-                        "Тульская 301М", "До мажор", "27/25", 67000, "");
+                harmonica = new Harmonica("harmonicas\\tulskaya301m\\tulskaya301m 3.jpg",
+                        "Куликово поле", "До мажор", "27/25", 67000, "");
                 dao.insert(harmonica);
             });
         }

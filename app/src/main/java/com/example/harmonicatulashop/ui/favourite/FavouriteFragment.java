@@ -17,10 +17,6 @@ public class FavouriteFragment extends Fragment {
 
     private FragmentFavouriteBinding binding;
 
-    public static FavouriteFragment newInstance() {
-        return new FavouriteFragment();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(MainActivity.Instance).get(FavouriteViewModel.class);

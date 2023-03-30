@@ -19,9 +19,9 @@
         android:title="@string/title_account" />
 
     <item
-    android:id="@+id/navigation_favourite"
-    android:icon="@drawable/baseline_favorite_border_24"
-    android:title="@string/title_favourite" />
+        android:id="@+id/navigation_favourite"
+        android:icon="@drawable/baseline_favorite_border_24"
+        android:title="@string/title_favourite" />
 
     <item
         android:id="@+id/navigation_cart"

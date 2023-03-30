@@ -25,7 +25,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@{viewModel.bayan.iconUri}"
             android:contentDescription="@string/bayan_icon" />
 
         <TextView
@@ -33,7 +32,6 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.bayan.NAME + ' ' + viewModel.bayan.range}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/bayan_icon"
@@ -46,7 +44,6 @@
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.bayan.price}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/bayan_icon"

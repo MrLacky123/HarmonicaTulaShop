@@ -1,8 +1,15 @@
 package com.example.harmonicatulashop.ui.catalog.viewmodels;
 
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
 
@@ -14,12 +21,8 @@ import com.example.harmonicatulashop.ui.catalog.fragments.HarmonicaCatalogFragme
 public class CatalogViewModel extends ViewModel {
 
     public void onClickHarmonica () {
-        Log.d("RRR", "Harmonica Click");
 
-        Bundle args = new Bundle();
-
-        //args.putParcelable("Harmonica", new Harmonica());
-        MainActivity.Instance.setFragment(HarmonicaCatalogFragment.class, R.id.catalog_layout, args);
+        MainActivity.Instance.setFragment(HarmonicaCatalogFragment.class, R.id.catalog_layout, null);
     }
 
     public void onClickBayan () {

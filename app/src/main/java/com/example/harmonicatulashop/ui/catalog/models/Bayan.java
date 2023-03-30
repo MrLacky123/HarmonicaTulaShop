@@ -3,9 +3,16 @@ package com.example.harmonicatulashop.ui.catalog.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 
 public class Bayan implements Parcelable {
+
+    private int id;
 
     public static final String NAME = "Баян";
 
@@ -87,5 +94,13 @@ public class Bayan implements Parcelable {
 
     public void setOptions(ArrayList<String> options) {
         this.options = options;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

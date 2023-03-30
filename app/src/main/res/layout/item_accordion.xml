@@ -25,7 +25,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@{viewModel.accordion.iconUri}"
             android:contentDescription="@string/accordion_icon" />
 
         <TextView
@@ -33,7 +32,6 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.accordion.NAME + ' ' + viewModel.accordion.range}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/accordion_icon"
@@ -46,7 +44,6 @@
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
-            android:text="@{viewModel.accordion.price}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/accordion_icon"

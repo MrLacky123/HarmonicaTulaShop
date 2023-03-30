@@ -4,7 +4,7 @@
     <string name="title_home">Главная</string>
     <string name="title_catalog">Каталог</string>
     <string name="title_account">Аккаунт</string>
-    <string name="title_favourite">Моё</string>
+    <string name="title_favourite">Любимое</string>
     <string name="title_cart">Корзина</string>
 
     <string name="sign_in">Войти</string>

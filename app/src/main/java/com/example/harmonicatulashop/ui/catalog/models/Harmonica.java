@@ -8,8 +8,6 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.ArrayList;
-
 @Entity(tableName = "harmonica")
 public class Harmonica implements Parcelable {
 
@@ -36,8 +34,6 @@ public class Harmonica implements Parcelable {
     @ColumnInfo(name = "price")
     private int price;
 
-    //@NonNull
-    //**@ColumnInfo(name = "options")
     private String options;
 
     public int getId() {
@@ -96,15 +92,15 @@ public class Harmonica implements Parcelable {
         return options;
     }
 
-    public void setOptions(@NonNull String options) {
+    public void setOptions(String options) {
         this.options = options;
     }
 
     public Harmonica() {
     }
 
-    public Harmonica(String iconUrl, @NonNull String type, @NonNull String tone, @NonNull String range, int price, @NonNull String options) {
-        this.iconUri = iconUrl;
+    public Harmonica(String iconUri, @NonNull String type, @NonNull String tone, @NonNull String range, int price, @NonNull String options) {
+        this.iconUri = iconUri;
         this.type = type;
         this.tone = tone;
         this.range = range;
@@ -151,8 +147,10 @@ public class Harmonica implements Parcelable {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Harmonica){
-            Harmonica harmonica = (Harmonica) obj;
-            return this.getId() == harmonica.getId();
+            Harmonica h = (Harmonica) obj;
+            return this.iconUri.equals(h.getIconUri()) && this.type.equals(h.getType())
+                    && this.tone.equals(h.getTone()) && this.range.equals(h.getRange())
+                    && this.price == h.getPrice() && this.options.equals(h.getOptions());
         }
         return false;
     }

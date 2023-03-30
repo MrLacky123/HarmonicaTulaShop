@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.ui.catalog.holders.HarmonicaViewHolder;
 import com.example.harmonicatulashop.ui.catalog.models.Harmonica;
@@ -35,12 +34,12 @@ public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder
 
         @Override
         public boolean areItemsTheSame(@NonNull Harmonica oldItem, @NonNull Harmonica newItem) {
-            return oldItem.equals(newItem);
+            return oldItem.getId() == newItem.getId();
         }
 
         @Override
         public boolean areContentsTheSame(@NonNull Harmonica oldItem, @NonNull Harmonica newItem) {
-            return oldItem.getId() == newItem.getId();
+            return oldItem.equals(newItem);
         }
     }
 }
