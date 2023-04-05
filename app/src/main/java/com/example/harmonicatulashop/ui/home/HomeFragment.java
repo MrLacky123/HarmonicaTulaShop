@@ -23,6 +23,8 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding.setViewModel(homeViewModel);
+        binding.executePendingBindings();
 
         return binding.getRoot();
     }

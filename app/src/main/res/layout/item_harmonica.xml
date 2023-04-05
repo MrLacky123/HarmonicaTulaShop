@@ -27,7 +27,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/harmonica_icon" />
+            android:contentDescription="@string/harmonica_image" />
 
         <TextView
             android:id="@+id/harmonica_name"

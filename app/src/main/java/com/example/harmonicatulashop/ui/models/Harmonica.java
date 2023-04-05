@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.ui.catalog.models;
+package com.example.harmonicatulashop.ui.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

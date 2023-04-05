@@ -1,49 +1,45 @@
-package com.example.harmonicatulashop.ui.catalog.models;
+package com.example.harmonicatulashop.ui.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 
 public class Bayan implements Parcelable {
 
+    public static final String NAME = "Баян";
+
     private int id;
 
-    public static final String NAME = "Баян";
+    private String iconUri;
 
     private String range;
 
     private int price;
-
-    private String iconUri;
 
     private ArrayList<String> options = new ArrayList<>();
 
     public Bayan() {}
 
     public Bayan(String range, int price, String iconUri, ArrayList<String> options) {
+        this.iconUri = iconUri;
         this.range = range;
         this.price = price;
-        this.iconUri = iconUri;
         this.options = options;
     }
 
     protected Bayan(Parcel in) {
+        iconUri = in.readString();
         range = in.readString();
         price = in.readInt();
-        iconUri = in.readString();
         options = in.createStringArrayList();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(range);
         dest.writeString(iconUri);
+        dest.writeString(range);
+        dest.writeInt(price);
         dest.writeStringList(options);
     }
 

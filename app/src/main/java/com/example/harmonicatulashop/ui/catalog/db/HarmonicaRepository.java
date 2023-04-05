@@ -1,13 +1,11 @@
-package com.example.harmonicatulashop.ui.catalog.db.repository;
+package com.example.harmonicatulashop.ui.catalog.db;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
-import com.example.harmonicatulashop.ui.catalog.db.HarmonicasRoomDatabase;
 import com.example.harmonicatulashop.ui.catalog.db.dao.HarmonicaDao;
-import com.example.harmonicatulashop.ui.catalog.models.Harmonica;
+import com.example.harmonicatulashop.ui.models.Harmonica;
 
 import java.util.List;
 

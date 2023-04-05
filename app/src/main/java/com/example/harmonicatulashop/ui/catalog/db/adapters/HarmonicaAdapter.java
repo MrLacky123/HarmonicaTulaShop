@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import com.example.harmonicatulashop.ui.catalog.holders.HarmonicaViewHolder;
-import com.example.harmonicatulashop.ui.catalog.models.Harmonica;
+import com.example.harmonicatulashop.ui.models.Harmonica;
 
 public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder> {
 

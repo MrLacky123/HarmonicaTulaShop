@@ -19,6 +19,7 @@ import com.example.harmonicatulashop.databinding.ItemHarmonicaBinding;
 import com.example.harmonicatulashop.ui.catalog.db.adapters.HarmonicaAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaCatalogViewModel;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaViewModel;
+import com.example.harmonicatulashop.ui.models.Harmonica;
 
 public class HarmonicaCatalogFragment extends Fragment {
 
@@ -29,7 +30,7 @@ public class HarmonicaCatalogFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        catalogViewModel = new ViewModelProvider(this).get(HarmonicaCatalogViewModel.class);
+        catalogViewModel = new ViewModelProvider(MainActivity.Instance).get(HarmonicaCatalogViewModel.class);
 
         catalogBinding = FragmentHarmonicaCatalogBinding.inflate(inflater, container, false);
         catalogBinding.setViewmodel(catalogViewModel);

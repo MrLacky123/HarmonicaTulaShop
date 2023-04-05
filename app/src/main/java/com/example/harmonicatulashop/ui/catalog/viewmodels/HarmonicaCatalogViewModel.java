@@ -6,8 +6,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.harmonicatulashop.ui.catalog.db.repository.HarmonicaRepository;
-import com.example.harmonicatulashop.ui.catalog.models.Harmonica;
+import com.example.harmonicatulashop.ui.catalog.db.HarmonicaRepository;
+import com.example.harmonicatulashop.ui.models.Harmonica;
 
 import java.util.List;
 

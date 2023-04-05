@@ -14,11 +14,6 @@
         android:title="@string/title_catalog"/>
 
     <item
-        android:id="@+id/navigation_account"
-        android:icon="@drawable/baseline_account_box_24"
-        android:title="@string/title_account" />
-
-    <item
         android:id="@+id/navigation_favourite"
         android:icon="@drawable/baseline_favorite_border_24"
         android:title="@string/title_favourite" />

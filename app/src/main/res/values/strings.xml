@@ -3,8 +3,7 @@
 
     <string name="title_home">Главная</string>
     <string name="title_catalog">Каталог</string>
-    <string name="title_account">Аккаунт</string>
-    <string name="title_favourite">Любимое</string>
+    <string name="title_favourite">Отложенные</string>
     <string name="title_cart">Корзина</string>
 
     <string name="sign_in">Войти</string>
@@ -21,7 +20,7 @@
     <string name="add_to_cart">В корзину</string>
     <string name="add_to_favourites">Отложить инструмент</string>
 
-    <string name="harmonica_icon">Harmonica Image</string>
+    <string name="harmonica_image">Harmonica Image</string>
     <string name="bayan_icon">Bayan Image</string>
     <string name="accordion_icon">Accordion image</string>
 </resources>

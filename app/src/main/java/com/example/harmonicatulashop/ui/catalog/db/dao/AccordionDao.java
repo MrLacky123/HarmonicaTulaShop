@@ -1,4 +1,4 @@
 package com.example.harmonicatulashop.ui.catalog.db.dao;
 
-public class AccordionDao {
+public interface AccordionDao {
 }

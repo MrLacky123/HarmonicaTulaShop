@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.harmonicatulashop.databinding.ItemAccordionBinding;
-import com.example.harmonicatulashop.ui.catalog.models.Accordion;
+import com.example.harmonicatulashop.ui.models.Accordion;
 
 public class AccordionViewModel extends ViewModel {
 
