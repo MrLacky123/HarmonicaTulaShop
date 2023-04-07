@@ -37,11 +37,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         getBaseContext().deleteDatabase("harmonica_database");
+        getBaseContext().deleteDatabase("harmonica_list_database");
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_catalog, R.id.navigation_account, R.id.navigation_favourite, R.id.navigation_cart)
+                R.id.navigation_home, R.id.navigation_catalog, R.id.navigation_favourite, R.id.navigation_cart)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

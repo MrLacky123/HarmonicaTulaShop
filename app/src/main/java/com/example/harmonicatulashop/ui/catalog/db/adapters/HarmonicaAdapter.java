@@ -27,7 +27,7 @@ public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder
         holder.bindName(name);
         String price = current.getPrice() + " ₽";
         holder.bindPrice(price);
-        holder.bindImage(current.getIconUri());
+        holder.bindImage(current.getIcon());
     }
 
     public static class HarmonicaDiff extends DiffUtil.ItemCallback<Harmonica> {

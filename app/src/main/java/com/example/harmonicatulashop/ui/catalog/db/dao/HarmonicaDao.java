@@ -16,13 +16,13 @@ public interface HarmonicaDao {
     @Insert
     void insert(Harmonica harmonica);
 
-    @Query("DELETE FROM harmonica")
+    @Query("DELETE FROM harmonica_list")
     void deleteAll();
 
     @Delete
     void delete(Harmonica harmonica);
 
-    @Query("SELECT * FROM harmonica ORDER BY id")
+    @Query("SELECT * FROM harmonica_list ORDER BY id")
     LiveData<List<Harmonica>> getHarmonicas();
 
 }

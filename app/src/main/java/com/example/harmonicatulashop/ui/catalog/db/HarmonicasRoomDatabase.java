@@ -12,12 +12,15 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.ui.catalog.db.dao.HarmonicaDao;
 import com.example.harmonicatulashop.ui.models.Harmonica;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -36,7 +39,7 @@ public abstract class HarmonicasRoomDatabase extends RoomDatabase {
             synchronized (HarmonicasRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    HarmonicasRoomDatabase.class, "harmonica_database")
+                                    HarmonicasRoomDatabase.class, "harmonica_list_database")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
@@ -55,11 +58,30 @@ public abstract class HarmonicasRoomDatabase extends RoomDatabase {
                 HarmonicaDao dao = INSTANCE.harmonicaDao();
                 dao.deleteAll();
 
-                Harmonica harmonica = new Harmonica( String.valueOf(R.drawable.tulskaya301m),
-                        "Тульская 301М", "Ля мажор", "25/25", 60000, "");
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+                Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.Instance.getApplicationContext().getResources(), R.drawable.tulskaya301m);
+                bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 50, bos);
+                byte[] blob = bos.toByteArray();
+
+                try {
+                    bos.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                Harmonica harmonica = new Harmonica(blob, "Тульская 301М", "Ля мажор", "25/25", 60000, "");
                 dao.insert(harmonica);
-                harmonica = new Harmonica(String.valueOf(R.drawable.kulikovopole_1__1_),
-                        "Куликово поле", "До мажор", "27/25", 67000, "");
+
+                bos = new ByteArrayOutputStream();
+
+                bitmap = BitmapFactory.decodeResource(MainActivity.Instance.getApplicationContext().getResources(), R.drawable.kulikovopole_1__1_);
+                bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+                blob = bos.toByteArray();
+
+                harmonica = new Harmonica(blob, "Куликово поле", "До мажор", "27/25", 67000, "");
                 dao.insert(harmonica);
             });
         }

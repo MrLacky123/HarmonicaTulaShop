@@ -55,8 +55,15 @@ public class HarmonicaViewHolder extends RecyclerView.ViewHolder {
         harmonicaPriceView.setText(price);
     }
 
-    public void bindImage(String imageUrl) {
-        Picasso.get().load(Integer.parseInt(imageUrl)).into(harmonicaImageView);
+    public void bindImage(byte[] image) {
+
+        new Thread(() -> {
+
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+
+            harmonicaImageView.setImageBitmap(bitmap);
+
+        }).start();
     }
 
     public static HarmonicaViewHolder create(ViewGroup parent) {

@@ -1,22 +1,21 @@
 package com.example.harmonicatulashop.ui.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "harmonica")
-public class Harmonica implements Parcelable {
+@Entity(tableName = "harmonica_list")
+public class Harmonica {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
     public static final String NAME = "Гармонь";
 
-    private String iconUri;
+    @NonNull
+    @ColumnInfo(name = "image")
+    private byte[] icon;
 
     @NonNull
     @ColumnInfo(name = "type")
@@ -44,16 +43,13 @@ public class Harmonica implements Parcelable {
         this.id = id;
     }
 
-    public void setIconUri(String iconUri) {
-        this.iconUri = iconUri;
+    @NonNull
+    public byte[] getIcon() {
+        return icon;
     }
 
-    public String getIconUri() {
-        return iconUri;
-    }
-
-    public void setType(@NonNull String type) {
-        this.type = type;
+    public void setIcon(@NonNull byte[] icon) {
+        this.icon = icon;
     }
 
     @NonNull
@@ -61,13 +57,17 @@ public class Harmonica implements Parcelable {
         return type;
     }
 
-    public void setTone(@NonNull String tone) {
-        this.tone = tone;
+    public void setType(@NonNull String type) {
+        this.type = type;
     }
 
     @NonNull
     public String getTone() {
         return tone;
+    }
+
+    public void setTone(@NonNull String tone) {
+        this.tone = tone;
     }
 
     @NonNull
@@ -87,7 +87,6 @@ public class Harmonica implements Parcelable {
         this.price = price;
     }
 
-    @NonNull
     public String getOptions() {
         return options;
     }
@@ -99,8 +98,8 @@ public class Harmonica implements Parcelable {
     public Harmonica() {
     }
 
-    public Harmonica(String iconUri, @NonNull String type, @NonNull String tone, @NonNull String range, int price, @NonNull String options) {
-        this.iconUri = iconUri;
+    public Harmonica(byte[] iconUri, @NonNull String type, @NonNull String tone, @NonNull String range, int price, @NonNull String options) {
+        this.icon = iconUri;
         this.type = type;
         this.tone = tone;
         this.range = range;
@@ -108,47 +107,11 @@ public class Harmonica implements Parcelable {
         this.options = options;
     }
 
-    protected Harmonica(Parcel in) {
-        iconUri = in.readString();
-        type = in.readString();
-        tone = in.readString();
-        range = in.readString();
-        price = in.readInt();
-        options = in.readString();
-    }
-
-    public static final Creator<Harmonica> CREATOR = new Creator<Harmonica>() {
-        @Override
-        public Harmonica createFromParcel(Parcel in) {
-            return new Harmonica(in);
-        }
-
-        @Override
-        public Harmonica[] newArray(int size) {
-            return new Harmonica[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeString(iconUri);
-        dest.writeString(type);
-        dest.writeString(tone);
-        dest.writeString(range);
-        dest.writeInt(price);
-        dest.writeString(options);
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Harmonica){
             Harmonica h = (Harmonica) obj;
-            return this.iconUri.equals(h.getIconUri()) && this.type.equals(h.getType())
+            return this.icon.equals(h.getIcon()) && this.type.equals(h.getType())
                     && this.tone.equals(h.getTone()) && this.range.equals(h.getRange())
                     && this.price == h.getPrice() && this.options.equals(h.getOptions());
         }
