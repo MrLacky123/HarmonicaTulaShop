@@ -1,28 +1,51 @@
 package com.example.harmonicatulashop.ui.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
+@Entity(tableName = "accordion_list")
 public class Accordion extends Harmonicas {
 
-    public static final String NAME = "Аккордеон";
+    public static final String NAME = "Аккордеон ТУЛА";
 
-    private String iconUri;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
 
+    @NonNull
+    @ColumnInfo(name = "image")
+    private byte[] icon;
+
+    @NonNull
+    @ColumnInfo(name = "range")
     private String range;
 
+    @NonNull
+    @ColumnInfo(name = "price")
     private int price;
 
-    private ArrayList<String> options;
 
-    public String getIconUri() {
-        return iconUri;
+    @NonNull
+    @ColumnInfo(name = "options")
+    private String options;
+
+    public int getId() {
+        return id;
     }
 
-    public void setIconUri(String iconUri) {
-        this.iconUri = iconUri;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public byte[] getIcon() {
+        return icon;
+    }
+
+    public void setIcon(byte[] icon) {
+        this.icon = icon;
     }
 
     public String getRange() {
@@ -41,13 +64,30 @@ public class Accordion extends Harmonicas {
         this.price = price;
     }
 
-    public ArrayList<String> getOptions() {
+    public String getOptions() {
         return options;
     }
 
-    public void setOptions(ArrayList<String> options) {
+    public void setOptions(String options) {
         this.options = options;
     }
 
     public Accordion() {}
+
+    public Accordion(byte[] icon, String range, int price, String options) {
+        this.icon = icon;
+        this.range = range;
+        this.price = price;
+        this.options = options;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Harmonica){
+            Harmonica h = (Harmonica) obj;
+            return Arrays.equals(this.icon, h.getIcon()) && this.range.equals(h.getRange())
+                    && this.price == h.getPrice() && this.options.equals(h.getOptions());
+        }
+        return false;
+    }
 }

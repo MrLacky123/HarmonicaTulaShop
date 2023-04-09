@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="190dp"
+        android:layout_margin="8dp"
         android:background="@color/white"
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
@@ -19,8 +20,8 @@
 
         <ImageView
             android:id="@+id/accordion_icon"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_margin="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,9 +29,9 @@
             android:contentDescription="@string/accordion_icon" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/accordion_name"
             android:layout_width="200dp"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_marginStart="16dp"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -40,35 +41,35 @@
             app:layout_constraintVertical_bias="0.145" />
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/accordion_price"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/accordion_icon"
-            app:layout_constraintTop_toBottomOf="@+id/name"
-            app:layout_constraintBottom_toTopOf="@+id/add_to_cart" />
+            app:layout_constraintTop_toBottomOf="@+id/accordion_name"
+            app:layout_constraintBottom_toTopOf="@+id/add_accordion_to_cart" />
 
         <Button
-            android:id="@+id/add_to_cart"
+            android:id="@+id/add_accordion_to_cart"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="40dp"
             android:text="@string/add_to_cart"
             app:layout_constraintStart_toEndOf="@+id/accordion_icon"
-            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/accordion_name"
             android:onClick="@{()->viewModel.addToCart()}"/>
 
         <ImageButton
-            android:id="@+id/add_to_favourites"
+            android:id="@+id/add_accordion_to_favourites"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="40dp"
-            app:layout_constraintStart_toEndOf="@+id/add_to_cart"
-            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintStart_toEndOf="@+id/add_accordion_to_cart"
+            app:layout_constraintTop_toBottomOf="@+id/accordion_name"
             app:srcCompat="@drawable/baseline_favorite_border_24"
             android:contentDescription="@string/add_to_favourites"
             android:onClick="@{()->viewModel.addToFavourites()}"/>

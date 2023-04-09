@@ -45,7 +45,6 @@ public class BayanCatalogFragment extends Fragment {
             adapter.submitList(bayans);
         });
 
-
         return binding.getRoot();
     }
 }

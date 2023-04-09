@@ -38,14 +38,29 @@ public class Bayan extends Harmonicas {
     @ColumnInfo(name = "options")
     private String options;
 
-    public Bayan() {}
+    public int getId() {
+        return id;
+    }
 
-    public Bayan(@NonNull byte[] icon, @NonNull String type, @NonNull String range, int price, @NonNull String options) {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public byte[] getIcon() {
+        return icon;
+    }
+
+    public void setIcon(@NonNull byte[] icon) {
         this.icon = icon;
+    }
+
+    @NonNull
+    public String getType() {
+        return type;
+    }
+
+    public void setType(@NonNull String type) {
         this.type = type;
-        this.range = range;
-        this.price = price;
-        this.options = options;
     }
 
     @NonNull
@@ -65,14 +80,6 @@ public class Bayan extends Harmonicas {
         this.price = price;
     }
 
-    public byte[] getIcon() {
-        return icon;
-    }
-
-    public void setIcon(@NonNull byte[] icon) {
-        this.icon = icon;
-    }
-
     @NonNull
     public String getOptions() {
         return options;
@@ -82,21 +89,14 @@ public class Bayan extends Harmonicas {
         this.options = options;
     }
 
-    public int getId() {
-        return id;
-    }
+    public Bayan() {}
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @NonNull
-    public String getType() {
-        return type;
-    }
-
-    public void setType(@NonNull String type) {
+    public Bayan(@NonNull byte[] icon, @NonNull String type, @NonNull String range, int price, @NonNull String options) {
+        this.icon = icon;
         this.type = type;
+        this.range = range;
+        this.price = price;
+        this.options = options;
     }
 
     @Override

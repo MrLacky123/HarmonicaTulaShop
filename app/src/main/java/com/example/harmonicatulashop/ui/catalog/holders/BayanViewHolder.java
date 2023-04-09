@@ -39,12 +39,9 @@ public class BayanViewHolder extends RecyclerView.ViewHolder {
 
     public void bindImage(byte[] image) {
 
-        new Thread(() -> {
+        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+        bayanImageView.setImageBitmap(bitmap);
 
-            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-            bayanImageView.setImageBitmap(bitmap);
-
-        }).start();
     }
 
     public static BayanViewHolder create(ViewGroup parent) {

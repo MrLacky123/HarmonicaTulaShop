@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         getBaseContext().deleteDatabase("harmonica_list_database");
         getBaseContext().deleteDatabase("bayan_list_database");
+        getBaseContext().deleteDatabase("accordion_list_database");
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 

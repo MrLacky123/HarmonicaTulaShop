@@ -26,7 +26,7 @@ public class BayanRepository {
     }
 
     public void insert(Bayan bayan) {
-        HarmonicasRoomDatabase.databaseWriteExecutor.execute(() -> {
+        BayanRoomDatabase.databaseWriteExecutor.execute(() -> {
             bayanDao.insert(bayan);
         });
     }
