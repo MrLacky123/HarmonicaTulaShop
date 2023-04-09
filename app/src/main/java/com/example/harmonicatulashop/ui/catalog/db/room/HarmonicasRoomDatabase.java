@@ -1,10 +1,8 @@
-package com.example.harmonicatulashop.ui.catalog.db;
+package com.example.harmonicatulashop.ui.catalog.db.room;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Picture;
-import android.os.Environment;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -18,9 +16,7 @@ import com.example.harmonicatulashop.ui.catalog.db.dao.HarmonicaDao;
 import com.example.harmonicatulashop.ui.models.Harmonica;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -48,7 +44,7 @@ public abstract class HarmonicasRoomDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+    private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
 
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -60,28 +56,12 @@ public abstract class HarmonicasRoomDatabase extends RoomDatabase {
 
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
-                Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.Instance.getApplicationContext().getResources(), R.drawable.tulskaya301m);
-                bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 50, bos);
-                byte[] blob = bos.toByteArray();
-
-                try {
-                    bos.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-                Harmonica harmonica = new Harmonica(blob, "Тульская 301М", "Ля мажор", "25/25", 60000, "");
-                dao.insert(harmonica);
-
-                bos = new ByteArrayOutputStream();
-
-                bitmap = BitmapFactory.decodeResource(MainActivity.Instance.getApplicationContext().getResources(), R.drawable.kulikovopole_1__1_);
+                Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.Instance.getApplicationContext().getResources(), R.drawable.kulikovopole_1__1_);
                 bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
-                blob = bos.toByteArray();
+                byte[] blob = bos.toByteArray();
 
-                harmonica = new Harmonica(blob, "Куликово поле", "До мажор", "27/25", 67000, "");
+                Harmonica harmonica = new Harmonica(blob, "Куликово поле", "До мажор", "27/25", 67000, "");
                 dao.insert(harmonica);
             });
         }

@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.ui.catalog.db;
+package com.example.harmonicatulashop.ui.catalog.db.room;
 
 import android.app.Application;
 
@@ -12,16 +12,16 @@ import java.util.List;
 public class HarmonicaRepository {
 
     private HarmonicaDao harmonicaDao;
-    private LiveData<List<Harmonica>> AllHarmonicas;
+    private LiveData<List<Harmonica>> allHarmonicas;
 
     public HarmonicaRepository(Application application) {
         HarmonicasRoomDatabase db = HarmonicasRoomDatabase.getDatabase(application);
         harmonicaDao = db.harmonicaDao();
-        AllHarmonicas = harmonicaDao.getHarmonicas();
+        allHarmonicas = harmonicaDao.getHarmonicas();
     }
 
     public LiveData<List<Harmonica>> getAllHarmonicas() {
-        return AllHarmonicas;
+        return allHarmonicas;
     }
 
     public void insert(Harmonica harmonica) {

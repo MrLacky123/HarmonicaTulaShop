@@ -5,8 +5,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Arrays;
+
 @Entity(tableName = "harmonica_list")
-public class Harmonica {
+public class Harmonica extends Harmonicas {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -111,7 +113,7 @@ public class Harmonica {
     public boolean equals(Object obj) {
         if (obj instanceof Harmonica){
             Harmonica h = (Harmonica) obj;
-            return this.icon.equals(h.getIcon()) && this.type.equals(h.getType())
+            return Arrays.equals(this.icon, h.getIcon()) && this.type.equals(h.getType())
                     && this.tone.equals(h.getTone()) && this.range.equals(h.getRange())
                     && this.price == h.getPrice() && this.options.equals(h.getOptions());
         }

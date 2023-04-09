@@ -1,5 +1,6 @@
 package com.example.harmonicatulashop;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -18,6 +19,7 @@ import com.google.common.base.Optional;
 import com.google.common.collect.Iterables;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private FragmentManager fragmentManager;
     private List<Fragment> fragments = new ArrayList<>();
+    public static HashMap<Integer, Bitmap> images = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getBaseContext().deleteDatabase("harmonica_database");
         getBaseContext().deleteDatabase("harmonica_list_database");
+        getBaseContext().deleteDatabase("bayan_list_database");
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 

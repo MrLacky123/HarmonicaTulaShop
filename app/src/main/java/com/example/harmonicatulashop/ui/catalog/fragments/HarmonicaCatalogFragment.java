@@ -41,8 +41,8 @@ public class HarmonicaCatalogFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 
-        catalogViewModel.getAllHarmonicas().observe(MainActivity.Instance, words -> {
-            adapter.submitList(words);
+        catalogViewModel.getAllHarmonicas().observe(MainActivity.Instance, harmonicas -> {
+            adapter.submitList(harmonicas);
         });
 
         return catalogBinding.getRoot();

@@ -20,13 +20,13 @@ public class BayanViewModel extends ViewModel {
 
     public void addToCart() {
 
-        binding.addToCart.setText("В корзине");
+
 
     }
 
     public void addToFavourites() {
 
-        binding.addToFavourites.setImageIcon(Icon.createWithFilePath("D:\\HarmonicaTulaShop\\app\\src\\main\\res\\drawable\\baseline_favorite_24.xml"));
+
 
     }
 }

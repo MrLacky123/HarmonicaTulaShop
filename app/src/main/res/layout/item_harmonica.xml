@@ -35,7 +35,7 @@
             android:layout_height="70dp"
             android:layout_marginStart="16dp"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/harmonica_icon"
             app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +47,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/harmonica_icon"
             app:layout_constraintTop_toBottomOf="@+id/harmonica_name"
             app:layout_constraintBottom_toTopOf="@+id/add_harmonica_to_cart"/>

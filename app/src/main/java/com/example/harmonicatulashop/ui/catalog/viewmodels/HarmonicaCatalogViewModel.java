@@ -4,16 +4,15 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
-import com.example.harmonicatulashop.ui.catalog.db.HarmonicaRepository;
+import com.example.harmonicatulashop.ui.catalog.db.room.HarmonicaRepository;
 import com.example.harmonicatulashop.ui.models.Harmonica;
 
 import java.util.List;
 
 public class HarmonicaCatalogViewModel extends AndroidViewModel {
 
-    public LiveData<List<Harmonica>> harmonicas = new MutableLiveData<List<Harmonica>>();
+    public LiveData<List<Harmonica>> harmonicas;
 
     private HarmonicaRepository repository;
 

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.view.ViewGroup;
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentBayanCatalogBinding;
+import com.example.harmonicatulashop.ui.catalog.db.adapters.BayanAdapter;
+import com.example.harmonicatulashop.ui.catalog.db.adapters.HarmonicaAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.BayanCatalogViewModel;
 
 public class BayanCatalogFragment extends Fragment {
@@ -31,6 +35,16 @@ public class BayanCatalogFragment extends Fragment {
         binding = FragmentBayanCatalogBinding.inflate(inflater, container, false);
         binding.setViewModel(viewModel);
         binding.executePendingBindings();
+
+        RecyclerView recyclerView = binding.bayanList;
+        final BayanAdapter adapter = new BayanAdapter(new BayanAdapter.BayanDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
+
+        viewModel.getAllBayans().observe(MainActivity.Instance, bayans -> {
+            adapter.submitList(bayans);
+        });
+
 
         return binding.getRoot();
     }

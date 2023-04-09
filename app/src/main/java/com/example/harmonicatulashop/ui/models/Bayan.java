@@ -1,70 +1,59 @@
 package com.example.harmonicatulashop.ui.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class Bayan implements Parcelable {
+@Entity(tableName = "bayan_list")
+public class Bayan extends Harmonicas {
+
 
     public static final String NAME = "Баян";
 
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private String iconUri;
+    @NonNull
+    @ColumnInfo(name = "image")
+    private byte[] icon;
 
+    @NonNull
+    @ColumnInfo(name = "type")
+    private String type;
+
+    @NonNull
+    @ColumnInfo(name = "range")
     private String range;
 
+    @NonNull
+    @ColumnInfo(name = "price")
     private int price;
 
-    private ArrayList<String> options = new ArrayList<>();
+
+    @NonNull
+    @ColumnInfo(name = "options")
+    private String options;
 
     public Bayan() {}
 
-    public Bayan(String range, int price, String iconUri, ArrayList<String> options) {
-        this.iconUri = iconUri;
+    public Bayan(@NonNull byte[] icon, @NonNull String type, @NonNull String range, int price, @NonNull String options) {
+        this.icon = icon;
+        this.type = type;
         this.range = range;
         this.price = price;
         this.options = options;
     }
 
-    protected Bayan(Parcel in) {
-        iconUri = in.readString();
-        range = in.readString();
-        price = in.readInt();
-        options = in.createStringArrayList();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(iconUri);
-        dest.writeString(range);
-        dest.writeInt(price);
-        dest.writeStringList(options);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Bayan> CREATOR = new Creator<Bayan>() {
-        @Override
-        public Bayan createFromParcel(Parcel in) {
-            return new Bayan(in);
-        }
-
-        @Override
-        public Bayan[] newArray(int size) {
-            return new Bayan[size];
-        }
-    };
-
+    @NonNull
     public String getRange() {
         return range;
     }
 
-    public void setRange(String range) {
+    public void setRange(@NonNull String range) {
         this.range = range;
     }
 
@@ -76,19 +65,20 @@ public class Bayan implements Parcelable {
         this.price = price;
     }
 
-    public String getIconUri() {
-        return iconUri;
+    public byte[] getIcon() {
+        return icon;
     }
 
-    public void setIconUri(String iconUri) {
-        this.iconUri = iconUri;
+    public void setIcon(@NonNull byte[] icon) {
+        this.icon = icon;
     }
 
-    public ArrayList<String> getOptions() {
+    @NonNull
+    public String getOptions() {
         return options;
     }
 
-    public void setOptions(ArrayList<String> options) {
+    public void setOptions(@NonNull String options) {
         this.options = options;
     }
 
@@ -98,5 +88,24 @@ public class Bayan implements Parcelable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @NonNull
+    public String getType() {
+        return type;
+    }
+
+    public void setType(@NonNull String type) {
+        this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Harmonica){
+            Harmonica h = (Harmonica) obj;
+            return Arrays.equals(this.icon, h.getIcon()) && this.type.equals(h.getType()) && this.range.equals(h.getRange())
+                    && this.price == h.getPrice() && this.options.equals(h.getOptions());
+        }
+        return false;
     }
 }

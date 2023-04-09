@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class Accordion implements Parcelable {
+public class Accordion extends Harmonicas {
 
     public static final String NAME = "Аккордеон";
 
@@ -50,35 +50,4 @@ public class Accordion implements Parcelable {
     }
 
     public Accordion() {}
-
-
-    protected Accordion(Parcel in) {
-        iconUri = in.readString();
-        range = in.readString();
-        options = in.createStringArrayList();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(iconUri);
-        dest.writeString(range);
-        dest.writeStringList(options);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Accordion> CREATOR = new Creator<Accordion>() {
-        @Override
-        public Accordion createFromParcel(Parcel in) {
-            return new Accordion(in);
-        }
-
-        @Override
-        public Accordion[] newArray(int size) {
-            return new Accordion[size];
-        }
-    };
 }

@@ -15,6 +15,8 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
+import com.example.harmonicatulashop.ui.catalog.fragments.AccordionCatalogFragment;
+import com.example.harmonicatulashop.ui.catalog.fragments.BayanCatalogFragment;
 import com.example.harmonicatulashop.ui.catalog.fragments.CatalogFragment;
 import com.example.harmonicatulashop.ui.catalog.fragments.HarmonicaCatalogFragment;
 
@@ -23,13 +25,18 @@ public class CatalogViewModel extends ViewModel {
     public void onClickHarmonica () {
 
         MainActivity.Instance.setFragment(HarmonicaCatalogFragment.class, R.id.catalog_layout, null);
+
     }
 
     public void onClickBayan () {
-        Log.d("RRR", "Bayan Click");
+
+        MainActivity.Instance.setFragment(BayanCatalogFragment.class, R.id.catalog_layout, null);
+
     }
 
     public void onClickAccordion () {
-        Log.d("RRR", "Accordion Click");
+
+        MainActivity.Instance.setFragment(AccordionCatalogFragment.class, R.id.catalog_layout, null);
+
     }
 }

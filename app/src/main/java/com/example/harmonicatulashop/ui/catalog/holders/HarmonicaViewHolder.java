@@ -60,7 +60,6 @@ public class HarmonicaViewHolder extends RecyclerView.ViewHolder {
         new Thread(() -> {
 
             Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-
             harmonicaImageView.setImageBitmap(bitmap);
 
         }).start();
