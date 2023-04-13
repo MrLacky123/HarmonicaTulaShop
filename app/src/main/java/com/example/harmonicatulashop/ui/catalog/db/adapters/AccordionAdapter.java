@@ -10,6 +10,7 @@ import com.example.harmonicatulashop.ui.catalog.holders.AccordionViewHolder;
 import com.example.harmonicatulashop.ui.models.Accordion;
 
 public class AccordionAdapter extends ListAdapter<Accordion, AccordionViewHolder> {
+
     public AccordionAdapter(@NonNull DiffUtil.ItemCallback<Accordion> diffCallback) {
         super(diffCallback);
     }
