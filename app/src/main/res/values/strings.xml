@@ -5,6 +5,7 @@
     <string name="title_catalog">Каталог</string>
     <string name="title_favourite">Отложенные</string>
     <string name="title_cart">Корзина</string>
+    <string name="title_account">Аккаунт</string>
 
     <string name="sign_in">Войти</string>
     <string name="sign_up">Зарегистрироваться</string>

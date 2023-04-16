@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.ui.catalog.db.dao.BayanDao;
-import com.example.harmonicatulashop.ui.models.Bayan;
+import com.example.harmonicatulashop.models.harmonica.Bayan;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

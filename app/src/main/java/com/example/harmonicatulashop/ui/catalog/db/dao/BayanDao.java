@@ -6,7 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.harmonicatulashop.ui.models.Bayan;
+import com.example.harmonicatulashop.models.harmonica.Bayan;
 
 import java.util.List;
 

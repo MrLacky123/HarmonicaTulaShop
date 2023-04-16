@@ -1,11 +1,10 @@
-package com.example.harmonicatulashop.ui.models;
+package com.example.harmonicatulashop.models.harmonica;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 @Entity(tableName = "bayan_list")

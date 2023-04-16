@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.ui.catalog.db.dao.AccordionDao;
-import com.example.harmonicatulashop.ui.models.Accordion;
+import com.example.harmonicatulashop.models.harmonica.Accordion;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -56,7 +56,7 @@ public abstract class AccordionRoomDatabase extends RoomDatabase {
 
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
-                Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.Instance.getApplicationContext().getResources(), R.drawable.bayan_1);
+                Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.Instance.getApplicationContext().getResources(), R.drawable.accordion);
                 bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
                 bitmap.compress(Bitmap.CompressFormat.PNG, 50, bos);
                 byte[] blob = bos.toByteArray();

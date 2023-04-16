@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import com.example.harmonicatulashop.ui.catalog.holders.HarmonicaViewHolder;
-import com.example.harmonicatulashop.ui.models.Harmonica;
+import com.example.harmonicatulashop.models.harmonica.Harmonica;
 
 public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder> {
 
@@ -27,7 +27,7 @@ public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder
         holder.bindName(name);
         String price = current.getPrice() + " ₽";
         holder.bindPrice(price);
-        holder.bindImage(current.getIcon());
+        holder.bindImage(current.getId(), current.getIcon());
     }
 
     public static class HarmonicaDiff extends DiffUtil.ItemCallback<Harmonica> {

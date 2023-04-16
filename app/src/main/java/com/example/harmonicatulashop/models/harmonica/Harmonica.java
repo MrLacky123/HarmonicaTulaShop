@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.ui.models;
+package com.example.harmonicatulashop.models.harmonica;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -7,17 +7,25 @@ import androidx.room.PrimaryKey;
 
 import java.util.Arrays;
 
-@Entity(tableName = "accordion_list")
-public class Accordion extends Harmonicas {
-
-    public static final String NAME = "Аккордеон ТУЛА";
+@Entity(tableName = "harmonica_list")
+public class Harmonica extends Harmonicas {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
+    public static final String NAME = "Гармонь";
+
     @NonNull
     @ColumnInfo(name = "image")
     private byte[] icon;
+
+    @NonNull
+    @ColumnInfo(name = "type")
+    private String type;
+
+    @NonNull
+    @ColumnInfo(name = "tone")
+    private String tone;
 
     @NonNull
     @ColumnInfo(name = "range")
@@ -27,9 +35,6 @@ public class Accordion extends Harmonicas {
     @ColumnInfo(name = "price")
     private int price;
 
-
-    @NonNull
-    @ColumnInfo(name = "options")
     private String options;
 
     public int getId() {
@@ -40,19 +45,39 @@ public class Accordion extends Harmonicas {
         this.id = id;
     }
 
+    @NonNull
     public byte[] getIcon() {
         return icon;
     }
 
-    public void setIcon(byte[] icon) {
+    public void setIcon(@NonNull byte[] icon) {
         this.icon = icon;
     }
 
+    @NonNull
+    public String getType() {
+        return type;
+    }
+
+    public void setType(@NonNull String type) {
+        this.type = type;
+    }
+
+    @NonNull
+    public String getTone() {
+        return tone;
+    }
+
+    public void setTone(@NonNull String tone) {
+        this.tone = tone;
+    }
+
+    @NonNull
     public String getRange() {
         return range;
     }
 
-    public void setRange(String range) {
+    public void setRange(@NonNull String range) {
         this.range = range;
     }
 
@@ -72,10 +97,13 @@ public class Accordion extends Harmonicas {
         this.options = options;
     }
 
-    public Accordion() {}
+    public Harmonica() {
+    }
 
-    public Accordion(byte[] icon, String range, int price, String options) {
-        this.icon = icon;
+    public Harmonica(byte[] iconUri, @NonNull String type, @NonNull String tone, @NonNull String range, int price, @NonNull String options) {
+        this.icon = iconUri;
+        this.type = type;
+        this.tone = tone;
         this.range = range;
         this.price = price;
         this.options = options;
@@ -85,7 +113,8 @@ public class Accordion extends Harmonicas {
     public boolean equals(Object obj) {
         if (obj instanceof Harmonica){
             Harmonica h = (Harmonica) obj;
-            return Arrays.equals(this.icon, h.getIcon()) && this.range.equals(h.getRange())
+            return Arrays.equals(this.icon, h.getIcon()) && this.type.equals(h.getType())
+                    && this.tone.equals(h.getTone()) && this.range.equals(h.getRange())
                     && this.price == h.getPrice() && this.options.equals(h.getOptions());
         }
         return false;

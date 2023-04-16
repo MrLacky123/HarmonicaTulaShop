@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 
 public class AccordionViewHolder extends RecyclerView.ViewHolder {
@@ -37,9 +38,21 @@ public class AccordionViewHolder extends RecyclerView.ViewHolder {
         accordionPriceView.setText(price);
     }
 
-    public void bindImage(byte[] image) {
+    public void bindImage(int id, byte[] image) {
 
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+        Bitmap bitmap;
+
+        if (MainActivity.accordionImages.containsKey(id)) {
+
+            bitmap = MainActivity.accordionImages.get(id);
+
+        } else {
+
+            bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            MainActivity.accordionImages.put(id, bitmap);
+
+        }
+
         accordionImageView.setImageBitmap(bitmap);
 
     }

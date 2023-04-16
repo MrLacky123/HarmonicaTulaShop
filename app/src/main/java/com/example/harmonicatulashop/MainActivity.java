@@ -14,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.harmonicatulashop.databinding.ActivityMainBinding;
+import com.example.harmonicatulashop.models.account.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.common.base.Optional;
 import com.google.common.collect.Iterables;
@@ -25,10 +26,20 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public static MainActivity Instance;
+
+    public static User currentUser;
+
     private ActivityMainBinding binding;
+
     private FragmentManager fragmentManager;
+
     private List<Fragment> fragments = new ArrayList<>();
-    public static HashMap<Integer, Bitmap> images = new HashMap<>();
+
+    public static HashMap<Integer, Bitmap> harmonicaImages = new HashMap<>();
+
+    public static HashMap<Integer, Bitmap> accordionImages = new HashMap<>();
+
+    public static HashMap<Integer, Bitmap> bayanImages = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_catalog, R.id.navigation_favourite, R.id.navigation_cart)
+                R.id.navigation_home, R.id.navigation_catalog, R.id.navigation_favourite, R.id.navigation_cart, R.id.navigation_account)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

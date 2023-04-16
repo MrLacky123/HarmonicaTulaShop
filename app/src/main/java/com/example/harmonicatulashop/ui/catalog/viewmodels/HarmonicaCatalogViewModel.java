@@ -6,7 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.harmonicatulashop.ui.catalog.db.room.HarmonicaRepository;
-import com.example.harmonicatulashop.ui.models.Harmonica;
+import com.example.harmonicatulashop.models.harmonica.Harmonica;
 
 import java.util.List;
 

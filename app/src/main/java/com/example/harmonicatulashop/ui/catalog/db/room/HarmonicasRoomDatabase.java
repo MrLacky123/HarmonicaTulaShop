@@ -13,10 +13,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.ui.catalog.db.dao.HarmonicaDao;
-import com.example.harmonicatulashop.ui.models.Harmonica;
+import com.example.harmonicatulashop.models.harmonica.Harmonica;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

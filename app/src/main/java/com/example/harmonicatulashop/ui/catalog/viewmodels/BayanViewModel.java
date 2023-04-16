@@ -1,12 +1,10 @@
 package com.example.harmonicatulashop.ui.catalog.viewmodels;
 
-import android.graphics.drawable.Icon;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.harmonicatulashop.databinding.ItemBayanBinding;
-import com.example.harmonicatulashop.ui.models.Bayan;
+import com.example.harmonicatulashop.models.harmonica.Bayan;
 
 public class BayanViewModel extends ViewModel {
 

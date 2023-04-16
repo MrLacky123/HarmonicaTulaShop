@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 
 import com.example.harmonicatulashop.ui.catalog.db.dao.HarmonicaDao;
-import com.example.harmonicatulashop.ui.models.Harmonica;
+import com.example.harmonicatulashop.models.harmonica.Harmonica;
 
 import java.util.List;
 

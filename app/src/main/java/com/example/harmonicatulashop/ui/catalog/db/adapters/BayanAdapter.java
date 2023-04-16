@@ -5,12 +5,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.ui.catalog.holders.BayanViewHolder;
-import com.example.harmonicatulashop.ui.catalog.holders.HarmonicaViewHolder;
-import com.example.harmonicatulashop.ui.models.Bayan;
-import com.example.harmonicatulashop.ui.models.Harmonica;
+import com.example.harmonicatulashop.models.harmonica.Bayan;
 
 public class BayanAdapter extends ListAdapter<Bayan, BayanViewHolder> {
     public BayanAdapter(@NonNull DiffUtil.ItemCallback<Bayan> diffCallback) {
@@ -29,7 +26,7 @@ public class BayanAdapter extends ListAdapter<Bayan, BayanViewHolder> {
         holder.bindName(name);
         String price = current.getPrice() + " ₽";
         holder.bindPrice(price);
-        holder.bindImage(current.getIcon());
+        holder.bindImage(current.getId(), current.getIcon());
     }
 
     public static class BayanDiff extends DiffUtil.ItemCallback<Bayan> {

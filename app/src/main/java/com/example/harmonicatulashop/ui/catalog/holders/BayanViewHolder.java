@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 
 public class BayanViewHolder extends RecyclerView.ViewHolder {
@@ -37,9 +38,21 @@ public class BayanViewHolder extends RecyclerView.ViewHolder {
         bayanPriceView.setText(price);
     }
 
-    public void bindImage(byte[] image) {
+    public void bindImage(int id, byte[] image) {
 
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+        Bitmap bitmap;
+
+        if (MainActivity.bayanImages.containsKey(id)) {
+
+            bitmap = MainActivity.bayanImages.get(id);
+
+        } else {
+
+            bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            MainActivity.bayanImages.put(id, bitmap);
+
+        }
+
         bayanImageView.setImageBitmap(bitmap);
 
     }

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import com.example.harmonicatulashop.ui.catalog.holders.AccordionViewHolder;
-import com.example.harmonicatulashop.ui.models.Accordion;
+import com.example.harmonicatulashop.models.harmonica.Accordion;
 
 public class AccordionAdapter extends ListAdapter<Accordion, AccordionViewHolder> {
 
@@ -27,7 +27,7 @@ public class AccordionAdapter extends ListAdapter<Accordion, AccordionViewHolder
         holder.bindName(name);
         String price = current.getPrice() + " ₽";
         holder.bindPrice(price);
-        holder.bindImage(current.getIcon());
+        holder.bindImage(current.getId(), current.getIcon());
     }
 
     public static class AccordionDiff extends DiffUtil.ItemCallback<Accordion> {

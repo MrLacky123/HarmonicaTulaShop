@@ -13,13 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
-import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentHarmonicaCatalogBinding;
-import com.example.harmonicatulashop.databinding.ItemHarmonicaBinding;
 import com.example.harmonicatulashop.ui.catalog.db.adapters.HarmonicaAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaCatalogViewModel;
-import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaViewModel;
-import com.example.harmonicatulashop.ui.models.Harmonica;
 
 public class HarmonicaCatalogFragment extends Fragment {
 
