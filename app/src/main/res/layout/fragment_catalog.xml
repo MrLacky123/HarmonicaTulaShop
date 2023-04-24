@@ -16,130 +16,138 @@
         android:layout_height="match_parent"
         android:scrollbarSize="10dp">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layoutHarmonica"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@color/gray"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:contextClickable="true"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/layoutBayan"
-                android:onClick="@{()->viewmodel.onClickHarmonica()}">
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/catalogHarmonicaTitle"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutHarmonica"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/catalog_category_bg"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contextClickable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/layoutBayan"
+                    android:onClick="@{()->viewmodel.onClickHarmonica()}">
+
+                    <TextView
+                        android:id="@+id/catalogHarmonicaTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/title_harmonica"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:textStyle="italic"/>
+
+                    <ImageView
+                        android:id="@+id/catalogHarmonicaImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/catalog_harmonica"
+                        android:background="@drawable/rounded_image_view"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contentDescription="@string/harmonica_catalog" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutBayan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/catalog_category_bg"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/title_harmonica"
-                    android:textColor="@color/black"
-                    android:textSize="30sp"
-                    android:textStyle="italic"/>
-
-                <ImageView
-                    android:id="@+id/catalogHarmonicaImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/catalog_harmonica_1"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:contentDescription="@string/harmonica_catalog" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layoutBayan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@color/gray"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/layoutHarmonica"
-                app:layout_constraintTop_toTopOf="parent"
-                android:onClick="@{()->viewmodel.onClickBayan()}">
-
-                <TextView
-                    android:id="@+id/catalogBayanTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/layoutHarmonica"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:onClick="@{()->viewmodel.onClickBayan()}">
+
+                    <TextView
+                        android:id="@+id/catalogBayanTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/title_bayan"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:textStyle="italic" />
+
+                    <ImageView
+                        android:id="@+id/catalogBayanImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/catalog_bayan"
+                        android:background="@drawable/rounded_image_view"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contentDescription="@string/bayan_catalog" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutAccordion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/catalog_category_bg"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/title_bayan"
-                    android:textColor="@color/black"
-                    android:textSize="30sp"
-                    android:textStyle="italic" />
-
-                <ImageView
-                    android:id="@+id/catalogBayanImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/catalog_bayan_1"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:contentDescription="@string/bayan_catalog" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layoutAccordion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@color/gray"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/layoutHarmonica"
-                app:layout_constraintTop_toTopOf="parent"
-                android:onClick="@{()->viewmodel.onClickAccordion()}">
-
-                <TextView
-                    android:id="@+id/catalogAccordionTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/layoutHarmonica"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="@string/catalog_accordion"
-                    android:textColor="@color/black"
-                    android:textSize="30sp"
-                    android:textStyle="italic" />
+                    android:onClick="@{()->viewmodel.onClickAccordion()}">
 
-                <ImageView
-                    android:id="@+id/catalogAccordionImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/catalog_accordion_1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contentDescription="@string/accordion_catalog" />
+                    <TextView
+                        android:id="@+id/catalogAccordionTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/catalog_accordion"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:textStyle="italic" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+                    <ImageView
+                        android:id="@+id/catalogAccordionImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/catalog_accordion"
+                        android:background="@drawable/rounded_image_view"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contentDescription="@string/accordion_catalog" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

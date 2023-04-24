@@ -8,31 +8,24 @@ import androidx.room.PrimaryKey;
 import java.util.Arrays;
 
 @Entity(tableName = "bayan_list")
-public class Bayan extends Harmonicas {
-
+public class Bayan {
 
     public static final String NAME = "Баян";
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
     @NonNull
     @ColumnInfo(name = "image")
     private byte[] icon;
-
     @NonNull
     @ColumnInfo(name = "type")
     private String type;
-
     @NonNull
     @ColumnInfo(name = "range")
     private String range;
-
     @NonNull
     @ColumnInfo(name = "price")
     private int price;
-
-
     @NonNull
     @ColumnInfo(name = "options")
     private String options;

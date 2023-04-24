@@ -15,7 +15,6 @@
         android:background="@color/white"
         tools:context=".ui.catalog.fragments.AccordionCatalogFragment">
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/accordion_list"
             android:layout_width="match_parent"

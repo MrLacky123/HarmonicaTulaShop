@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.databinding.FragmentAccordionCatalogBinding;
-import com.example.harmonicatulashop.ui.catalog.db.adapters.AccordionAdapter;
+import com.example.harmonicatulashop.database.catalog.adapters.AccordionAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.AccordionCatalogViewModel;
 
 public class AccordionCatalogFragment extends Fragment {

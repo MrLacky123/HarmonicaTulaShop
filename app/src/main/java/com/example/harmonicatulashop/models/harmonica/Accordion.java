@@ -8,29 +8,27 @@ import androidx.room.PrimaryKey;
 import java.util.Arrays;
 
 @Entity(tableName = "accordion_list")
-public class Accordion extends Harmonicas {
+public class Accordion {
 
     public static final String NAME = "Аккордеон ТУЛА";
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
     @NonNull
     @ColumnInfo(name = "image")
     private byte[] icon;
-
     @NonNull
     @ColumnInfo(name = "range")
     private String range;
-
-    @NonNull
     @ColumnInfo(name = "price")
     private int price;
-
-
     @NonNull
     @ColumnInfo(name = "options")
     private String options;
+
+    public Accordion() {
+
+    }
 
     public int getId() {
         return id;
@@ -40,19 +38,21 @@ public class Accordion extends Harmonicas {
         this.id = id;
     }
 
+    @NonNull
     public byte[] getIcon() {
         return icon;
     }
 
-    public void setIcon(byte[] icon) {
+    public void setIcon(@NonNull byte[] icon) {
         this.icon = icon;
     }
 
+    @NonNull
     public String getRange() {
         return range;
     }
 
-    public void setRange(String range) {
+    public void setRange(@NonNull String range) {
         this.range = range;
     }
 
@@ -64,17 +64,16 @@ public class Accordion extends Harmonicas {
         this.price = price;
     }
 
+    @NonNull
     public String getOptions() {
         return options;
     }
 
-    public void setOptions(String options) {
+    public void setOptions(@NonNull String options) {
         this.options = options;
     }
 
-    public Accordion() {}
-
-    public Accordion(byte[] icon, String range, int price, String options) {
+    public Accordion(@NonNull byte[] icon, @NonNull String range, int price, @NonNull String options) {
         this.icon = icon;
         this.range = range;
         this.price = price;

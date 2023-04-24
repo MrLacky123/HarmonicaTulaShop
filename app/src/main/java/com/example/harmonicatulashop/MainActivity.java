@@ -3,6 +3,7 @@ package com.example.harmonicatulashop;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.harmonicatulashop.databinding.ActivityMainBinding;
+import com.example.harmonicatulashop.models.account.Admin;
 import com.example.harmonicatulashop.models.account.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.common.base.Optional;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public static MainActivity Instance;
 
     public static User currentUser;
+
+    public static Admin currentAdmin;
 
     private ActivityMainBinding binding;
 
@@ -44,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.d("RRR", "onCreate");
 
         Instance = this;
 

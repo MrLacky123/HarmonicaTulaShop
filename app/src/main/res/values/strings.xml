@@ -24,4 +24,13 @@
     <string name="harmonica_image">Harmonica Image</string>
     <string name="bayan_icon">Bayan Image</string>
     <string name="accordion_icon">Accordion image</string>
+    <string name="hint_password">Password</string>
+    <string name="login_hint">Login</string>
+    <string name="authentication">Аутентификация</string>
+    <string name="admin">Я администратор</string>
+    <string name="repeat_password">Повторите пароль:</string>
+    <string name="password_input">Придумайте пароль:</string>
+    <string name="login">Логин</string>
+    <string name="enter_login">Введите логин:</string>
+    <string name="registration">Регистрация</string>
 </resources>

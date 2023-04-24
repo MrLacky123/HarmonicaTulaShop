@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.harmonicatulashop.ui.catalog.db.room.BayanRepository;
+import com.example.harmonicatulashop.database.catalog.room.BayanRepository;
 import com.example.harmonicatulashop.models.harmonica.Bayan;
 
 import java.util.List;

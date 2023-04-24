@@ -8,33 +8,27 @@ import androidx.room.PrimaryKey;
 import java.util.Arrays;
 
 @Entity(tableName = "harmonica_list")
-public class Harmonica extends Harmonicas {
-
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+public class Harmonica {
 
     public static final String NAME = "Гармонь";
 
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     @NonNull
     @ColumnInfo(name = "image")
     private byte[] icon;
-
     @NonNull
     @ColumnInfo(name = "type")
     private String type;
-
     @NonNull
     @ColumnInfo(name = "tone")
     private String tone;
-
     @NonNull
     @ColumnInfo(name = "range")
     private String range;
-
-    @NonNull
     @ColumnInfo(name = "price")
     private int price;
-
+    @ColumnInfo(name = "options")
     private String options;
 
     public int getId() {
@@ -97,11 +91,8 @@ public class Harmonica extends Harmonicas {
         this.options = options;
     }
 
-    public Harmonica() {
-    }
-
-    public Harmonica(byte[] iconUri, @NonNull String type, @NonNull String tone, @NonNull String range, int price, @NonNull String options) {
-        this.icon = iconUri;
+    public Harmonica(@NonNull byte[] icon, @NonNull String type, @NonNull String tone, @NonNull String range, int price, @NonNull String options) {
+        this.icon = icon;
         this.type = type;
         this.tone = tone;
         this.range = range;

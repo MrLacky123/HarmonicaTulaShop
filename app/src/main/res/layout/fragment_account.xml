@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/account_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.account.AccountFragment">
@@ -19,25 +20,24 @@
             android:id="@+id/sign_up"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="268dp"
+            android:onClick="@{()->viewModel.signUp()}"
             android:text="@string/sign_up"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:onClick="@{()->viewModel.signUp()}" />
+            app:layout_constraintVertical_bias="0.442" />
 
         <Button
             android:id="@+id/sign_in"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="30dp"
+            android:onClick="@{()->viewModel.signIn()}"
             android:text="@string/sign_in"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sign_up"
-            android:onClick="@{()->viewModel.signIn()}" />
+            app:layout_constraintTop_toBottomOf="@+id/sign_up"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

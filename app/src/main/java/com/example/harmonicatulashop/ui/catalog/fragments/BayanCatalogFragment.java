@@ -15,10 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.harmonicatulashop.MainActivity;
-import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentBayanCatalogBinding;
-import com.example.harmonicatulashop.ui.catalog.db.adapters.BayanAdapter;
-import com.example.harmonicatulashop.ui.catalog.db.adapters.HarmonicaAdapter;
+import com.example.harmonicatulashop.database.catalog.adapters.BayanAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.BayanCatalogViewModel;
 
 public class BayanCatalogFragment extends Fragment {

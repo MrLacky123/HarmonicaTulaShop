@@ -20,11 +20,16 @@ public class CatalogFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         viewModel = new ViewModelProvider(MainActivity.Instance).get(CatalogViewModel.class);
 
         binding = FragmentCatalogBinding.inflate(inflater, container, false);
         binding.setViewmodel(viewModel);
         binding.executePendingBindings();
+
+        binding.catalogHarmonicaImage.setClipToOutline(true);
+        binding.catalogBayanImage.setClipToOutline(true);
+        binding.catalogAccordionImage.setClipToOutline(true);
 
         return binding.getRoot();
     }
