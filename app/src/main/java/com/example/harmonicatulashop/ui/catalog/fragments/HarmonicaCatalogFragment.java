@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.models.harmonica.adapters.HarmonicaAdapter;
 import com.example.harmonicatulashop.databinding.FragmentHarmonicaCatalogBinding;
-import com.example.harmonicatulashop.database.catalog.adapters.HarmonicaAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaCatalogViewModel;
 
 public class HarmonicaCatalogFragment extends Fragment {
@@ -37,12 +37,9 @@ public class HarmonicaCatalogFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 
-        catalogViewModel.getAllHarmonicas().observe(MainActivity.Instance, harmonicas -> {
-            adapter.submitList(harmonicas);
-        });
+        catalogViewModel.getAllHarmonicas().observe(MainActivity.Instance, adapter::submitList);
 
         return catalogBinding.getRoot();
-
     }
     
     @Override

@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.297" />
+            app:layout_constraintVertical_bias="0.182" />
 
         <TextView
             android:id="@+id/input_password"
@@ -68,7 +68,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sign_up_login"
-            app:layout_constraintVertical_bias="0.123" />
+            app:layout_constraintVertical_bias="0.217" />
 
         <TextView
             android:id="@+id/repeat_password"
@@ -87,6 +87,7 @@
             android:id="@+id/sign_up_password_repeat"
             android:layout_width="300dp"
             android:layout_height="50dp"
+            android:autofillHints=""
             android:background="@drawable/text_input_bg"
             android:ems="10"
             android:inputType="textPassword"
@@ -94,19 +95,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sign_up_password"
-            app:layout_constraintVertical_bias="0.154"
-            android:autofillHints="" />
+            app:layout_constraintVertical_bias="0.343" />
 
         <Button
             android:id="@+id/sign_up_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:onClick="@{()->viewModel.onClickSignUpButton()}"
             android:text="@string/sign_up"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sign_up_password_repeat" />
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_password_repeat"
+            app:layout_constraintVertical_bias="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

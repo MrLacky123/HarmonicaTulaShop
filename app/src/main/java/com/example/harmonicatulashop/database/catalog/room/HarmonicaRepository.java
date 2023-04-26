@@ -15,7 +15,7 @@ public class HarmonicaRepository {
     private LiveData<List<Harmonica>> allHarmonicas;
 
     public HarmonicaRepository(Application application) {
-        HarmonicasRoomDatabase db = HarmonicasRoomDatabase.getDatabase(application);
+        HarmonicaRoomDatabase db = HarmonicaRoomDatabase.getDatabase(application);
         harmonicaDao = db.harmonicaDao();
         allHarmonicas = harmonicaDao.getHarmonicas();
     }
@@ -25,6 +25,6 @@ public class HarmonicaRepository {
     }
 
     public void insert(Harmonica harmonica) {
-        HarmonicasRoomDatabase.databaseWriteExecutor.execute(() -> harmonicaDao.insert(harmonica));
+        HarmonicaRoomDatabase.databaseWriteExecutor.execute(() -> harmonicaDao.insert(harmonica));
     }
 }

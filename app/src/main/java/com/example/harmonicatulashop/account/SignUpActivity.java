@@ -1,12 +1,9 @@
 package com.example.harmonicatulashop.account;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.account.viewmodels.SignUpViewModel;

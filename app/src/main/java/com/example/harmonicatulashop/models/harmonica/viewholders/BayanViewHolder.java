@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.ui.catalog.viewholders;
+package com.example.harmonicatulashop.models.harmonica.viewholders;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

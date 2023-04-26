@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.databinding.FragmentAccordionCatalogBinding;
-import com.example.harmonicatulashop.database.catalog.adapters.AccordionAdapter;
+import com.example.harmonicatulashop.models.harmonica.adapters.AccordionAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.AccordionCatalogViewModel;
 
 public class AccordionCatalogFragment extends Fragment {
@@ -37,10 +37,14 @@ public class AccordionCatalogFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 
-        viewModel.getAllAccordions().observe(MainActivity.Instance, accordions -> {
-            adapter.submitList(accordions);
-        });
+        viewModel.getAllAccordions().observe(MainActivity.Instance, adapter::submitList);
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

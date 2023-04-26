@@ -34,4 +34,11 @@ public class AccountFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+
+    }
 }

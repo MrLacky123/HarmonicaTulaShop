@@ -1,21 +1,21 @@
-package com.example.harmonicatulashop.database.catalog.room;
+package com.example.harmonicatulashop.database.cart.room;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.harmonicatulashop.database.catalog.dao.AccordionDao;
+import com.example.harmonicatulashop.database.cart.dao.AccordionCartDao;
 import com.example.harmonicatulashop.models.harmonica.Accordion;
 
 import java.util.List;
 
-public class AccordionRepository {
-    private AccordionDao accordionDao;
+public class AccordionCartRepository {
+    private AccordionCartDao accordionDao;
 
     private LiveData<List<Accordion>> allAccordions;
 
-    public AccordionRepository(Application application) {
-        AccordionRoomDatabase db = AccordionRoomDatabase.getDatabase(application);
+    public AccordionCartRepository(Application application) {
+        AccordionCartRoomDatabase db = AccordionCartRoomDatabase.getDatabase(application);
         accordionDao = db.accordionDao();
         allAccordions = accordionDao.getAccordions();
     }
@@ -25,7 +25,7 @@ public class AccordionRepository {
     }
 
     public void insert(Accordion accordion) {
-        AccordionRoomDatabase.databaseWriteExecutor.execute(() -> {
+        AccordionCartRoomDatabase.databaseWriteExecutor.execute(() -> {
             accordionDao.insert(accordion);
         });
     }

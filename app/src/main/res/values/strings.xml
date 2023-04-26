@@ -16,7 +16,7 @@
 
     <string name="title_harmonica">Гармони</string>
     <string name="title_bayan">Баяны</string>
-    <string name="catalog_accordion">Аккордеоны</string>
+    <string name="title_accordion">Аккордеоны</string>
 
     <string name="add_to_cart">В корзину</string>
     <string name="add_to_favourites">Отложить инструмент</string>

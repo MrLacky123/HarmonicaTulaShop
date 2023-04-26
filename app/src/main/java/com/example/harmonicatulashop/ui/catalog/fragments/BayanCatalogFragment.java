@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.databinding.FragmentBayanCatalogBinding;
-import com.example.harmonicatulashop.database.catalog.adapters.BayanAdapter;
+import com.example.harmonicatulashop.models.harmonica.adapters.BayanAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.BayanCatalogViewModel;
 
 public class BayanCatalogFragment extends Fragment {
@@ -39,10 +39,14 @@ public class BayanCatalogFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 
-        viewModel.getAllBayans().observe(MainActivity.Instance, bayans -> {
-            adapter.submitList(bayans);
-        });
+        viewModel.getAllBayans().observe(MainActivity.Instance, adapter::submitList);
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

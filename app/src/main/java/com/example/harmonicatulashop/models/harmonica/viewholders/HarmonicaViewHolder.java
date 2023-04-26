@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.ui.catalog.viewholders;
+package com.example.harmonicatulashop.models.harmonica.viewholders;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,13 +22,11 @@ public class HarmonicaViewHolder extends RecyclerView.ViewHolder {
     private final ImageView harmonicaImageView;
 
     private HarmonicaViewHolder(View itemView) {
-
         super(itemView);
 
         harmonicaNameView = itemView.findViewById(R.id.harmonica_name);
         harmonicaPriceView = itemView.findViewById(R.id.harmonica_price);
         harmonicaImageView = itemView.findViewById(R.id.harmonica_icon);
-
     }
 
     public void bindName(String name) {

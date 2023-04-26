@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.database.catalog.adapters;
+package com.example.harmonicatulashop.models.harmonica.adapters;
 
 import android.view.ViewGroup;
 
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
-import com.example.harmonicatulashop.ui.catalog.viewholders.HarmonicaViewHolder;
+import com.example.harmonicatulashop.models.harmonica.viewholders.HarmonicaViewHolder;
 import com.example.harmonicatulashop.models.harmonica.Harmonica;
 
 public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder> {

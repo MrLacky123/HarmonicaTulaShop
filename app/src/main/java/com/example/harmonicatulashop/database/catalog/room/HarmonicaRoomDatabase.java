@@ -20,21 +20,21 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {Harmonica.class}, version = 1, exportSchema = false)
-public abstract class HarmonicasRoomDatabase extends RoomDatabase {
+public abstract class HarmonicaRoomDatabase extends RoomDatabase {
 
     public abstract HarmonicaDao harmonicaDao();
 
-    private static volatile HarmonicasRoomDatabase INSTANCE;
+    private static volatile HarmonicaRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static HarmonicasRoomDatabase getDatabase(final Context context) {
+    static HarmonicaRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
-            synchronized (HarmonicasRoomDatabase.class) {
+            synchronized (HarmonicaRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    HarmonicasRoomDatabase.class, "harmonica_list_database")
+                                    HarmonicaRoomDatabase.class, "harmonica_list_database")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
