@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getBaseContext().deleteDatabase("harmonica_list_database");
-        getBaseContext().deleteDatabase("bayan_list_database");
-        getBaseContext().deleteDatabase("accordion_list_database");
+        getBaseContext().deleteDatabase("catalog_database");
+        getBaseContext().deleteDatabase("cart_database");
+        getBaseContext().deleteDatabase("favourite_database");
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 

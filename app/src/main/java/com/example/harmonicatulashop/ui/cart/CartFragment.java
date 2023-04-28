@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.database.cart.adapters.AccordionCartAdapter;
+import com.example.harmonicatulashop.database.cart.adapters.BayanCartAdapter;
+import com.example.harmonicatulashop.database.cart.adapters.HarmonicaCartAdapter;
 import com.example.harmonicatulashop.databinding.FragmentCartBinding;
-import com.example.harmonicatulashop.models.harmonica.adapters.AccordionAdapter;
-import com.example.harmonicatulashop.models.harmonica.adapters.BayanAdapter;
-import com.example.harmonicatulashop.models.harmonica.adapters.HarmonicaAdapter;
 
 public class CartFragment extends Fragment {
 
@@ -40,7 +40,7 @@ public class CartFragment extends Fragment {
 
         harmonicaCartList = binding.harmonicaCartList;
 
-        final HarmonicaAdapter harmonicaAdapter = new HarmonicaAdapter(new HarmonicaAdapter.HarmonicaDiff());
+        final HarmonicaCartAdapter harmonicaAdapter = new HarmonicaCartAdapter(new HarmonicaCartAdapter.HarmonicaDiff());
         harmonicaCartList.setAdapter(harmonicaAdapter);
         harmonicaCartList.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 
@@ -49,7 +49,7 @@ public class CartFragment extends Fragment {
 
         bayanCartList = binding.bayanCartList;
 
-        final BayanAdapter bayanAdapter = new BayanAdapter(new BayanAdapter.BayanDiff());
+        final BayanCartAdapter bayanAdapter = new BayanCartAdapter(new BayanCartAdapter.BayanDiff());
         bayanCartList.setAdapter(bayanAdapter);
         bayanCartList.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 
@@ -58,7 +58,7 @@ public class CartFragment extends Fragment {
 
         accordionCartList = binding.accordionCartList;
 
-        final AccordionAdapter accordionAdapter = new AccordionAdapter(new AccordionAdapter.AccordionDiff());
+        final AccordionCartAdapter accordionAdapter = new AccordionCartAdapter(new AccordionCartAdapter.AccordionDiff());
         accordionCartList.setAdapter(accordionAdapter);
         accordionCartList.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 

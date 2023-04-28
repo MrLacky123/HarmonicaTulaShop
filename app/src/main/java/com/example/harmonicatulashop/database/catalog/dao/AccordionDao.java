@@ -6,7 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.harmonicatulashop.models.harmonica.Accordion;
+import com.example.harmonicatulashop.models.catalog.Accordion;
 
 import java.util.List;
 
@@ -15,12 +15,12 @@ public interface AccordionDao {
     @Insert
     void insert(Accordion accordion);
 
-    @Query("DELETE FROM accordion_list")
+    @Query("DELETE FROM accordion_catalog_list")
     void deleteAll();
 
     @Delete
     void delete(Accordion accordion);
 
-    @Query("SELECT * FROM accordion_list ORDER BY id")
+    @Query("SELECT * FROM accordion_catalog_list ORDER BY id")
     LiveData<List<Accordion>> getAccordions();
 }

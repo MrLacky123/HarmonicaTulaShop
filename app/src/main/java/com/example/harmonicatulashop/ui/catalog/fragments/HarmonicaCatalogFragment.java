@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
-import com.example.harmonicatulashop.models.harmonica.adapters.HarmonicaAdapter;
+import com.example.harmonicatulashop.database.catalog.adapters.HarmonicaCatalogAdapter;
 import com.example.harmonicatulashop.databinding.FragmentHarmonicaCatalogBinding;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaCatalogViewModel;
 
@@ -33,7 +33,7 @@ public class HarmonicaCatalogFragment extends Fragment {
         catalogBinding.executePendingBindings();
 
         RecyclerView recyclerView = catalogBinding.harmonicaList;
-        final HarmonicaAdapter adapter = new HarmonicaAdapter(new HarmonicaAdapter.HarmonicaDiff());
+        final HarmonicaCatalogAdapter adapter = new HarmonicaCatalogAdapter(new HarmonicaCatalogAdapter.HarmonicaDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 

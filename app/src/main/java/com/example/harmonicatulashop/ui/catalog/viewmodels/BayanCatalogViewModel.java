@@ -5,8 +5,8 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.harmonicatulashop.database.catalog.room.BayanRepository;
-import com.example.harmonicatulashop.models.harmonica.Bayan;
+import com.example.harmonicatulashop.database.catalog.room.CatalogRepository;
+import com.example.harmonicatulashop.models.catalog.Bayan;
 
 import java.util.List;
 
@@ -14,16 +14,16 @@ public class BayanCatalogViewModel extends AndroidViewModel {
 
     public LiveData<List<Bayan>> bayans;
 
-    private BayanRepository repository;
+    private CatalogRepository repository;
 
     public BayanCatalogViewModel (Application application) {
         super(application);
-        repository = new BayanRepository(application);
+        repository = new CatalogRepository(application);
         bayans = repository.getAllBayans();
     }
 
     public LiveData<List<Bayan>> getAllBayans() { return bayans; }
 
-    public void insert(Bayan bayan) { repository.insert(bayan); }
+    public void insert(Bayan bayan) { repository.insertBayan(bayan); }
 
 }

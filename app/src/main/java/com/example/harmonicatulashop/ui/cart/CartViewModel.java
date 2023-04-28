@@ -8,13 +8,11 @@ import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.database.cart.room.AccordionCartRepository;
-import com.example.harmonicatulashop.database.cart.room.BayanCartRepository;
-import com.example.harmonicatulashop.database.cart.room.HarmonicaCartRepository;
+import com.example.harmonicatulashop.database.cart.room.CartRepository;
 import com.example.harmonicatulashop.databinding.FragmentCartBinding;
-import com.example.harmonicatulashop.models.harmonica.Accordion;
-import com.example.harmonicatulashop.models.harmonica.Bayan;
-import com.example.harmonicatulashop.models.harmonica.Harmonica;
+import com.example.harmonicatulashop.models.cart.Accordion;
+import com.example.harmonicatulashop.models.cart.Bayan;
+import com.example.harmonicatulashop.models.cart.Harmonica;
 
 import java.util.List;
 
@@ -24,36 +22,30 @@ public class CartViewModel extends AndroidViewModel {
     public LiveData<List<Accordion>> accordions;
     public LiveData<List<Bayan>> bayans;
 
-    private final HarmonicaCartRepository harmonicaRepository;
-    private final BayanCartRepository bayanRepository;
-    private final AccordionCartRepository accordionRepository;
+    private final CartRepository cartRepository;
 
     private FragmentCartBinding binding;
 
     public CartViewModel (Application application) {
         super(application);
 
-        harmonicaRepository = new HarmonicaCartRepository(application);
-        harmonicas = harmonicaRepository.getAllHarmonicas();
-
-        bayanRepository = new BayanCartRepository(application);
-        bayans = bayanRepository.getAllBayans();
-
-        accordionRepository = new AccordionCartRepository(application);
-        accordions = accordionRepository.getAllAccordions();
+        cartRepository = new CartRepository(application);
+        harmonicas = cartRepository.getAllHarmonicas();
+        bayans = cartRepository.getAllBayans();
+        accordions = cartRepository.getAllAccordions();
     }
 
     public LiveData<List<Harmonica>> getAllHarmonicas() { return harmonicas; }
 
-    public void insertHarmonica(Harmonica harmonica) { harmonicaRepository.insert(harmonica); }
+    public void insertHarmonica(Harmonica harmonica) { cartRepository.insertHarmonica(harmonica); }
 
     public LiveData<List<Bayan>> getAllBayans() { return bayans; }
 
-    public void insertBayan(Bayan bayan) { bayanRepository.insert(bayan); }
+    public void insertBayan(Bayan bayan) { cartRepository.insertBayan(bayan); }
 
     public LiveData<List<Accordion>> getAllAccordions() { return accordions; }
 
-    public void insertAccorion(Accordion accordion) { accordionRepository.insert(accordion); }
+    public void insertAccordion(Accordion accordion) { cartRepository.insertAccordion(accordion); }
 
     public void onHarmonicaClick() {
         RecyclerView view  = binding.harmonicaCartList;

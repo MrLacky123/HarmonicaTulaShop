@@ -5,8 +5,8 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.harmonicatulashop.database.catalog.room.AccordionRepository;
-import com.example.harmonicatulashop.models.harmonica.Accordion;
+import com.example.harmonicatulashop.database.catalog.room.CatalogRepository;
+import com.example.harmonicatulashop.models.catalog.Accordion;
 
 import java.util.List;
 
@@ -14,16 +14,16 @@ public class AccordionCatalogViewModel extends AndroidViewModel {
 
     public LiveData<List<Accordion>> accordions;
 
-    private AccordionRepository repository;
+    private CatalogRepository repository;
 
     public AccordionCatalogViewModel (Application application) {
         super(application);
-        repository = new AccordionRepository(application);
+        repository = new CatalogRepository(application);
         accordions = repository.getAllAccordions();
     }
 
     public LiveData<List<Accordion>> getAllAccordions() { return accordions; }
 
-    public void insert(Accordion accordion) { repository.insert(accordion); }
+    public void insert(Accordion accordion) { repository.insertAccordion(accordion); }
 
 }

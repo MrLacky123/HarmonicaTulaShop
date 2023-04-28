@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.databinding.FragmentAccordionCatalogBinding;
-import com.example.harmonicatulashop.models.harmonica.adapters.AccordionAdapter;
+import com.example.harmonicatulashop.database.catalog.adapters.AccordionCatalogAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.AccordionCatalogViewModel;
 
 public class AccordionCatalogFragment extends Fragment {
@@ -33,7 +33,7 @@ public class AccordionCatalogFragment extends Fragment {
         binding.executePendingBindings();
 
         RecyclerView recyclerView = binding.accordionList;
-        final AccordionAdapter adapter = new AccordionAdapter(new AccordionAdapter.AccordionDiff());
+        final AccordionCatalogAdapter adapter = new AccordionCatalogAdapter(new AccordionCatalogAdapter.AccordionDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 

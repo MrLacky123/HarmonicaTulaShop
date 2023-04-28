@@ -15,8 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.database.catalog.adapters.BayanCatalogAdapter;
 import com.example.harmonicatulashop.databinding.FragmentBayanCatalogBinding;
-import com.example.harmonicatulashop.models.harmonica.adapters.BayanAdapter;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.BayanCatalogViewModel;
 
 public class BayanCatalogFragment extends Fragment {
@@ -35,7 +35,7 @@ public class BayanCatalogFragment extends Fragment {
         binding.executePendingBindings();
 
         RecyclerView recyclerView = binding.bayanList;
-        final BayanAdapter adapter = new BayanAdapter(new BayanAdapter.BayanDiff());
+        final BayanCatalogAdapter adapter = new BayanCatalogAdapter(new BayanCatalogAdapter.BayanDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
 

@@ -15,137 +15,147 @@
         android:layout_height="match_parent"
         tools:context=".ui.cart.CartFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/harmonica_cart_category"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:background="@drawable/catalog_category_bg"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:onClick="@{()->viewModel.onHarmonicaClick()}"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:text="@string/title_harmonica"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/harmonica_expand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:src="@drawable/baseline_expand_more_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/harmonica_cart_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/catalog_category_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="@{()->viewModel.onHarmonicaClick()}"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:text="@string/title_harmonica"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/harmonica_cart_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/harmonica_cart_category" />
+                    <ImageView
+                        android:id="@+id/harmonica_expand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/baseline_expand_more_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/bayan_cart_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:background="@drawable/catalog_category_bg"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:onClick="@{()->viewModel.onBayanClick()}"
-            app:layout_constraintTop_toBottomOf="@+id/harmonica_cart_list">
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:text="@string/title_bayan"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/harmonica_cart_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/harmonica_cart_category" />
 
-            <ImageView
-                android:id="@+id/bayan_expand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:src="@drawable/baseline_expand_more_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bayan_cart_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/catalog_category_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="@{()->viewModel.onBayanClick()}"
+                    app:layout_constraintTop_toBottomOf="@+id/harmonica_cart_list">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:text="@string/title_bayan"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/bayan_cart_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/bayan_cart_category" />
+                    <ImageView
+                        android:id="@+id/bayan_expand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/baseline_expand_more_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/accordion_cart_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:background="@drawable/catalog_category_bg"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:onClick="@{()->viewModel.onAccordionClick()}"
-            app:layout_constraintTop_toBottomOf="@+id/bayan_cart_list">
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:text="@string/title_accordion"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/bayan_cart_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/bayan_cart_category" />
 
-            <ImageView
-                android:id="@+id/accordion_expand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:src="@drawable/baseline_expand_more_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/accordion_cart_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/catalog_category_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="@{()->viewModel.onAccordionClick()}"
+                    app:layout_constraintTop_toBottomOf="@+id/bayan_cart_list">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:text="@string/title_accordion"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/accordion_cart_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/accordion_cart_category" />
+                    <ImageView
+                        android:id="@+id/accordion_expand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/baseline_expand_more_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/accordion_cart_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/accordion_cart_category" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

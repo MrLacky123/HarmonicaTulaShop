@@ -6,7 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.harmonicatulashop.models.harmonica.Bayan;
+import com.example.harmonicatulashop.models.catalog.Bayan;
 
 import java.util.List;
 
@@ -16,12 +16,12 @@ public interface BayanDao {
     @Insert
     void insert(Bayan bayan);
 
-    @Query("DELETE FROM bayan_list")
+    @Query("DELETE FROM bayan_catalog_list")
     void deleteAll();
 
     @Delete
     void delete(Bayan bayan);
 
-    @Query("SELECT * FROM bayan_list ORDER BY id")
+    @Query("SELECT * FROM bayan_catalog_list ORDER BY id")
     LiveData<List<Bayan>> getBayans();
 }

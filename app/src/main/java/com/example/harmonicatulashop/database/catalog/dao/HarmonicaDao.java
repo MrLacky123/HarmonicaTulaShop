@@ -6,7 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.harmonicatulashop.models.harmonica.Harmonica;
+import com.example.harmonicatulashop.models.catalog.Harmonica;
 
 import java.util.List;
 
@@ -16,13 +16,13 @@ public interface HarmonicaDao {
     @Insert
     void insert(Harmonica harmonica);
 
-    @Query("DELETE FROM harmonica_list")
+    @Query("DELETE FROM harmonica_catalog_list")
     void deleteAll();
 
     @Delete
     void delete(Harmonica harmonica);
 
-    @Query("SELECT * FROM harmonica_list ORDER BY id")
+    @Query("SELECT * FROM harmonica_catalog_list ORDER BY id")
     LiveData<List<Harmonica>> getHarmonicas();
 
 }
