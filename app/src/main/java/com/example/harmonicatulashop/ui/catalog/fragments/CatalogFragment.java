@@ -21,7 +21,7 @@ public class CatalogFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        viewModel = new ViewModelProvider(MainActivity.Instance).get(CatalogViewModel.class);
+        viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(CatalogViewModel.class);
 
         binding = FragmentCatalogBinding.inflate(inflater, container, false);
         binding.setViewmodel(viewModel);

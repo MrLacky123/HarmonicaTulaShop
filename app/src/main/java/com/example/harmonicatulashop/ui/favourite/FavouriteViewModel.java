@@ -8,11 +8,11 @@ import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.database.favourite.room.FavouriteRepository;
+import com.example.harmonicatulashop.database.harmonica.room.favourite.FavouriteRepository;
 import com.example.harmonicatulashop.databinding.FragmentFavouriteBinding;
-import com.example.harmonicatulashop.models.favourite.Accordion;
-import com.example.harmonicatulashop.models.favourite.Bayan;
-import com.example.harmonicatulashop.models.favourite.Harmonica;
+import com.example.harmonicatulashop.models.harmonica.Accordion;
+import com.example.harmonicatulashop.models.harmonica.Bayan;
+import com.example.harmonicatulashop.models.harmonica.Harmonica;
 
 import java.util.List;
 

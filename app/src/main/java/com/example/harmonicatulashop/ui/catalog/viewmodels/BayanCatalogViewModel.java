@@ -5,8 +5,8 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.harmonicatulashop.database.catalog.room.CatalogRepository;
-import com.example.harmonicatulashop.models.catalog.Bayan;
+import com.example.harmonicatulashop.database.harmonica.room.catalog.CatalogRepository;
+import com.example.harmonicatulashop.models.harmonica.Bayan;
 
 import java.util.List;
 

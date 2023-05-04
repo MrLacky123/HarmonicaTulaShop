@@ -33,4 +33,7 @@
     <string name="login">Логин</string>
     <string name="enter_login">Введите логин:</string>
     <string name="registration">Регистрация</string>
+    <string name="options">Дополнительные опции:</string>
+    <string name="tone">Тональность: </string>
+    <string name="range">Диапазон: </string>
 </resources>

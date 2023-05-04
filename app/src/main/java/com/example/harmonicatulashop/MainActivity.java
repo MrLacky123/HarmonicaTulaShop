@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -26,7 +27,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static MainActivity Instance;
+    public static MainActivity INSTANCE;
 
     public static User currentUser;
 
@@ -48,14 +49,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Instance = this;
+        INSTANCE = this;
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        getBaseContext().deleteDatabase("catalog_database");
-        getBaseContext().deleteDatabase("cart_database");
-        getBaseContext().deleteDatabase("favourite_database");
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
@@ -94,5 +91,12 @@ public class MainActivity extends AppCompatActivity {
                 .addToBackStack("open fragment")
                 .commit();
 
+    }
+
+    public void closeFragment(Fragment fragment) {
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.remove(fragment);
+        fragmentTransaction.commit();
     }
 }

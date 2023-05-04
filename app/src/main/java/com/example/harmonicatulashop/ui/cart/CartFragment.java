@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
-import com.example.harmonicatulashop.database.cart.adapters.AccordionCartAdapter;
-import com.example.harmonicatulashop.database.cart.adapters.BayanCartAdapter;
-import com.example.harmonicatulashop.database.cart.adapters.HarmonicaCartAdapter;
 import com.example.harmonicatulashop.databinding.FragmentCartBinding;
+import com.example.harmonicatulashop.models.harmonica.adapters.AccordionAdapter;
+import com.example.harmonicatulashop.models.harmonica.adapters.BayanAdapter;
+import com.example.harmonicatulashop.models.harmonica.adapters.HarmonicaAdapter;
 
 public class CartFragment extends Fragment {
 
@@ -40,29 +40,29 @@ public class CartFragment extends Fragment {
 
         harmonicaCartList = binding.harmonicaCartList;
 
-        final HarmonicaCartAdapter harmonicaAdapter = new HarmonicaCartAdapter(new HarmonicaCartAdapter.HarmonicaDiff());
+        final HarmonicaAdapter harmonicaAdapter = new HarmonicaAdapter(new HarmonicaAdapter.HarmonicaDiff());
         harmonicaCartList.setAdapter(harmonicaAdapter);
-        harmonicaCartList.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
+        harmonicaCartList.setLayoutManager(new LinearLayoutManager(MainActivity.INSTANCE));
 
-        cartViewModel.getAllHarmonicas().observe(MainActivity.Instance, harmonicaAdapter::submitList);
+        cartViewModel.getAllHarmonicas().observe(MainActivity.INSTANCE, harmonicaAdapter::submitList);
 
 
         bayanCartList = binding.bayanCartList;
 
-        final BayanCartAdapter bayanAdapter = new BayanCartAdapter(new BayanCartAdapter.BayanDiff());
+        final BayanAdapter bayanAdapter = new BayanAdapter(new BayanAdapter.BayanDiff());
         bayanCartList.setAdapter(bayanAdapter);
-        bayanCartList.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
+        bayanCartList.setLayoutManager(new LinearLayoutManager(MainActivity.INSTANCE));
 
-        cartViewModel.getAllBayans().observe(MainActivity.Instance, bayanAdapter::submitList);
+        cartViewModel.getAllBayans().observe(MainActivity.INSTANCE, bayanAdapter::submitList);
 
 
         accordionCartList = binding.accordionCartList;
 
-        final AccordionCartAdapter accordionAdapter = new AccordionCartAdapter(new AccordionCartAdapter.AccordionDiff());
+        final AccordionAdapter accordionAdapter = new AccordionAdapter(new AccordionAdapter.AccordionDiff());
         accordionCartList.setAdapter(accordionAdapter);
-        accordionCartList.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
+        accordionCartList.setLayoutManager(new LinearLayoutManager(MainActivity.INSTANCE));
 
-        cartViewModel.getAllAccordions().observe(MainActivity.Instance, accordionAdapter::submitList);
+        cartViewModel.getAllAccordions().observe(MainActivity.INSTANCE, accordionAdapter::submitList);
 
 
         return binding.getRoot();

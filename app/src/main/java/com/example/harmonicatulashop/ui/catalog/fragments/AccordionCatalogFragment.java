@@ -1,5 +1,8 @@
 package com.example.harmonicatulashop.ui.catalog.fragments;
 
+import static com.example.harmonicatulashop.ui.catalog.activities.AccordionActivity.*;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.databinding.FragmentAccordionCatalogBinding;
-import com.example.harmonicatulashop.database.catalog.adapters.AccordionCatalogAdapter;
+import com.example.harmonicatulashop.models.harmonica.adapters.AccordionAdapter;
+import com.example.harmonicatulashop.ui.catalog.activities.AccordionActivity;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.AccordionCatalogViewModel;
 
 public class AccordionCatalogFragment extends Fragment {
@@ -26,18 +30,30 @@ public class AccordionCatalogFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        viewModel = new ViewModelProvider(MainActivity.Instance).get(AccordionCatalogViewModel.class);
+        viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(AccordionCatalogViewModel.class);
 
         binding = FragmentAccordionCatalogBinding.inflate(inflater, container, false);
         binding.setViewModel(viewModel);
         binding.executePendingBindings();
 
         RecyclerView recyclerView = binding.accordionList;
-        final AccordionCatalogAdapter adapter = new AccordionCatalogAdapter(new AccordionCatalogAdapter.AccordionDiff());
+        final AccordionAdapter adapter = new AccordionAdapter(new AccordionAdapter.AccordionDiff());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.INSTANCE));
 
-        viewModel.getAllAccordions().observe(MainActivity.Instance, adapter::submitList);
+        viewModel.getAllAccordions().observe(MainActivity.INSTANCE, adapter::submitList);
+
+        adapter.setOnItemClickListener(accordion -> {
+            Intent intent = new Intent(MainActivity.INSTANCE, AccordionActivity.class);
+
+            intent.putExtra(ID, accordion.getId());
+            intent.putExtra(ICON, accordion.getIcon());
+            intent.putExtra(RANGE, accordion.getRange());
+            intent.putExtra(PRICE, accordion.getPrice());
+            intent.putExtra(OPTIONS, accordion.getOptions());
+
+            startActivity(intent);
+        });
 
         return binding.getRoot();
     }

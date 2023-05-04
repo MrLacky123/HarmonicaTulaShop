@@ -11,13 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
-import com.example.harmonicatulashop.database.cart.adapters.AccordionCartAdapter;
-import com.example.harmonicatulashop.database.cart.adapters.BayanCartAdapter;
-import com.example.harmonicatulashop.database.cart.adapters.HarmonicaCartAdapter;
-import com.example.harmonicatulashop.database.favourite.adapters.AccordionFavouriteAdapter;
-import com.example.harmonicatulashop.database.favourite.adapters.BayanFavouriteAdapter;
-import com.example.harmonicatulashop.database.favourite.adapters.HarmonicaFavouriteAdapter;
 import com.example.harmonicatulashop.databinding.FragmentFavouriteBinding;
+import com.example.harmonicatulashop.models.harmonica.adapters.AccordionAdapter;
+import com.example.harmonicatulashop.models.harmonica.adapters.BayanAdapter;
+import com.example.harmonicatulashop.models.harmonica.adapters.HarmonicaAdapter;
 
 public class FavouriteFragment extends Fragment {
 
@@ -31,7 +28,7 @@ public class FavouriteFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(MainActivity.Instance).get(FavouriteViewModel.class);
+        viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(FavouriteViewModel.class);
 
         binding = FragmentFavouriteBinding.inflate(inflater, container, false);
         binding.setViewModel(viewModel);
@@ -41,29 +38,29 @@ public class FavouriteFragment extends Fragment {
 
         harmonicaCartList = binding.harmonicaFavouriteList;
 
-        final HarmonicaFavouriteAdapter harmonicaAdapter = new HarmonicaFavouriteAdapter(new HarmonicaFavouriteAdapter.HarmonicaDiff());
+        final HarmonicaAdapter harmonicaAdapter = new HarmonicaAdapter(new HarmonicaAdapter.HarmonicaDiff());
         harmonicaCartList.setAdapter(harmonicaAdapter);
-        harmonicaCartList.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
+        harmonicaCartList.setLayoutManager(new LinearLayoutManager(MainActivity.INSTANCE));
 
-        viewModel.getAllHarmonicas().observe(MainActivity.Instance, harmonicaAdapter::submitList);
+        viewModel.getAllHarmonicas().observe(MainActivity.INSTANCE, harmonicaAdapter::submitList);
 
 
         bayanCartList = binding.bayanFavouriteList;
 
-        final BayanFavouriteAdapter bayanAdapter = new BayanFavouriteAdapter(new BayanFavouriteAdapter.BayanDiff());
+        final BayanAdapter bayanAdapter = new BayanAdapter(new BayanAdapter.BayanDiff());
         bayanCartList.setAdapter(bayanAdapter);
-        bayanCartList.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
+        bayanCartList.setLayoutManager(new LinearLayoutManager(MainActivity.INSTANCE));
 
-        viewModel.getAllBayans().observe(MainActivity.Instance, bayanAdapter::submitList);
+        viewModel.getAllBayans().observe(MainActivity.INSTANCE, bayanAdapter::submitList);
 
 
-        accordionCartList = binding.bayanFavouriteList;
+        accordionCartList = binding.accordionFavouriteList;
 
-        final AccordionFavouriteAdapter accordionAdapter = new AccordionFavouriteAdapter(new AccordionFavouriteAdapter.AccordionDiff());
+        final AccordionAdapter accordionAdapter = new AccordionAdapter(new AccordionAdapter.AccordionDiff());
         accordionCartList.setAdapter(accordionAdapter);
-        accordionCartList.setLayoutManager(new LinearLayoutManager(MainActivity.Instance));
+        accordionCartList.setLayoutManager(new LinearLayoutManager(MainActivity.INSTANCE));
 
-        viewModel.getAllAccordions().observe(MainActivity.Instance, accordionAdapter::submitList);
+        viewModel.getAllAccordions().observe(MainActivity.INSTANCE, accordionAdapter::submitList);
 
         return binding.getRoot();
     }
