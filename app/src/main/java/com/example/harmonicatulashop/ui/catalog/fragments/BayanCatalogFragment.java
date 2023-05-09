@@ -1,13 +1,12 @@
 package com.example.harmonicatulashop.ui.catalog.fragments;
 
-import static com.example.harmonicatulashop.ui.catalog.activities.BayanActivity.ICON;
-import static com.example.harmonicatulashop.ui.catalog.activities.BayanActivity.ID;
-import static com.example.harmonicatulashop.ui.catalog.activities.BayanActivity.OPTIONS;
-import static com.example.harmonicatulashop.ui.catalog.activities.BayanActivity.PRICE;
-import static com.example.harmonicatulashop.ui.catalog.activities.BayanActivity.RANGE;
-import static com.example.harmonicatulashop.ui.catalog.activities.BayanActivity.TYPE;
+import static com.example.harmonicatulashop.models.harmonica.Bayan.ICON;
+import static com.example.harmonicatulashop.models.harmonica.Bayan.ID;
+import static com.example.harmonicatulashop.models.harmonica.Bayan.OPTIONS;
+import static com.example.harmonicatulashop.models.harmonica.Bayan.PRICE;
+import static com.example.harmonicatulashop.models.harmonica.Bayan.RANGE;
+import static com.example.harmonicatulashop.models.harmonica.Bayan.TYPE;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +20,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentBayanCatalogBinding;
+import com.example.harmonicatulashop.models.harmonica.Bayan;
 import com.example.harmonicatulashop.models.harmonica.adapters.BayanAdapter;
-import com.example.harmonicatulashop.ui.catalog.activities.BayanActivity;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.BayanCatalogViewModel;
+import com.example.harmonicatulashop.ui.fragments.BayanFragment;
 
 public class BayanCatalogFragment extends Fragment {
 
@@ -49,16 +50,20 @@ public class BayanCatalogFragment extends Fragment {
         viewModel.getAllBayans().observe(MainActivity.INSTANCE, adapter::submitList);
 
         adapter.setOnItemClickListener(bayan -> {
-            Intent intent = new Intent(MainActivity.INSTANCE, BayanActivity.class);
 
-            intent.putExtra(ID, bayan.getId());
-            intent.putExtra(ICON, bayan.getIcon());
-            intent.putExtra(TYPE, bayan.getType());
-            intent.putExtra(RANGE, bayan.getRange());
-            intent.putExtra(PRICE, bayan.getPrice());
-            intent.putExtra(OPTIONS, bayan.getOptions());
+            String title = Bayan.NAME + " \"" + bayan.getType() + "\"";
 
-            startActivity(intent);
+            Bundle bundle = new Bundle();
+
+            bundle.putInt(ID, bayan.getId());
+            bundle.putByteArray(ICON, bayan.getIcon());
+            bundle.putString(TYPE, bayan.getType());
+            bundle.putString(RANGE, bayan.getRange());
+            bundle.putInt(PRICE, bayan.getPrice());
+            bundle.putString(OPTIONS, bayan.getOptions());
+
+            MainActivity.INSTANCE.setFragment(BayanFragment.class, R.id.bayan_catalog_layout, bundle, title);
+
         });
 
         return binding.getRoot();

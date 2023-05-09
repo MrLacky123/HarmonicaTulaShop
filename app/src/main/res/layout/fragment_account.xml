@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.harmonicatulashop.ui.account.AccountViewModel" />
+            type="com.example.harmonicatulashop.ui.account.viewmodels.AccountViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

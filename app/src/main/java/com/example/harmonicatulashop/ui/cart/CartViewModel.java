@@ -2,6 +2,7 @@ package com.example.harmonicatulashop.ui.cart;
 
 import android.app.Application;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -48,50 +49,113 @@ public class CartViewModel extends AndroidViewModel {
     public void insertAccordion(Accordion accordion) { cartRepository.insertAccordion(accordion); }
 
     public void onHarmonicaClick() {
-        RecyclerView view  = binding.harmonicaCartList;
-        switch (view.getVisibility()) {
-            case View.VISIBLE:
-                view.setVisibility(View.GONE);
-                binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_more_24);
-                break;
-            case View.GONE:
-                view.setVisibility(View.VISIBLE);
-                binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_less_24);
-                break;
-            case View.INVISIBLE:
-                break;
+
+        if (harmonicas.getValue() != null && !harmonicas.getValue().isEmpty()) {
+
+            RecyclerView view  = binding.harmonicaCartList;
+
+            switch (view.getVisibility()) {
+                case View.VISIBLE:
+                    view.setVisibility(View.GONE);
+                    binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    view.setVisibility(View.VISIBLE);
+                    binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
+        } else {
+
+            TextView textView = binding.harmonicaEmpty;
+
+            switch (textView.getVisibility()) {
+                case View.VISIBLE:
+                    textView.setVisibility(View.GONE);
+                    binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    textView.setVisibility(View.VISIBLE);
+                    binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
         }
     }
 
     public void onBayanClick() {
-        RecyclerView view = binding.bayanCartList;
-        switch (view.getVisibility()) {
-            case View.VISIBLE:
-                view.setVisibility(View.GONE);
-                binding.bayanExpand.setImageResource(R.drawable.baseline_expand_more_24);
-                break;
-            case View.GONE:
-                view.setVisibility(View.VISIBLE);
-                binding.bayanExpand.setImageResource(R.drawable.baseline_expand_less_24);
-                break;
-            case View.INVISIBLE:
-                break;
+
+        if (bayans.getValue() != null && !bayans.getValue().isEmpty()) {
+
+            RecyclerView view  = binding.bayanCartList;
+
+            switch (view.getVisibility()) {
+                case View.VISIBLE:
+                    view.setVisibility(View.GONE);
+                    binding.bayanExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    view.setVisibility(View.VISIBLE);
+                    binding.bayanExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
+        } else {
+
+            TextView textView = binding.bayanEmpty;
+
+            switch (textView.getVisibility()) {
+                case View.VISIBLE:
+                    textView.setVisibility(View.GONE);
+                    binding.bayanExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    textView.setVisibility(View.VISIBLE);
+                    binding.bayanExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
         }
     }
 
     public void onAccordionClick() {
-        RecyclerView view = binding.accordionCartList;
-        switch (view.getVisibility()) {
-            case View.VISIBLE:
-                view.setVisibility(View.GONE);
-                binding.accordionExpand.setImageResource(R.drawable.baseline_expand_more_24);
-                break;
-            case View.GONE:
-                view.setVisibility(View.VISIBLE);
-                binding.accordionExpand.setImageResource(R.drawable.baseline_expand_less_24);
-                break;
-            case View.INVISIBLE:
-                break;
+
+        if (accordions.getValue() != null && !accordions.getValue().isEmpty()) {
+
+            RecyclerView view  = binding.accordionCartList;
+
+            switch (view.getVisibility()) {
+                case View.VISIBLE:
+                    view.setVisibility(View.GONE);
+                    binding.accordionExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    view.setVisibility(View.VISIBLE);
+                    binding.accordionExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
+        } else {
+
+            TextView textView = binding.accordionEmpty;
+
+            switch (textView.getVisibility()) {
+                case View.VISIBLE:
+                    textView.setVisibility(View.GONE);
+                    binding.accordionExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    textView.setVisibility(View.VISIBLE);
+                    binding.accordionExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
         }
     }
 

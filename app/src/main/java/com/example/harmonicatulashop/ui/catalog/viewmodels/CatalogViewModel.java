@@ -12,19 +12,25 @@ public class CatalogViewModel extends ViewModel {
 
     public void onClickHarmonica () {
 
-        MainActivity.INSTANCE.setFragment(HarmonicaCatalogFragment.class, R.id.catalog_layout, null);
+        MainActivity.INSTANCE.setFragment(HarmonicaCatalogFragment.class,
+                R.id.catalog_layout, null,
+                MainActivity.INSTANCE.getResources().getString(R.string.title_harmonica));
 
     }
 
     public void onClickBayan () {
 
-        MainActivity.INSTANCE.setFragment(BayanCatalogFragment.class, R.id.catalog_layout, null);
+        MainActivity.INSTANCE.setFragment(BayanCatalogFragment.class,
+                R.id.catalog_layout, null,
+                MainActivity.INSTANCE.getResources().getString(R.string.title_bayan));
 
     }
 
     public void onClickAccordion () {
 
-        MainActivity.INSTANCE.setFragment(AccordionCatalogFragment.class, R.id.catalog_layout, null);
+        MainActivity.INSTANCE.setFragment(AccordionCatalogFragment.class,
+                R.id.catalog_layout, null,
+                MainActivity.INSTANCE.getResources().getString(R.string.title_accordion));
 
     }
 }

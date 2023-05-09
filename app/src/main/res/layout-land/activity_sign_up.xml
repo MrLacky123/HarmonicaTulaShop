@@ -7,13 +7,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.harmonicatulashop.account.viewmodels.SignUpViewModel" />
+            type="com.example.harmonicatulashop.ui.account.viewmodels.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".account.SignUpActivity">
+        tools:context=".ui.account.activities.SignUpActivity">
 
         <TextView
             android:id="@+id/input_login"

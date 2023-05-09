@@ -8,7 +8,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.harmonicatulashop.database.account.dao.AdminDao;
+import com.example.harmonicatulashop.ui.account.dao.AdminDao;
 import com.example.harmonicatulashop.models.account.Admin;
 
 import java.util.concurrent.ExecutorService;

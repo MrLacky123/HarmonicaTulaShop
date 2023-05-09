@@ -2,11 +2,15 @@ package com.example.harmonicatulashop.ui.favourite;
 
 import android.app.Application;
 import android.view.View;
+import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.database.harmonica.room.favourite.FavouriteRepository;
 import com.example.harmonicatulashop.databinding.FragmentFavouriteBinding;
@@ -15,6 +19,7 @@ import com.example.harmonicatulashop.models.harmonica.Bayan;
 import com.example.harmonicatulashop.models.harmonica.Harmonica;
 
 import java.util.List;
+import java.util.Objects;
 
 public class FavouriteViewModel extends AndroidViewModel {
 
@@ -48,50 +53,113 @@ public class FavouriteViewModel extends AndroidViewModel {
     public void insertAccordion(Accordion accordion) { favouriteRepository.insertAccordion(accordion); }
 
     public void onHarmonicaClick() {
-        RecyclerView view  = binding.harmonicaFavouriteList;
-        switch (view.getVisibility()) {
-            case View.VISIBLE:
-                view.setVisibility(View.GONE);
-                binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_more_24);
-                break;
-            case View.GONE:
-                view.setVisibility(View.VISIBLE);
-                binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_less_24);
-                break;
-            case View.INVISIBLE:
-                break;
+
+        if (harmonicas.getValue() != null && !harmonicas.getValue().isEmpty()) {
+
+            RecyclerView view  = binding.harmonicaFavouriteList;
+
+            switch (view.getVisibility()) {
+                case View.VISIBLE:
+                    view.setVisibility(View.GONE);
+                    binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    view.setVisibility(View.VISIBLE);
+                    binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
+        } else {
+
+            TextView textView = binding.harmonicaEmpty;
+
+            switch (textView.getVisibility()) {
+                case View.VISIBLE:
+                    textView.setVisibility(View.GONE);
+                    binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    textView.setVisibility(View.VISIBLE);
+                    binding.harmonicaExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
         }
     }
 
     public void onBayanClick() {
-        RecyclerView view = binding.bayanFavouriteList;
-        switch (view.getVisibility()) {
-            case View.VISIBLE:
-                view.setVisibility(View.GONE);
-                binding.bayanExpand.setImageResource(R.drawable.baseline_expand_more_24);
-                break;
-            case View.GONE:
-                view.setVisibility(View.VISIBLE);
-                binding.bayanExpand.setImageResource(R.drawable.baseline_expand_less_24);
-                break;
-            case View.INVISIBLE:
-                break;
+
+        if (bayans.getValue() != null && !bayans.getValue().isEmpty()) {
+
+            RecyclerView view  = binding.bayanFavouriteList;
+
+            switch (view.getVisibility()) {
+                case View.VISIBLE:
+                    view.setVisibility(View.GONE);
+                    binding.bayanExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    view.setVisibility(View.VISIBLE);
+                    binding.bayanExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
+        } else {
+
+            TextView textView = binding.bayanEmpty;
+
+            switch (textView.getVisibility()) {
+                case View.VISIBLE:
+                    textView.setVisibility(View.GONE);
+                    binding.bayanExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    textView.setVisibility(View.VISIBLE);
+                    binding.bayanExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
         }
     }
 
     public void onAccordionClick() {
-        RecyclerView view = binding.accordionFavouriteList;
-        switch (view.getVisibility()) {
-            case View.VISIBLE:
-                view.setVisibility(View.GONE);
-                binding.accordionExpand.setImageResource(R.drawable.baseline_expand_more_24);
-                break;
-            case View.GONE:
-                view.setVisibility(View.VISIBLE);
-                binding.accordionExpand.setImageResource(R.drawable.baseline_expand_less_24);
-                break;
-            case View.INVISIBLE:
-                break;
+
+        if (accordions.getValue() != null && !accordions.getValue().isEmpty()) {
+
+            RecyclerView view  = binding.accordionFavouriteList;
+
+            switch (view.getVisibility()) {
+                case View.VISIBLE:
+                    view.setVisibility(View.GONE);
+                    binding.accordionExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    view.setVisibility(View.VISIBLE);
+                    binding.accordionExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
+        } else {
+
+            TextView textView = binding.accordionEmpty;
+
+            switch (textView.getVisibility()) {
+                case View.VISIBLE:
+                    textView.setVisibility(View.GONE);
+                    binding.accordionExpand.setImageResource(R.drawable.baseline_expand_more_24);
+                    break;
+                case View.GONE:
+                    textView.setVisibility(View.VISIBLE);
+                    binding.accordionExpand.setImageResource(R.drawable.baseline_expand_less_24);
+                    break;
+                case View.INVISIBLE:
+                    break;
+            }
         }
     }
 

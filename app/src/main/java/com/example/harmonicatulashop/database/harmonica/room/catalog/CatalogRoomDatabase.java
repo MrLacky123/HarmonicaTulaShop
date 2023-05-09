@@ -66,10 +66,20 @@ public abstract class CatalogRoomDatabase extends RoomDatabase {
 
                 Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.INSTANCE.getApplicationContext().getResources(), R.drawable.kulikovopole);
                 bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 150, bos);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
                 byte[] blob = bos.toByteArray();
 
                 Harmonica harmonica = new Harmonica(blob, "Куликово поле", "До мажор", "27/25", 67000, "Регулировка ремня металлическим колёсиком");
+                dao.insert(harmonica);
+
+                bos = new ByteArrayOutputStream();
+
+                bitmap = BitmapFactory.decodeResource(MainActivity.INSTANCE.getApplicationContext().getResources(), R.drawable.kulikovopole);
+                bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+                blob = bos.toByteArray();
+
+                harmonica = new Harmonica(blob, "Тульская 301М", "До мажор", "25/25", 49000, "Итальянский ледерин");
                 dao.insert(harmonica);
             });
         }
@@ -89,7 +99,7 @@ public abstract class CatalogRoomDatabase extends RoomDatabase {
 
                 Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.INSTANCE.getApplicationContext().getResources(), R.drawable.bayan);
                 bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 150, bos);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
                 byte[] blob = bos.toByteArray();
 
                 try {
@@ -118,7 +128,7 @@ public abstract class CatalogRoomDatabase extends RoomDatabase {
 
                 Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.INSTANCE.getApplicationContext().getResources(), R.drawable.accordion);
                 bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 150, bos);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
                 byte[] blob = bos.toByteArray();
 
                 try {

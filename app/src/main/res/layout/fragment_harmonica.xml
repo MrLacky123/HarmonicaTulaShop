@@ -7,13 +7,15 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.harmonicatulashop.ui.catalog.viewmodels.BayanActivityViewModel" />
+            type="com.example.harmonicatulashop.ui.fragments.HarmonicaViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/harmonica_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.catalog.activities.HarmonicaActivity">
+        android:background="@color/white"
+        tools:context=".ui.fragments.HarmonicaFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -24,7 +26,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/bayan_image"
+                    android:id="@+id/harmonica_image"
                     android:layout_width="match_parent"
                     android:layout_height="340dp"
                     android:contentDescription="@string/harmonica_image"
@@ -32,28 +34,30 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/bayan_title"
+                    android:id="@+id/harmonica_title"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bayan_image" />
+                    app:layout_constraintTop_toBottomOf="@+id/harmonica_image" />
 
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="150dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.019"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/bayan_title" />
+                    app:layout_constraintTop_toBottomOf="@id/harmonica_title" />
 
                 <Button
-                    android:id="@+id/add_bayan_to_cart"
+                    android:id="@+id/add_harmonica_to_cart"
                     android:layout_width="130dp"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"
@@ -65,16 +69,30 @@
                     android:onClick="@{()->viewModel.addToCart()}" />
 
                 <Button
-                    android:id="@+id/add_bayan_to_favourites"
+                    android:id="@+id/add_harmonica_to_favourites"
                     android:layout_width="170dp"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"
                     android:text="@string/add_to_favourites"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.782"
-                    app:layout_constraintStart_toEndOf="@+id/add_bayan_to_cart"
+                    app:layout_constraintStart_toEndOf="@+id/add_harmonica_to_cart"
                     app:layout_constraintTop_toBottomOf="@+id/price"
                     android:onClick="@{()->viewModel.addToFavourites()}" />
+
+                <TextView
+                    android:id="@+id/tone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tone"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.033"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_harmonica_to_cart" />
 
                 <TextView
                     android:id="@+id/range"
@@ -88,7 +106,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.033"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/add_bayan_to_cart" />
+                    app:layout_constraintTop_toBottomOf="@id/tone" />
 
                 <TextView
                     android:id="@+id/options_title"
@@ -104,7 +122,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/range" />
 
                 <TextView
-                    android:id="@+id/bayan_options"
+                    android:id="@+id/harmonica_options"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"

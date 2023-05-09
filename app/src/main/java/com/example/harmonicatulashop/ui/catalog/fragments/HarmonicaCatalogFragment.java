@@ -1,8 +1,7 @@
 package com.example.harmonicatulashop.ui.catalog.fragments;
 
-import static com.example.harmonicatulashop.ui.catalog.activities.HarmonicaActivity.*;
+import static com.example.harmonicatulashop.models.harmonica.Harmonica.*;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,14 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentHarmonicaCatalogBinding;
+import com.example.harmonicatulashop.models.harmonica.Harmonica;
 import com.example.harmonicatulashop.models.harmonica.adapters.HarmonicaAdapter;
-import com.example.harmonicatulashop.ui.catalog.activities.HarmonicaActivity;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.HarmonicaCatalogViewModel;
+import com.example.harmonicatulashop.ui.fragments.HarmonicaFragment;
 
 public class HarmonicaCatalogFragment extends Fragment {
-
-    public static final String HARMONICA = "HARMONICA";
 
     public static HarmonicaCatalogFragment INSTANCE;
 
@@ -51,17 +50,20 @@ public class HarmonicaCatalogFragment extends Fragment {
 
         adapter.setOnItemClickListener(harmonica -> {
 
-            Intent intent = new Intent(MainActivity.INSTANCE, HarmonicaActivity.class);
+            String title = Harmonica.NAME + " \"" + harmonica.getType() + "\"";
 
-            intent.putExtra(ID, harmonica.getId());
-            intent.putExtra(ICON, harmonica.getIcon());
-            intent.putExtra(TYPE, harmonica.getType());
-            intent.putExtra(TONE, harmonica.getTone());
-            intent.putExtra(RANGE, harmonica.getRange());
-            intent.putExtra(PRICE, harmonica.getPrice());
-            intent.putExtra(OPTIONS, harmonica.getOptions());
+            Bundle bundle = new Bundle();
 
-            startActivity(intent);
+            bundle.putInt(ID, harmonica.getId());
+            bundle.putByteArray(ICON, harmonica.getIcon());
+            bundle.putString(TYPE, harmonica.getType());
+            bundle.putString(TONE, harmonica.getTone());
+            bundle.putString(RANGE, harmonica.getRange());
+            bundle.putInt(PRICE, harmonica.getPrice());
+            bundle.putString(OPTIONS, harmonica.getOptions());
+
+            MainActivity.INSTANCE.setFragment(HarmonicaFragment.class, R.id.harmonica_catalog_layout, bundle, title);
+
         });
 
         return catalogBinding.getRoot();

@@ -1,8 +1,11 @@
 package com.example.harmonicatulashop.ui.catalog.fragments;
 
-import static com.example.harmonicatulashop.ui.catalog.activities.AccordionActivity.*;
+import static com.example.harmonicatulashop.models.harmonica.Accordion.ICON;
+import static com.example.harmonicatulashop.models.harmonica.Accordion.ID;
+import static com.example.harmonicatulashop.models.harmonica.Accordion.OPTIONS;
+import static com.example.harmonicatulashop.models.harmonica.Accordion.PRICE;
+import static com.example.harmonicatulashop.models.harmonica.Accordion.RANGE;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +19,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentAccordionCatalogBinding;
+import com.example.harmonicatulashop.models.harmonica.Accordion;
 import com.example.harmonicatulashop.models.harmonica.adapters.AccordionAdapter;
-import com.example.harmonicatulashop.ui.catalog.activities.AccordionActivity;
 import com.example.harmonicatulashop.ui.catalog.viewmodels.AccordionCatalogViewModel;
+import com.example.harmonicatulashop.ui.fragments.AccordionFragment;
 
 public class AccordionCatalogFragment extends Fragment {
 
@@ -44,15 +49,19 @@ public class AccordionCatalogFragment extends Fragment {
         viewModel.getAllAccordions().observe(MainActivity.INSTANCE, adapter::submitList);
 
         adapter.setOnItemClickListener(accordion -> {
-            Intent intent = new Intent(MainActivity.INSTANCE, AccordionActivity.class);
 
-            intent.putExtra(ID, accordion.getId());
-            intent.putExtra(ICON, accordion.getIcon());
-            intent.putExtra(RANGE, accordion.getRange());
-            intent.putExtra(PRICE, accordion.getPrice());
-            intent.putExtra(OPTIONS, accordion.getOptions());
+            String title = Accordion.NAME + " " + accordion.getRange();
 
-            startActivity(intent);
+            Bundle bundle = new Bundle();
+
+            bundle.putInt(ID, accordion.getId());
+            bundle.putByteArray(ICON, accordion.getIcon());
+            bundle.putString(RANGE, accordion.getRange());
+            bundle.putInt(PRICE, accordion.getPrice());
+            bundle.putString(OPTIONS, accordion.getOptions());
+
+            MainActivity.INSTANCE.setFragment(AccordionFragment.class, R.id.accordion_catalog_layout, bundle, title);
+
         });
 
         return binding.getRoot();

@@ -7,33 +7,36 @@
     <string name="title_cart">Корзина</string>
     <string name="title_account">Аккаунт</string>
 
-    <string name="sign_in">Войти</string>
-    <string name="sign_up">Зарегистрироваться</string>
-
     <string name="harmonica_catalog">Каталог гармоней</string>
     <string name="bayan_catalog">Каталог баянов</string>
     <string name="accordion_catalog">Каталог Аккордеонов</string>
+
+    <string name="options">Дополнительные опции:</string>
+    <string name="tone">Тональность: </string>
+    <string name="range">Диапазон: </string>
+    <string name="add_to_cart">В корзину</string>
+    <string name="add_to_favourites">Отложить инструмент</string>
 
     <string name="title_harmonica">Гармони</string>
     <string name="title_bayan">Баяны</string>
     <string name="title_accordion">Аккордеоны</string>
 
-    <string name="add_to_cart">В корзину</string>
-    <string name="add_to_favourites">Отложить инструмент</string>
-
     <string name="harmonica_image">Harmonica Image</string>
     <string name="bayan_icon">Bayan Image</string>
     <string name="accordion_icon">Accordion image</string>
+
+    <string name="sign_in">Войти</string>
+    <string name="sign_up">Зарегистрироваться</string>
+
     <string name="hint_password">Password</string>
     <string name="login_hint">Login</string>
     <string name="authentication">Аутентификация</string>
-    <string name="admin">Я администратор</string>
     <string name="repeat_password">Повторите пароль:</string>
     <string name="password_input">Придумайте пароль:</string>
     <string name="login">Логин</string>
     <string name="enter_login">Введите логин:</string>
     <string name="registration">Регистрация</string>
-    <string name="options">Дополнительные опции:</string>
-    <string name="tone">Тональность: </string>
-    <string name="range">Диапазон: </string>
+
+    <string name="empty">Увы, но здесь пока ничего нет</string>
+    <string name="make_order">Оформить заказ</string>
 </resources>

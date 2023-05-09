@@ -38,7 +38,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="7dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginStart="12dp"
                         android:text="@string/title_harmonica"
                         android:textColor="@color/black"
                         android:textSize="18sp"
@@ -59,13 +61,27 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <TextView
+                    android:id="@+id/harmonica_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/empty"
+                    android:textSize="18sp"
+                    android:textStyle="italic"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/harmonica_cart_category"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/harmonica_cart_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:visibility="gone"
-                    app:layout_constraintTop_toBottomOf="@+id/harmonica_cart_category" />
+                    app:layout_constraintTop_toBottomOf="@+id/harmonica_empty" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/bayan_cart_category"
@@ -82,7 +98,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="7dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginStart="12dp"
                         android:text="@string/title_bayan"
                         android:textColor="@color/black"
                         android:textSize="18sp"
@@ -103,13 +121,27 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <TextView
+                    android:id="@+id/bayan_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/empty"
+                    android:textSize="18sp"
+                    android:textStyle="italic"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/bayan_cart_category"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/bayan_cart_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:visibility="gone"
-                    app:layout_constraintTop_toBottomOf="@+id/bayan_cart_category" />
+                    app:layout_constraintTop_toBottomOf="@+id/bayan_empty" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/accordion_cart_category"
@@ -126,7 +158,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="7dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginStart="12dp"
                         android:text="@string/title_accordion"
                         android:textColor="@color/black"
                         android:textSize="18sp"
@@ -147,15 +181,62 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <TextView
+                    android:id="@+id/accordion_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/empty"
+                    android:textSize="18sp"
+                    android:textStyle="italic"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/accordion_cart_category"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/accordion_cart_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:visibility="gone"
-                    app:layout_constraintTop_toBottomOf="@+id/accordion_cart_category" />
+                    app:layout_constraintTop_toBottomOf="@+id/accordion_empty" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/make_order_bg"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/make_order"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/baseline_navigate_next_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

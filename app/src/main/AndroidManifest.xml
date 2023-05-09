@@ -15,20 +15,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.catalog.activities.AccordionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.catalog.activities.BayanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.catalog.activities.HarmonicaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".account.SignUpActivity"
+            android:name=".ui.account.activities.SignUpActivity"
             android:exported="false"
             android:label="@string/registration" />
         <activity
-            android:name=".account.SignInActivity"
+            android:name=".ui.account.activities.SignInActivity"
             android:exported="false"
             android:label="@string/authentication" />
         <activity

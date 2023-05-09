@@ -68,4 +68,22 @@ public class CartRepository {
             }
         });
     }
+
+    public void deleteHarmonica(int id) {
+        CartRoomDatabase.databaseWriteExecutor.execute(() -> {
+            harmonicaDao.delete(harmonicaDao.findById(id));
+        });
+    }
+
+    public void deleteBayan(int id) {
+        CartRoomDatabase.databaseWriteExecutor.execute(() -> {
+            bayanDao.delete(bayanDao.findById(id));
+        });
+    }
+
+    public void deleteAccordion(int id) {
+        CartRoomDatabase.databaseWriteExecutor.execute(() -> {
+            accordionDao.delete(accordionDao.findById(id));
+        });
+    }
 }

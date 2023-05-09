@@ -1,19 +1,19 @@
-package com.example.harmonicatulashop.ui.catalog.viewmodels;
+package com.example.harmonicatulashop.ui.fragments;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.database.harmonica.room.cart.CartRepository;
 import com.example.harmonicatulashop.database.harmonica.room.favourite.FavouriteRepository;
-import com.example.harmonicatulashop.databinding.ActivityAccordionBinding;
+import com.example.harmonicatulashop.databinding.FragmentAccordionBinding;
 import com.example.harmonicatulashop.models.harmonica.Accordion;
-import com.example.harmonicatulashop.ui.catalog.activities.AccordionActivity;
 
-public class AccordionActivityViewModel extends ViewModel {
+public class AccordionViewModel extends ViewModel {
 
-    private ActivityAccordionBinding binding;
+    private FragmentAccordionBinding binding;
     private Accordion accordion;
 
-    public void setBinding(ActivityAccordionBinding binding) {
+    public void setBinding(FragmentAccordionBinding binding) {
         this.binding = binding;
     }
 
@@ -22,22 +22,16 @@ public class AccordionActivityViewModel extends ViewModel {
     }
 
     public void addToCart() {
-        CartRepository cartRepository = new CartRepository(AccordionActivity.INSTANCE.getApplication());
+        CartRepository cartRepository = new CartRepository(MainActivity.INSTANCE.getApplication());
         cartRepository.insertAccordion(accordion);
 
         binding.addAccordionToCart.setText("В корзине");
-
-        close();
     }
 
     public void addToFavourites() {
-        FavouriteRepository favouriteRepository = new FavouriteRepository(AccordionActivity.INSTANCE.getApplication());
+        FavouriteRepository favouriteRepository = new FavouriteRepository(MainActivity.INSTANCE.getApplication());
         favouriteRepository.insertAccordion(accordion);
 
         binding.addAccordionToFavourites.setText("В отложенных");
-    }
-
-    public void close() {
-        AccordionActivity.INSTANCE.finish();
     }
 }

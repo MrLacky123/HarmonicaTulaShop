@@ -1,5 +1,6 @@
 package com.example.harmonicatulashop.models.harmonica.adapters;
 
+import android.annotation.SuppressLint;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -22,14 +23,21 @@ public class HarmonicaAdapter extends ListAdapter<Harmonica, HarmonicaViewHolder
         return HarmonicaViewHolder.create(parent, listener, getCurrentList());
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(HarmonicaViewHolder holder, int position) {
+
         Harmonica current = getItem(position);
+
         String name = Harmonica.NAME + " " + current.getType() + " " + current.getTone() + " " + current.getRange();
         holder.bindName(name);
+
         String price = current.getPrice() + " ₽";
         holder.bindPrice(price);
+
         holder.bindImage(current.getId(), current.getIcon());
+
+        holder.itemView.setTag(current.getId());
     }
 
     public interface OnItemClickListener {

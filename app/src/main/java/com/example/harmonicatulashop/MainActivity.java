@@ -1,10 +1,12 @@
 package com.example.harmonicatulashop;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -17,6 +19,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.harmonicatulashop.databinding.ActivityMainBinding;
 import com.example.harmonicatulashop.models.account.Admin;
 import com.example.harmonicatulashop.models.account.User;
+import com.example.harmonicatulashop.ui.catalog.fragments.CatalogFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.common.base.Optional;
 import com.google.common.collect.Iterables;
@@ -66,9 +69,19 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
     }
 
-    public <T extends Fragment> void setFragment(Class<T> customClass, int id, @Nullable Bundle args) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public <T extends Fragment> void setFragment(Class<T> customClass, int id, @Nullable Bundle args, String title) {
 
         Optional<Fragment> fragment = Iterables.tryFind(fragments, frag -> frag.getClass().isInstance(customClass));
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         if (!fragment.isPresent()){
 
@@ -80,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
             Fragment newFragment = fragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main);
             Log.i("INFO", "Created fragment: " + newFragment.getClass().getName());
             fragments.add(newFragment);
+
+            getSupportActionBar().setTitle(title);
+
             return;
 
         }
@@ -91,12 +107,19 @@ public class MainActivity extends AppCompatActivity {
                 .addToBackStack("open fragment")
                 .commit();
 
+        getSupportActionBar().setTitle(title);
+
     }
 
-    public void closeFragment(Fragment fragment) {
+    @Override
+    public boolean onSupportNavigateUp() {
+        setFragment(CatalogFragment.class, R.id.catalog_layout, null, getResources().getString(R.string.title_catalog));
 
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.remove(fragment);
-        fragmentTransaction.commit();
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(false);
+        }
+
+        return super.onSupportNavigateUp();
     }
 }

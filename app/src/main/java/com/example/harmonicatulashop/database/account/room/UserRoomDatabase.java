@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.harmonicatulashop.database.account.dao.UserDao;
+import com.example.harmonicatulashop.ui.account.dao.UserDao;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -26,7 +26,7 @@ public abstract class UserRoomDatabase extends RoomDatabase {
             synchronized (UserRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    UserRoomDatabase.class, "admin_database")
+                                    UserRoomDatabase.class, "user_database")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
                 }

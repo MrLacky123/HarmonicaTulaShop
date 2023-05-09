@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.database.account.dao;
+package com.example.harmonicatulashop.ui.account.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -18,4 +18,7 @@ public interface AdminDao {
 
     @Delete
     void delete(Admin admin);
+
+    @Query("SELECT * FROM admin WHERE login LIKE :login")
+    Admin findByLogin(String login);
 }

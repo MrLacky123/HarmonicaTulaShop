@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.account;
+package com.example.harmonicatulashop.ui.account.activities;
 
 import android.os.Bundle;
 
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.account.viewmodels.SignInViewModel;
+import com.example.harmonicatulashop.ui.account.viewmodels.SignInViewModel;
 import com.example.harmonicatulashop.databinding.ActivitySignInBinding;
 
 public class SignInActivity extends AppCompatActivity {
@@ -29,5 +29,6 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Instance = this;
+
     }
 }

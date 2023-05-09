@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/navigation_home"
@@ -11,16 +10,6 @@
         android:id="@+id/navigation_catalog"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_catalog" />
-
-    <item
-        android:id="@+id/navigation_favourite"
-        android:icon="@drawable/baseline_favorite_border_24"
-        android:title="@string/title_favourite" />
-
-    <item
-        android:id="@+id/navigation_cart"
-        android:icon="@drawable/baseline_shopping_cart_24"
-        android:title="@string/title_cart" />
 
     <item
         android:id="@+id/navigation_account"

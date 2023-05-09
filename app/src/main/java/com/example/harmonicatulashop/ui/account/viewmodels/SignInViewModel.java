@@ -1,8 +1,8 @@
-package com.example.harmonicatulashop.account.viewmodels;
+package com.example.harmonicatulashop.ui.account.viewmodels;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.harmonicatulashop.account.SignInActivity;
+import com.example.harmonicatulashop.ui.account.activities.SignInActivity;
 
 public class SignInViewModel extends ViewModel {
 

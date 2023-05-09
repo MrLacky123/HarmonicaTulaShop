@@ -25,12 +25,18 @@ public class BayanAdapter extends ListAdapter<Bayan, BayanViewHolder> {
 
     @Override
     public void onBindViewHolder(BayanViewHolder holder, int position) {
+
         Bayan current = getItem(position);
+
         String name = Bayan.NAME + " " + current.getType() + " " + current.getRange();
         holder.bindName(name);
+
         String price = current.getPrice() + " ₽";
         holder.bindPrice(price);
+
         holder.bindImage(current.getId(), current.getIcon());
+
+        holder.itemView.setTag(current.getId());
     }
 
     public interface OnItemClickListener {

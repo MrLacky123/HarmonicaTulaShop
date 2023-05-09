@@ -24,12 +24,18 @@ public class AccordionAdapter extends ListAdapter<Accordion, AccordionViewHolder
 
     @Override
     public void onBindViewHolder(AccordionViewHolder holder, int position) {
+
         Accordion current = getItem(position);
+
         String name = Accordion.NAME + " " + current.getRange();
         holder.bindName(name);
+
         String price = current.getPrice() + " ₽";
         holder.bindPrice(price);
+
         holder.bindImage(current.getId(), current.getIcon());
+
+        holder.itemView.setTag(current.getId());
     }
 
     public interface OnItemClickListener {

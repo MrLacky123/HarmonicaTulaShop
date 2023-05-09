@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.databinding.FragmentAccountBinding;
+import com.example.harmonicatulashop.ui.account.viewmodels.AccountViewModel;
 
 public class AccountFragment extends Fragment {
 
@@ -33,12 +34,5 @@ public class AccountFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-
     }
 }

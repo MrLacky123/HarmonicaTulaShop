@@ -9,7 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentHomeBinding;
+import com.example.harmonicatulashop.models.harmonica.Accordion;
+import com.example.harmonicatulashop.ui.catalog.fragments.AccordionCatalogFragment;
 
 public class HomeFragment extends Fragment {
 

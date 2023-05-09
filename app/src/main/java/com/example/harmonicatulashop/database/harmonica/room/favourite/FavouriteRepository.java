@@ -68,4 +68,22 @@ public class FavouriteRepository {
             }
         });
     }
+
+    public void deleteHarmonica(int id) {
+        FavouriteRoomDatabase.databaseWriteExecutor.execute(() -> {
+            harmonicaDao.delete(harmonicaDao.findById(id));
+        });
+    }
+
+    public void deleteBayan(int id) {
+        FavouriteRoomDatabase.databaseWriteExecutor.execute(() -> {
+            bayanDao.delete(bayanDao.findById(id));
+        });
+    }
+
+    public void deleteAccordion(int id) {
+        FavouriteRoomDatabase.databaseWriteExecutor.execute(() -> {
+            accordionDao.delete(accordionDao.findById(id));
+        });
+    }
 }

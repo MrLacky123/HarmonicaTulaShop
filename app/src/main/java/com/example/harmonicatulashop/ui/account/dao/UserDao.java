@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.database.account.dao;
+package com.example.harmonicatulashop.ui.account.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -18,4 +18,7 @@ public interface UserDao {
 
     @Delete
     void delete(User user);
+
+    @Query("SELECT * FROM user WHERE login LIKE :login")
+    User findByLogin(String login);
 }

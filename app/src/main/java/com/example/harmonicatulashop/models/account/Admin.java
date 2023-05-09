@@ -1,8 +1,5 @@
 package com.example.harmonicatulashop.models.account;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -10,13 +7,11 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "admin")
 public class Admin {
-
-    @PrimaryKey(autoGenerate = true)
-    private int id;
     @ColumnInfo(name = "avatarImage")
     private byte[] avatarImage;
     @NonNull
     @ColumnInfo(name = "login")
+    @PrimaryKey
     private String login;
     @ColumnInfo(name = "hashPassword")
     private long hashPassword;
@@ -32,14 +27,6 @@ public class Admin {
         this.hashPassword = hashPassword;
         this.firstname = firstname;
         this.lastname = lastname;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public byte[] getAvatarImage() {

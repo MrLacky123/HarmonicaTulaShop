@@ -1,4 +1,4 @@
-package com.example.harmonicatulashop.database.account.adapters;
+package com.example.harmonicatulashop.models.account.adapters;
 
 import android.view.ViewGroup;
 

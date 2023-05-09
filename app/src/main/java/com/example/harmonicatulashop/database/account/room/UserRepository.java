@@ -2,7 +2,7 @@ package com.example.harmonicatulashop.database.account.room;
 
 import android.app.Application;
 
-import com.example.harmonicatulashop.database.account.dao.UserDao;
+import com.example.harmonicatulashop.ui.account.dao.UserDao;
 import com.example.harmonicatulashop.models.account.User;
 
 public class UserRepository {

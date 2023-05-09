@@ -10,6 +10,13 @@ import java.util.Arrays;
 @Entity(tableName = "bayan_list")
 public class Bayan {
 
+    public static final String ID = "com.example.harmonicatulashop.ID";
+    public static final String ICON = "com.example.harmonicatulashop.ICON";
+    public static final String TYPE = "com.example.harmonicatulashop.TYPE";
+    public static final String RANGE = "com.example.harmonicatulashop.RANGE";
+    public static final String PRICE = "com.example.harmonicatulashop.PRICE";
+    public static final String OPTIONS = "com.example.harmonicatulashop.OPTIONS";
+
     public static final String NAME = "Баян";
 
     @PrimaryKey(autoGenerate = true)
