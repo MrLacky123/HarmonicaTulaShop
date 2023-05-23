@@ -2,10 +2,15 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+<!--    <item-->
+<!--        android:id="@+id/navigation_home"-->
+<!--        android:icon="@drawable/ic_home_black_24dp"-->
+<!--        android:title="@string/title_home" />-->
+
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:id="@+id/navigation_account"
+        android:icon="@drawable/baseline_account_box_24"
+        android:title="@string/title_account" />
 
     <item
         android:id="@+id/navigation_catalog"
@@ -13,18 +18,8 @@
         android:title="@string/title_catalog" />
 
     <item
-        android:id="@+id/navigation_favourite"
-        android:icon="@drawable/baseline_favorite_border_24"
-        android:title="@string/title_favourite" />
-
-    <item
         android:id="@+id/navigation_cart"
         android:icon="@drawable/baseline_shopping_cart_24"
         android:title="@string/title_cart" />
-
-    <item
-        android:id="@+id/navigation_account"
-        android:icon="@drawable/baseline_account_box_24"
-        android:title="@string/title_account" />
 
 </menu>

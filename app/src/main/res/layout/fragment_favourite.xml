@@ -10,10 +10,11 @@
             type="com.example.harmonicatulashop.ui.favourite.FavouriteViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/favourite"
+        android:id="@+id/favourite_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.cart.CartFragment">
+        android:background="@color/white"
+        tools:context=".ui.cart.fragments.CartFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -29,9 +30,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
                     android:background="@drawable/catalog_category_bg"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    android:focusable="true"
                     app:layout_constraintTop_toTopOf="parent"
                     android:onClick="@{()->viewModel.onHarmonicaClick()}">
 
@@ -78,7 +77,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/harmonica_favourite_list"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="450dp"
                     android:layout_marginTop="5dp"
                     app:layout_constraintTop_toBottomOf="@+id/harmonica_empty"
                     android:visibility="gone" />
@@ -89,9 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
                     android:background="@drawable/catalog_category_bg"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    android:focusable="true"
                     app:layout_constraintTop_toBottomOf="@+id/harmonica_favourite_list"
                     android:onClick="@{()->viewModel.onBayanClick()}">
 
@@ -138,9 +135,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/bayan_favourite_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="450dp"
                     android:layout_marginTop="5dp"
-                    android:text="@string/empty"
                     android:textSize="18sp"
                     android:textStyle="italic"
                     android:textColor="@color/black"
@@ -153,9 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
                     android:background="@drawable/catalog_category_bg"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    android:focusable="true"
                     app:layout_constraintTop_toBottomOf="@+id/bayan_favourite_list"
                     android:onClick="@{()->viewModel.onAccordionClick()}">
 
@@ -202,7 +196,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/accordion_favourite_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="450dp"
                     android:layout_marginTop="5dp"
                     app:layout_constraintTop_toBottomOf="@+id/accordion_empty"
                     android:visibility="gone" />

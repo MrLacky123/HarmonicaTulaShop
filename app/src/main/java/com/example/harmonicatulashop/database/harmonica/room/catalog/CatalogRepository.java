@@ -44,6 +44,10 @@ public class CatalogRepository {
         CatalogRoomDatabase.databaseWriteExecutor.execute(() -> harmonicaDao.insert(harmonica));
     }
 
+    public void deleteHarmonica(Harmonica harmonica) {
+        CatalogRoomDatabase.databaseWriteExecutor.execute(() -> harmonicaDao.delete(harmonica));
+    }
+
     public LiveData<List<Bayan>> getAllBayans() {
         return allBayans;
     }
@@ -52,11 +56,19 @@ public class CatalogRepository {
         CatalogRoomDatabase.databaseWriteExecutor.execute(() -> bayanDao.insert(bayan));
     }
 
+    public void deleteBayan(Bayan bayan) {
+        CatalogRoomDatabase.databaseWriteExecutor.execute(() -> bayanDao.delete(bayan));
+    }
+
     public LiveData<List<Accordion>> getAllAccordions() {
         return allAccordions;
     }
 
     public void insertAccordion(Accordion accordion) {
         CatalogRoomDatabase.databaseWriteExecutor.execute(() -> accordionDao.insert(accordion));
+    }
+
+    public void deleteAccordion(Accordion accordion) {
+        CatalogRoomDatabase.databaseWriteExecutor.execute(() -> accordionDao.delete(accordion));
     }
 }

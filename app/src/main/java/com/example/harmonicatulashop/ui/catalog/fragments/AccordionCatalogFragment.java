@@ -7,12 +7,14 @@ import static com.example.harmonicatulashop.models.harmonica.Accordion.PRICE;
 import static com.example.harmonicatulashop.models.harmonica.Accordion.RANGE;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,11 +37,13 @@ public class AccordionCatalogFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
+        MainActivity.currentLayout = getId();
+
         viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(AccordionCatalogViewModel.class);
 
         binding = FragmentAccordionCatalogBinding.inflate(inflater, container, false);
         binding.setViewModel(viewModel);
-        binding.executePendingBindings();
+        binding.setLifecycleOwner(this);
 
         RecyclerView recyclerView = binding.accordionList;
         final AccordionAdapter adapter = new AccordionAdapter(new AccordionAdapter.AccordionDiff());
@@ -60,7 +64,7 @@ public class AccordionCatalogFragment extends Fragment {
             bundle.putInt(PRICE, accordion.getPrice());
             bundle.putString(OPTIONS, accordion.getOptions());
 
-            MainActivity.INSTANCE.setFragment(AccordionFragment.class, R.id.accordion_catalog_layout, bundle, title);
+            MainActivity.INSTANCE.setFragment(AccordionFragment.class, R.id.accordion_catalog_layout, bundle, title, AccordionCatalogFragment.class);
 
         });
 
@@ -71,5 +75,12 @@ public class AccordionCatalogFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        MainActivity.INSTANCE.getSupportActionBar().setTitle(R.string.title_accordion);
     }
 }

@@ -16,6 +16,20 @@
         tools:context=".ui.account.activities.SignUpActivity">
 
         <TextView
+            android:id="@+id/all_fields_red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fields_red"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/input_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.855"
+            android:visibility="gone" />
+
+        <TextView
             android:id="@+id/input_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,6 +101,7 @@
             android:id="@+id/sign_up_password_repeat"
             android:layout_width="300dp"
             android:layout_height="50dp"
+            android:autofillHints=""
             android:background="@drawable/text_input_bg"
             android:ems="10"
             android:inputType="textPassword"
@@ -94,8 +109,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sign_up_password"
-            app:layout_constraintVertical_bias="0.154"
-            android:autofillHints="" />
+            app:layout_constraintVertical_bias="0.154" />
 
         <Button
             android:id="@+id/sign_up_button"

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/add_instrument" >
+        <item
+            android:id="@+id/add_harmonica"
+            android:title="@string/harmonica" />
+        <item
+            android:id="@+id/add_bayan"
+            android:title="@string/bayan"/>
+        <item
+            android:id="@+id/add_accordion"
+            android:title="@string/accordion"/>
+    </group>
+
+</menu>

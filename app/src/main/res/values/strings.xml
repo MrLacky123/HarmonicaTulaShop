@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Тульские Гармошки</string>
 
-    <string name="title_home">Главная</string>
     <string name="title_catalog">Каталог</string>
     <string name="title_favourite">Отложенные</string>
     <string name="title_cart">Корзина</string>
@@ -28,15 +27,39 @@
     <string name="sign_in">Войти</string>
     <string name="sign_up">Зарегистрироваться</string>
 
+    <string name="empty">Увы, но здесь пока ничего нет</string>
+    <string name="make_order">Оформить заказ</string>
+
     <string name="hint_password">Password</string>
-    <string name="login_hint">Login</string>
+    <string name="hint_login">Login</string>
     <string name="authentication">Аутентификация</string>
     <string name="repeat_password">Повторите пароль:</string>
     <string name="password_input">Придумайте пароль:</string>
     <string name="login">Логин</string>
     <string name="enter_login">Введите логин:</string>
     <string name="registration">Регистрация</string>
+    <string name="login_field_red">Поле логин должно быть заполнено!</string>
+    <string name="password_field_red">Поле пароль должно быть заполнено!</string>
+    <string name="fields_red">Все поля должны быть заполнены!</string>
 
-    <string name="empty">Увы, но здесь пока ничего нет</string>
-    <string name="make_order">Оформить заказ</string>
+    <string name="add_harmonica">Добавить инструмент</string>
+    <string name="address">Адрес</string>
+    <string name="lastname">Фамилия</string>
+    <string name="name">Имя</string>
+    <string name="password">Пароль:</string>
+    <string name="my_orders">Мои заказы</string>
+    <string name="exit">Выйти</string>
+    <string name="settings">Настройки</string>
+    <string name="orders">Заказы</string>
+
+    <string name="harmonica">Гармонь</string>
+    <string name="bayan">Баян</string>
+    <string name="accordion">Аккордеон</string>
+    <string name="settings_name">Имя:</string>
+    <string name="settings_lastname">Фамилия:</string>
+    <string name="settings_login">Логин:</string>
+    <string name="save_changes">Сохранить изменения</string>
+    <string name="settings_address">Адрес:</string>
+    <string name="confirm_changes">Подтвердите изменения</string>
+
 </resources>

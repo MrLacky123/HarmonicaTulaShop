@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentBayanBinding;
 import com.example.harmonicatulashop.models.harmonica.Bayan;
 
@@ -29,8 +30,9 @@ public class BayanFragment extends Fragment {
     private FragmentBayanBinding binding;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        MainActivity.currentLayout = getId();
 
         viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(BayanViewModel.class);
 
@@ -61,6 +63,14 @@ public class BayanFragment extends Fragment {
 
         Bitmap bitmap = BitmapFactory.decodeByteArray(bayan.getIcon(), 0, bayan.getIcon().length);
         binding.bayanImage.setImageBitmap(bitmap);
+
+        String title = Bayan.NAME + " \"" + bayan.getType() + "\"";
+        binding.bayanTitle.setText(title);
+
+        if (MainActivity.currentAdmin != null) {
+            binding.addBayanToCart.setText("Удалить");
+            binding.addBayanToFavourites.setText("Редактировать");
+        }
 
         String price = bayan.getPrice() + " руб.";
         binding.price.setText(price);

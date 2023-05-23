@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,14 +34,15 @@ public class BayanCatalogFragment extends Fragment {
     private FragmentBayanCatalogBinding binding;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        MainActivity.currentLayout = getId();
 
         viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(BayanCatalogViewModel.class);
 
         binding = FragmentBayanCatalogBinding.inflate(inflater, container, false);
         binding.setViewModel(viewModel);
-        binding.executePendingBindings();
+        binding.setLifecycleOwner(this);
 
         RecyclerView recyclerView = binding.bayanList;
         final BayanAdapter adapter = new BayanAdapter(new BayanAdapter.BayanDiff());
@@ -62,7 +64,7 @@ public class BayanCatalogFragment extends Fragment {
             bundle.putInt(PRICE, bayan.getPrice());
             bundle.putString(OPTIONS, bayan.getOptions());
 
-            MainActivity.INSTANCE.setFragment(BayanFragment.class, R.id.bayan_catalog_layout, bundle, title);
+            MainActivity.INSTANCE.setFragment(BayanFragment.class, R.id.bayan_catalog_layout, bundle, title, BayanCatalogFragment.class);
 
         });
 

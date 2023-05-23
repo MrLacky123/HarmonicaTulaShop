@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation_user"
+    app:startDestination="@id/navigation_user_account">
+
+    <fragment
+        android:id="@+id/navigation_user_account"
+        android:name="com.example.harmonicatulashop.ui.account.fragments.AccountUserFragment"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_account_user" />
+
+    <fragment
+        android:id="@+id/navigation_user_catalog"
+        android:name="com.example.harmonicatulashop.ui.catalog.fragments.CatalogFragment"
+        android:label="@string/title_catalog"
+        tools:layout="@layout/fragment_catalog"/>
+
+    <fragment
+        android:id="@+id/navigation_user_favourite"
+        android:name="com.example.harmonicatulashop.ui.favourite.FavouriteFragment"
+        android:label="@string/title_favourite"
+        tools:layout="@layout/fragment_favourite"/>
+
+    <fragment
+        android:id="@+id/navigation_user_cart"
+        android:name="com.example.harmonicatulashop.ui.cart.fragments.CartFragment"
+        android:label="@string/title_cart"
+        tools:layout="@layout/fragment_cart"/>
+
+</navigation>

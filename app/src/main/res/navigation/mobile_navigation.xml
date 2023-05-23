@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_account">
 
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.harmonicatulashop.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_home"-->
+<!--        android:name="com.example.harmonicatulashop.ui.home.HomeFragment"-->
+<!--        android:label="@string/title_home"-->
+<!--        tools:layout="@layout/fragment_home" />-->
 
     <fragment
         android:id="@+id/navigation_catalog"
@@ -18,20 +18,14 @@
         tools:layout="@layout/fragment_catalog" />
 
     <fragment
-        android:id="@+id/navigation_favourite"
-        android:name="com.example.harmonicatulashop.ui.favourite.FavouriteFragment"
-        android:label="@string/title_favourite"
-        tools:layout="@layout/fragment_favourite" />
-
-    <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.example.harmonicatulashop.ui.cart.CartFragment"
+        android:name="com.example.harmonicatulashop.ui.cart.fragments.CartFragment"
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_cart" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.harmonicatulashop.ui.account.AccountFragment"
+        android:name="com.example.harmonicatulashop.ui.account.fragments.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
 

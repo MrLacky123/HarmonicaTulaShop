@@ -8,7 +8,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.harmonicatulashop.ui.account.dao.AdminDao;
+import com.example.harmonicatulashop.database.account.dao.AdminDao;
 import com.example.harmonicatulashop.models.account.Admin;
 
 import java.util.concurrent.ExecutorService;
@@ -21,10 +21,10 @@ public abstract class AdminRoomDatabase extends RoomDatabase {
 
     private static volatile AdminRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor =
+    public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static AdminRoomDatabase getDatabase(final Context context){
+    public static AdminRoomDatabase getDatabase(final Context context){
         if (INSTANCE == null) {
             synchronized (AdminRoomDatabase.class) {
                 if (INSTANCE == null) {

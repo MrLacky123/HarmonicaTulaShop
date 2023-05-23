@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentHarmonicaBinding;
 import com.example.harmonicatulashop.models.harmonica.Harmonica;
 
@@ -24,8 +25,9 @@ public class HarmonicaFragment extends Fragment {
     private FragmentHarmonicaBinding binding;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        MainActivity.currentLayout = getId();
 
         viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(HarmonicaViewModel.class);
 
@@ -45,7 +47,7 @@ public class HarmonicaFragment extends Fragment {
 
         harmonica.setId(bundle.getInt(ID, 0));
 
-        viewModel.setHarmonica(harmonica);
+        viewModel.setHarmonica(harmonica); 
         viewModel.setBinding(binding);
 
         bindView(harmonica);
@@ -58,8 +60,17 @@ public class HarmonicaFragment extends Fragment {
         Bitmap bitmap = BitmapFactory.decodeByteArray(harmonica.getIcon(), 0, harmonica.getIcon().length);
         binding.harmonicaImage.setImageBitmap(bitmap);
 
+        String title = Harmonica.NAME + " \"" + harmonica.getType() + "\" " + harmonica.getRange();
+        binding.harmonicaTitle.setText(title);
+
         String price = harmonica.getPrice() + " руб.";
         binding.price.setText(price);
+
+        if (MainActivity.currentAdmin != null) {
+            binding.addHarmonicaToCart.setText("Удалить");
+
+            binding.addHarmonicaToFavourites.setText("Редактировать");
+        }
 
         binding.tone.append(" " + harmonica.getTone());
         binding.range.append(" " + harmonica.getRange());

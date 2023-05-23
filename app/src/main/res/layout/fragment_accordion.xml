@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/accordion_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.fragments.AccordionFragment">
@@ -34,9 +35,9 @@
                 <TextView
                     android:id="@+id/accordion_title"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -45,8 +46,10 @@
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="150dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.019"
                     app:layout_constraintStart_toStartOf="parent"

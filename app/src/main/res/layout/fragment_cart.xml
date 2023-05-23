@@ -7,17 +7,21 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.harmonicatulashop.ui.cart.CartViewModel" />
+            type="com.example.harmonicatulashop.ui.cart.viewmodels.CartViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cart_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.cart.CartFragment">
+        android:background="@color/white"
+        tools:context=".ui.cart.fragments.CartFragment">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toTopOf="@+id/make_order">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -30,8 +34,6 @@
                     android:layout_margin="7dp"
                     android:background="@drawable/catalog_category_bg"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:onClick="@{()->viewModel.onHarmonicaClick()}"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -78,7 +80,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/harmonica_cart_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="450dp"
                     android:layout_marginTop="5dp"
                     android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@+id/harmonica_empty" />
@@ -90,8 +92,6 @@
                     android:layout_margin="7dp"
                     android:background="@drawable/catalog_category_bg"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:onClick="@{()->viewModel.onBayanClick()}"
                     app:layout_constraintTop_toBottomOf="@+id/harmonica_cart_list">
 
@@ -138,7 +138,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/bayan_cart_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="450dp"
                     android:layout_marginTop="5dp"
                     android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@+id/bayan_empty" />
@@ -150,8 +150,6 @@
                     android:layout_margin="7dp"
                     android:background="@drawable/catalog_category_bg"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:onClick="@{()->viewModel.onAccordionClick()}"
                     app:layout_constraintTop_toBottomOf="@+id/bayan_cart_list">
 
@@ -198,7 +196,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/accordion_cart_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="450dp"
                     android:layout_marginTop="5dp"
                     android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@+id/accordion_empty" />
@@ -207,12 +205,14 @@
         </ScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/make_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@drawable/make_order_bg"
             android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{()->viewModel.makeOrder()}">
 
             <TextView
                 android:layout_width="wrap_content"

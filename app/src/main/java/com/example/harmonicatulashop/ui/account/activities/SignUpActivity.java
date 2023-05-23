@@ -2,16 +2,16 @@ package com.example.harmonicatulashop.ui.account.activities;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.ui.account.viewmodels.SignUpViewModel;
 import com.example.harmonicatulashop.databinding.ActivitySignUpBinding;
+import com.example.harmonicatulashop.ui.account.viewmodels.SignUpViewModel;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    public static SignUpActivity Instance;
+    public static SignUpActivity INSTANCE;
 
     private ActivitySignUpBinding binding;
     private SignUpViewModel viewModel;
@@ -19,7 +19,6 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
 
         viewModel = new ViewModelProvider(this).get(SignUpViewModel.class);
 
@@ -28,6 +27,22 @@ public class SignUpActivity extends AppCompatActivity {
         binding.setViewModel(viewModel);
         binding.executePendingBindings();
 
-        Instance = this;
+        setContentView(binding.getRoot());
+
+        viewModel.setBinding(binding);
+
+        ActionBar actionBar = getSupportActionBar();
+
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        INSTANCE = this;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+
+        return super.onSupportNavigateUp();
     }
 }

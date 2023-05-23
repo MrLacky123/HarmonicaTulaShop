@@ -1,5 +1,13 @@
 package com.example.harmonicatulashop.ui.favourite;
 
+import static com.example.harmonicatulashop.models.harmonica.Harmonica.ICON;
+import static com.example.harmonicatulashop.models.harmonica.Harmonica.ID;
+import static com.example.harmonicatulashop.models.harmonica.Harmonica.OPTIONS;
+import static com.example.harmonicatulashop.models.harmonica.Harmonica.PRICE;
+import static com.example.harmonicatulashop.models.harmonica.Harmonica.RANGE;
+import static com.example.harmonicatulashop.models.harmonica.Harmonica.TONE;
+import static com.example.harmonicatulashop.models.harmonica.Harmonica.TYPE;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.database.harmonica.room.cart.CartRepository;
 import com.example.harmonicatulashop.database.harmonica.room.favourite.FavouriteRepository;
 import com.example.harmonicatulashop.databinding.FragmentFavouriteBinding;
@@ -23,6 +32,12 @@ import com.example.harmonicatulashop.models.harmonica.Harmonica;
 import com.example.harmonicatulashop.models.harmonica.adapters.AccordionAdapter;
 import com.example.harmonicatulashop.models.harmonica.adapters.BayanAdapter;
 import com.example.harmonicatulashop.models.harmonica.adapters.HarmonicaAdapter;
+import com.example.harmonicatulashop.ui.catalog.fragments.AccordionCatalogFragment;
+import com.example.harmonicatulashop.ui.catalog.fragments.BayanCatalogFragment;
+import com.example.harmonicatulashop.ui.catalog.fragments.HarmonicaCatalogFragment;
+import com.example.harmonicatulashop.ui.fragments.AccordionFragment;
+import com.example.harmonicatulashop.ui.fragments.BayanFragment;
+import com.example.harmonicatulashop.ui.fragments.HarmonicaFragment;
 
 import java.util.List;
 
@@ -34,11 +49,15 @@ public class FavouriteFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        MainActivity.previousTitles.clear();
+        MainActivity.previousFragmentMap.clear();
+
         viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(FavouriteViewModel.class);
 
         binding = FragmentFavouriteBinding.inflate(inflater, container, false);
         binding.setViewModel(viewModel);
-        binding.executePendingBindings();
+        binding.setLifecycleOwner(this);
 
         viewModel.setBinding(binding);
 
@@ -60,6 +79,24 @@ public class FavouriteFragment extends Fragment {
         harmonicaFavouriteList.setLayoutManager(new LinearLayoutManager(MainActivity.INSTANCE));
 
         viewModel.getAllHarmonicas().observe(MainActivity.INSTANCE, harmonicaAdapter::submitList);
+
+        harmonicaAdapter.setOnItemClickListener(harmonica -> {
+
+            String title = Harmonica.NAME + " \"" + harmonica.getType() + "\"";
+
+            Bundle bundle = new Bundle();
+
+            bundle.putInt(ID, harmonica.getId());
+            bundle.putByteArray(ICON, harmonica.getIcon());
+            bundle.putString(TYPE, harmonica.getType());
+            bundle.putString(TONE, harmonica.getTone());
+            bundle.putString(RANGE, harmonica.getRange());
+            bundle.putInt(PRICE, harmonica.getPrice());
+            bundle.putString(OPTIONS, harmonica.getOptions());
+
+            MainActivity.INSTANCE.setFragment(HarmonicaFragment.class, R.id.favourite_layout, bundle, title, FavouriteFragment.class);
+
+        });
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -98,6 +135,23 @@ public class FavouriteFragment extends Fragment {
 
         viewModel.getAllBayans().observe(MainActivity.INSTANCE, bayanAdapter::submitList);
 
+        bayanAdapter.setOnItemClickListener(bayan -> {
+
+            String title = Bayan.NAME + " \"" + bayan.getType() + "\"";
+
+            Bundle bundle = new Bundle();
+
+            bundle.putInt(Bayan.ID, bayan.getId());
+            bundle.putByteArray(Bayan.ICON, bayan.getIcon());
+            bundle.putString(Bayan.TYPE, bayan.getType());
+            bundle.putString(Bayan.RANGE, bayan.getRange());
+            bundle.putInt(Bayan.PRICE, bayan.getPrice());
+            bundle.putString(Bayan.OPTIONS, bayan.getOptions());
+
+            MainActivity.INSTANCE.setFragment(BayanFragment.class, R.id.favourite_layout, bundle, title, FavouriteFragment.class);
+
+        });
+
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -134,6 +188,22 @@ public class FavouriteFragment extends Fragment {
         accordionFavouriteList.setLayoutManager(new LinearLayoutManager(MainActivity.INSTANCE));
 
         viewModel.getAllAccordions().observe(MainActivity.INSTANCE, accordionAdapter::submitList);
+
+        accordionAdapter.setOnItemClickListener(accordion -> {
+
+            String title = Accordion.NAME + " " + accordion.getRange();
+
+            Bundle bundle = new Bundle();
+
+            bundle.putInt(Accordion.ID, accordion.getId());
+            bundle.putByteArray(Accordion.ICON, accordion.getIcon());
+            bundle.putString(Accordion.RANGE, accordion.getRange());
+            bundle.putInt(Accordion.PRICE, accordion.getPrice());
+            bundle.putString(Accordion.OPTIONS, accordion.getOptions());
+
+            MainActivity.INSTANCE.setFragment(AccordionFragment.class, R.id.favourite_layout, bundle, title, FavouriteFragment.class);
+
+        });
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override

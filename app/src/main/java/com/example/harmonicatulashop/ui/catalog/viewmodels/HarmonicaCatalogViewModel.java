@@ -12,7 +12,7 @@ import java.util.List;
 
 public class HarmonicaCatalogViewModel extends AndroidViewModel {
 
-    public LiveData<List<Harmonica>> harmonicas;
+    private LiveData<List<Harmonica>> harmonicas;
 
     private CatalogRepository repository;
 
@@ -22,7 +22,11 @@ public class HarmonicaCatalogViewModel extends AndroidViewModel {
         harmonicas = repository.getAllHarmonicas();
     }
 
-    public LiveData<List<Harmonica>> getAllHarmonicas() { return harmonicas; }
+    public LiveData<List<Harmonica>> getAllHarmonicas() {
+        return harmonicas;
+    }
 
-    public void insert(Harmonica harmonica) { repository.insertHarmonica(harmonica); }
+    public void insert(Harmonica harmonica) {
+        repository.insertHarmonica(harmonica);
+    }
 }

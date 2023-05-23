@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentAccordionBinding;
 import com.example.harmonicatulashop.models.harmonica.Accordion;
 
@@ -28,8 +29,9 @@ public class AccordionFragment extends Fragment {
     private FragmentAccordionBinding binding;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        MainActivity.currentLayout = getId();
 
         viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(AccordionViewModel.class);
 
@@ -60,10 +62,19 @@ public class AccordionFragment extends Fragment {
         Bitmap bitmap = BitmapFactory.decodeByteArray(accordion.getIcon(), 0, accordion.getIcon().length);
         binding.accordionImage.setImageBitmap(bitmap);
 
+        String title = Accordion.NAME + " " + accordion.getRange();
+        binding.accordionTitle.setText(title);
+
+        if (MainActivity.currentAdmin != null) {
+            binding.addAccordionToCart.setText("Удалить");
+            binding.addAccordionToFavourites.setText("Редактировать");
+        }
+
         String price = accordion.getPrice() + " руб.";
         binding.price.setText(price);
 
         binding.range.append(" " + accordion.getRange());
         binding.accordionOptions.setText(accordion.getOptions());
+
     }
 }
