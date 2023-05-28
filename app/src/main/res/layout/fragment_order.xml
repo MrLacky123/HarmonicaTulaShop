@@ -6,48 +6,63 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.harmonicatulashop.ui.cart.viewmodels.MakeOrderViewModel" />
+            type="com.example.harmonicatulashop.ui.account.viewmodels.OrderViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/make_order_layout"
+        android:id="@+id/fragment_order_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".ui.cart.fragments.MakeOrderFragment">
+        tools:context=".ui.account.fragments.OrderFragment">
 
         <ScrollView
+            android:id="@+id/order_scrollview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="75dp">
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="200dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/order_information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/order_information"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/harmonica_make_order_category"
+                    android:id="@+id/harmonica_order_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="7dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="7dp"
                     android:background="@drawable/catalog_category_bg"
                     android:clickable="true"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="@{()->viewModel.onHarmonicaClick()}">
+                    android:onClick="@{()->viewModel.onHarmonicaClick()}"
+                    app:layout_constraintTop_toBottomOf="@+id/order_information">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
                         android:layout_marginTop="7dp"
                         android:layout_marginBottom="7dp"
-                        android:layout_marginStart="12dp"
                         android:text="@string/title_harmonica"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
                         android:id="@+id/harmonica_expand"
@@ -55,9 +70,9 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:src="@drawable/baseline_expand_more_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -67,45 +82,45 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="@string/empty"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="italic"
-                    android:textColor="@color/black"
-                    app:layout_constraintTop_toBottomOf="@+id/harmonica_make_order_category"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:visibility="gone" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/harmonica_order_category" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/harmonica_make_order_list"
+                    android:id="@+id/harmonica_order_list"
                     android:layout_width="match_parent"
                     android:layout_height="450dp"
                     android:layout_marginTop="5dp"
-                    app:layout_constraintTop_toBottomOf="@+id/harmonica_empty"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/harmonica_empty" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/bayan_make_order_category"
+                    android:id="@+id/bayan_order_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
                     android:background="@drawable/catalog_category_bg"
                     android:clickable="true"
-                    app:layout_constraintTop_toBottomOf="@+id/harmonica_make_order_list"
-                    android:onClick="@{()->viewModel.onBayanClick()}">
+                    android:onClick="@{()->viewModel.onBayanClick()}"
+                    app:layout_constraintTop_toBottomOf="@+id/harmonica_order_list">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
                         android:layout_marginTop="7dp"
                         android:layout_marginBottom="7dp"
-                        android:layout_marginStart="12dp"
                         android:text="@string/title_bayan"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
                         android:id="@+id/bayan_expand"
@@ -113,9 +128,9 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:src="@drawable/baseline_expand_more_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -125,48 +140,48 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="@string/empty"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="italic"
-                    android:textColor="@color/black"
-                    app:layout_constraintTop_toBottomOf="@+id/bayan_make_order_category"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:visibility="gone" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bayan_order_category" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/bayan_make_order_list"
+                    android:id="@+id/bayan_order_list"
                     android:layout_width="match_parent"
                     android:layout_height="450dp"
                     android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="italic"
-                    android:textColor="@color/black"
-                    app:layout_constraintTop_toBottomOf="@+id/bayan_empty"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/bayan_empty" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/accordion_make_order_category"
+                    android:id="@+id/accordion_order_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
                     android:background="@drawable/catalog_category_bg"
                     android:clickable="true"
-                    app:layout_constraintTop_toBottomOf="@+id/bayan_make_order_list"
-                    android:onClick="@{()->viewModel.onAccordionClick()}">
+                    android:onClick="@{()->viewModel.onAccordionClick()}"
+                    app:layout_constraintTop_toBottomOf="@+id/bayan_order_list">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
                         android:layout_marginTop="7dp"
                         android:layout_marginBottom="7dp"
-                        android:layout_marginStart="12dp"
                         android:text="@string/title_accordion"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
                         android:id="@+id/accordion_expand"
@@ -174,9 +189,9 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:src="@drawable/baseline_expand_more_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -186,84 +201,60 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="@string/empty"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="italic"
-                    android:textColor="@color/black"
-                    app:layout_constraintTop_toBottomOf="@+id/accordion_make_order_category"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:visibility="gone" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/accordion_order_category" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/accordion_make_order_list"
+                    android:id="@+id/accordion_order_list"
                     android:layout_width="match_parent"
                     android:layout_height="450dp"
                     android:layout_marginTop="5dp"
-                    app:layout_constraintTop_toBottomOf="@+id/accordion_empty"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/delivery_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/delivery_address"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/accordion_make_order_list"
-                    app:layout_constraintStart_toStartOf="parent"/>
-
-                <EditText
-                    android:id="@+id/input_delivery_address"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_height="50dp"
-                    android:inputType="textPostalAddress"
-                    app:layout_constraintTop_toBottomOf="@+id/delivery_address"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <RadioButton
-                    android:id="@+id/pickup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:text="@string/pickup"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toBottomOf="@id/input_delivery_address"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/accordion_empty" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginEnd="20dp"
+        <TextView
+            android:id="@+id/order_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="15dp"
-            android:clickable="true"
-            android:background="@drawable/make_order_bg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:onClick="@{()->viewModel.makeOrder()}">
+            android:text="@string/input_price"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/order_scrollview"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:text="@string/make_order"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/order_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/delivery_address"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/order_price"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/is_picked_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/pickup"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/order_address"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

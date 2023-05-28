@@ -17,13 +17,13 @@ public class Harmonica {
 
     public static final String NAME = "Гармонь";
 
-    public static final String ID = "com.example.harmonicatulashop.ID";
-    public static final String ICON = "com.example.harmonicatulashop.ICON";
-    public static final String TYPE = "com.example.harmonicatulashop.TYPE";
-    public static final String TONE = "com.example.harmonicatulashop.TONE";
-    public static final String RANGE = "com.example.harmonicatulashop.RANGE";
-    public static final String PRICE = "com.example.harmonicatulashop.PRICE";
-    public static final String OPTIONS = "com.example.harmonicatulashop.OPTIONS";
+    public static final String ID = "com.example.harmonicatulashop.models.harmonica.Harmonica.ID";
+    public static final String ICON = "com.example.harmonicatulashop.models.harmonica.Harmonica.ICON";
+    public static final String TYPE = "com.example.harmonicatulashop.models.harmonica.Harmonica.TYPE";
+    public static final String TONE = "com.example.harmonicatulashop.models.harmonica.Harmonica.TONE";
+    public static final String RANGE = "com.example.harmonicatulashop.models.harmonica.Harmonica.RANGE";
+    public static final String PRICE = "com.example.harmonicatulashop.models.harmonica.Harmonica.PRICE";
+    public static final String OPTIONS = "com.example.harmonicatulashop.models.harmonica.Harmonica.OPTIONS";
 
     @PrimaryKey(autoGenerate = true)
     private int id;

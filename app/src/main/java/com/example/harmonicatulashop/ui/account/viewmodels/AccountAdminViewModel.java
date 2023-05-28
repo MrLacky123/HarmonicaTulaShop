@@ -1,7 +1,6 @@
 package com.example.harmonicatulashop.ui.account.viewmodels;
 
 import static com.example.harmonicatulashop.MainActivity.GALLERY_REQUEST_FOR_ADMIN;
-import static com.example.harmonicatulashop.MainActivity.GALLERY_REQUEST_FOR_USER;
 
 import android.content.Intent;
 import android.widget.PopupMenu;
@@ -10,9 +9,13 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.database.account.current.room.AdminRepositoryC;
+import com.example.harmonicatulashop.database.account.current.room.CurrentRepository;
 import com.example.harmonicatulashop.databinding.FragmentAccountAdminBinding;
 import com.example.harmonicatulashop.ui.account.fragments.AccountAdminFragment;
+import com.example.harmonicatulashop.ui.account.fragments.AddAccordionFragment;
+import com.example.harmonicatulashop.ui.account.fragments.AddBayanFragment;
+import com.example.harmonicatulashop.ui.account.fragments.AddHarmonicaFragment;
+import com.example.harmonicatulashop.ui.account.fragments.AdminSettingsFragment;
 import com.example.harmonicatulashop.ui.account.fragments.OrderListFragment;
 
 public class AccountAdminViewModel extends ViewModel {
@@ -42,6 +45,11 @@ public class AccountAdminViewModel extends ViewModel {
 
     public void settings() {
 
+        MainActivity.INSTANCE.setFragment(AdminSettingsFragment.class,
+                R.id.account_admin_layout, null,
+                MainActivity.INSTANCE.getResources().getString(R.string.settings),
+                AccountAdminFragment.class);
+
     }
 
     public void addHarmonica() {
@@ -53,10 +61,22 @@ public class AccountAdminViewModel extends ViewModel {
 
             switch (item.getItemId()) {
                 case R.id.add_harmonica:
+                    MainActivity.INSTANCE.setFragment(AddHarmonicaFragment.class,
+                            R.id.account_admin_layout, null,
+                            "Добавить гармонь",
+                            AccountAdminFragment.class);
                     return true;
                 case R.id.add_bayan:
+                    MainActivity.INSTANCE.setFragment(AddBayanFragment.class,
+                            R.id.account_admin_layout, null,
+                            "Добавить баян",
+                            AccountAdminFragment.class);
                     return true;
                 case R.id.add_accordion:
+                    MainActivity.INSTANCE.setFragment(AddAccordionFragment.class,
+                            R.id.account_admin_layout, null,
+                            "Добавить аккордеон",
+                            AccountAdminFragment.class);
                     return true;
                 default:
                     return false;
@@ -69,7 +89,7 @@ public class AccountAdminViewModel extends ViewModel {
     public void exit() {
 
         MainActivity.currentAdmin = null;
-        new AdminRepositoryC(MainActivity.INSTANCE.getApplication()).delete();
+        new CurrentRepository(MainActivity.INSTANCE.getApplication()).deleteCurrentAdmin();
         MainActivity.INSTANCE.load();
 
     }

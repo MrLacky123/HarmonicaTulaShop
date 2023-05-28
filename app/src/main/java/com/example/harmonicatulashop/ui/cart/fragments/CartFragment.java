@@ -1,13 +1,5 @@
 package com.example.harmonicatulashop.ui.cart.fragments;
 
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.ICON;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.ID;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.OPTIONS;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.PRICE;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.RANGE;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.TONE;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.TYPE;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,13 +70,13 @@ public class CartFragment extends Fragment {
 
             Bundle bundle = new Bundle();
 
-            bundle.putInt(ID, harmonica.getId());
-            bundle.putByteArray(ICON, harmonica.getIcon());
-            bundle.putString(TYPE, harmonica.getType());
-            bundle.putString(TONE, harmonica.getTone());
-            bundle.putString(RANGE, harmonica.getRange());
-            bundle.putInt(PRICE, harmonica.getPrice());
-            bundle.putString(OPTIONS, harmonica.getOptions());
+            bundle.putInt(Harmonica.ID, harmonica.getId());
+            bundle.putByteArray(Harmonica.ICON, harmonica.getIcon());
+            bundle.putString(Harmonica.TYPE, harmonica.getType());
+            bundle.putString(Harmonica.TONE, harmonica.getTone());
+            bundle.putString(Harmonica.RANGE, harmonica.getRange());
+            bundle.putInt(Harmonica.PRICE, harmonica.getPrice());
+            bundle.putString(Harmonica.OPTIONS, harmonica.getOptions());
 
             MainActivity.INSTANCE.setFragment(HarmonicaFragment.class, R.id.cart_layout, bundle, title, CartFragment.class);
 

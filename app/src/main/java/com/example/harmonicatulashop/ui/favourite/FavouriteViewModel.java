@@ -23,18 +23,17 @@ import java.util.Objects;
 
 public class FavouriteViewModel extends AndroidViewModel {
 
-    public LiveData<List<Harmonica>> harmonicas;
-    public LiveData<List<Accordion>> accordions;
-    public LiveData<List<Bayan>> bayans;
-
-    private final FavouriteRepository favouriteRepository;
+    private final LiveData<List<Harmonica>> harmonicas;
+    private final LiveData<List<Accordion>> accordions;
+    private final LiveData<List<Bayan>> bayans;
 
     private FragmentFavouriteBinding binding;
 
     public FavouriteViewModel (Application application) {
         super(application);
 
-        favouriteRepository = new FavouriteRepository(application);
+        FavouriteRepository favouriteRepository = new FavouriteRepository(application);
+
         harmonicas = favouriteRepository.getAllHarmonicas();
         bayans = favouriteRepository.getAllBayans();
         accordions = favouriteRepository.getAllAccordions();
@@ -42,15 +41,9 @@ public class FavouriteViewModel extends AndroidViewModel {
 
     public LiveData<List<Harmonica>> getAllHarmonicas() { return harmonicas; }
 
-    public void insertHarmonica(Harmonica harmonica) { favouriteRepository.insertHarmonica(harmonica); }
-
     public LiveData<List<Bayan>> getAllBayans() { return bayans; }
 
-    public void insertBayan(Bayan bayan) { favouriteRepository.insertBayan(bayan); }
-
     public LiveData<List<Accordion>> getAllAccordions() { return accordions; }
-
-    public void insertAccordion(Accordion accordion) { favouriteRepository.insertAccordion(accordion); }
 
     public void onHarmonicaClick() {
 

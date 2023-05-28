@@ -1,22 +1,27 @@
 package com.example.harmonicatulashop.ui.account.fragments;
 
-import androidx.lifecycle.ViewModelProvider;
+import static com.example.harmonicatulashop.models.order.Order.ACCORDION_IDS;
+import static com.example.harmonicatulashop.models.order.Order.BAYAN_IDS;
+import static com.example.harmonicatulashop.models.order.Order.HARMONICA_IDS;
+import static com.example.harmonicatulashop.models.order.Order.PERSON_ID;
+import static com.example.harmonicatulashop.models.order.Order.PICKING_UP;
+import static com.example.harmonicatulashop.models.order.Order.PRICE;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.databinding.FragmentOrderListBinding;
+import com.example.harmonicatulashop.models.order.Order;
 import com.example.harmonicatulashop.models.order.adapters.OrderAdapter;
 import com.example.harmonicatulashop.ui.account.viewmodels.OrderListViewModel;
 
@@ -27,10 +32,9 @@ public class OrderListFragment extends Fragment {
     private FragmentOrderListBinding binding;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        MainActivity.currentLayout = R.id.orders_layout;
+        MainActivity.currentLayout = getId();
 
         viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(OrderListViewModel.class);
 
@@ -48,6 +52,25 @@ public class OrderListFragment extends Fragment {
         } else if (MainActivity.currentAdmin != null) {
             viewModel.getAllOrders().observe(MainActivity.INSTANCE, adapter::submitList);
         }
+
+        adapter.setOnItemClickListener(order -> {
+
+            String title = Order.NAME + "№" + order.getId();
+
+            Bundle bundle = new Bundle();
+
+            bundle.putByteArray(HARMONICA_IDS, order.getHarmonicaIds());
+            bundle.putByteArray(BAYAN_IDS, order.getBayanIds());
+            bundle.putByteArray(ACCORDION_IDS, order.getAccordionIds());
+            bundle.putInt(PRICE, order.getPrice());
+            bundle.putInt(PERSON_ID, order.getPersonId());
+            bundle.putBoolean(PICKING_UP, order.isPickingUp());
+
+            MainActivity.INSTANCE.setFragment(OrderFragment.class,
+                    R.id.orders_layout, bundle,
+                    title, OrderListFragment.class);
+
+        });
 
         return binding.getRoot();
     }

@@ -20,12 +20,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.harmonicatulashop.database.account.current.room.AdminRepositoryC;
-import com.example.harmonicatulashop.database.account.current.room.AdminRoomDatabaseC;
-import com.example.harmonicatulashop.database.account.current.room.UserRepositoryC;
-import com.example.harmonicatulashop.database.account.current.room.UserRoomDatabaseC;
-import com.example.harmonicatulashop.database.account.room.AdminRepository;
-import com.example.harmonicatulashop.database.account.room.UserRepository;
+import com.example.harmonicatulashop.database.account.current.room.CurrentRepository;
+import com.example.harmonicatulashop.database.account.current.room.CurrentRoomDatabase;
+import com.example.harmonicatulashop.database.account.room.AccountRepository;
 import com.example.harmonicatulashop.databinding.ActivityMainBinding;
 import com.example.harmonicatulashop.models.account.Admin;
 import com.example.harmonicatulashop.models.account.User;
@@ -43,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int GALLERY_REQUEST_FOR_USER = 1;
     public static final int GALLERY_REQUEST_FOR_ADMIN = 2;
+    public static final int GALLERY_REQUEST_FOR_HARMONICA = 3;
+    public static final int GALLERY_REQUEST_FOR_BAYAN = 4;
+    public static final int GALLERY_REQUEST_FOR_ACCORDION = 5;
+
+    private static Bitmap addedHarmonicaImage = null;
+    private static Bitmap addedBayanImage = null;
+    private static Bitmap addedAccordionImage = null;
 
     public static MainActivity INSTANCE;
 
@@ -114,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
 
             previousTitles.remove(title);
 
+            if (previousTitles.isEmpty()) {
+                actionBar.setDisplayHomeAsUpEnabled(false);
+            }
+
         } else {
 
             assert actionBar.getTitle() != null;
@@ -180,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         switch(requestCode) {
             case GALLERY_REQUEST_FOR_USER:
 
-                imageView = (ImageView) findViewById(R.id.profile_image_user);
+                imageView = findViewById(R.id.profile_image_user);
 
                 if (resultCode == RESULT_OK) {
 
@@ -195,8 +203,8 @@ public class MainActivity extends AppCompatActivity {
 
                     currentUser.setAvatarImage(bitmapToBlob(bitmap));
 
-                    new UserRepositoryC(getApplication()).setCurrentUser(currentUser);
-                    new UserRepository(getApplication()).replaceUser(currentUser.getLogin(), currentUser);
+                    new CurrentRepository(getApplication()).setCurrentUser(currentUser);
+                    new AccountRepository(getApplication()).replaceUser(currentUser.getLogin(), currentUser);
 
                 }
 
@@ -204,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
             case GALLERY_REQUEST_FOR_ADMIN:
 
-                imageView = (ImageView) findViewById(R.id.profile_image_admin);
+                imageView = findViewById(R.id.profile_image_admin);
 
                 if (resultCode == RESULT_OK) {
 
@@ -219,10 +227,58 @@ public class MainActivity extends AppCompatActivity {
 
                     currentAdmin.setAvatarImage(bitmapToBlob(bitmap));
 
-                    new AdminRepositoryC(getApplication()).setCurrentAdmin(currentAdmin);
-                    new AdminRepository(getApplication()).replaceAdmin(currentAdmin.getLogin(), currentAdmin);
+                    new CurrentRepository(getApplication()).setCurrentAdmin(currentAdmin);
+                    new AccountRepository(getApplication()).replaceAdmin(currentAdmin.getLogin(), currentAdmin);
 
                 }
+
+                break;
+
+            case GALLERY_REQUEST_FOR_HARMONICA:
+
+                imageView = findViewById(R.id.add_harmonica_image);
+                imageView.setImageURI(selectedImage);
+
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                setAddedHarmonicaImage(bitmap);
+                findViewById(R.id.add_harmonica_image_icon).setVisibility(View.GONE);
+
+                break;
+
+            case GALLERY_REQUEST_FOR_BAYAN:
+
+                imageView = findViewById(R.id.add_bayan_image);
+                imageView.setImageURI(selectedImage);
+
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                setAddedBayanImage(bitmap);
+                findViewById(R.id.add_bayan_image_icon).setVisibility(View.GONE);
+
+                break;
+
+            case GALLERY_REQUEST_FOR_ACCORDION:
+
+                imageView = findViewById(R.id.add_accordion_image);
+                imageView.setImageURI(selectedImage);
+
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                setAddedAccordionImage(bitmap);
+                findViewById(R.id.add_accordion_image_icon).setVisibility(View.GONE);
 
                 break;
         }
@@ -278,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
             try {
-                admin = AdminRoomDatabaseC.getDatabase(getApplication()).adminDaoC().getAdmin();
+                admin = CurrentRoomDatabase.getDatabase(getApplication()).adminDaoC().getAdmin();
                 admin = exchanger.exchange(admin);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -298,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
             try {
-                user = UserRoomDatabaseC.getDatabase(getApplication()).userDaoC().getUser();
+                user = CurrentRoomDatabase.getDatabase(getApplication()).userDaoC().getUser();
                 user = exchanger.exchange(user);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -361,5 +417,29 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
+    }
+
+    public static Bitmap getAddedHarmonicaImage() {
+        return addedHarmonicaImage;
+    }
+
+    public static void setAddedHarmonicaImage(Bitmap addedHarmonicaImage) {
+        MainActivity.addedHarmonicaImage = addedHarmonicaImage;
+    }
+
+    public static Bitmap getAddedBayanImage() {
+        return addedBayanImage;
+    }
+
+    public static void setAddedBayanImage(Bitmap addedBayanImage) {
+        MainActivity.addedBayanImage = addedBayanImage;
+    }
+
+    public static Bitmap getAddedAccordionImage() {
+        return addedAccordionImage;
+    }
+
+    public static void setAddedAccordionImage(Bitmap addedAccordionImage) {
+        MainActivity.addedAccordionImage = addedAccordionImage;
     }
 }

@@ -1,6 +1,5 @@
 package com.example.harmonicatulashop.database.account.current.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -16,7 +15,7 @@ public interface UserDaoC {
     @Query("DELETE FROM user")
     void delete();
 
-    @Query("SELECT * FROM user WHERE ID LIKE 1")
+    @Query("SELECT * FROM user")
     User getUser();
 
 }

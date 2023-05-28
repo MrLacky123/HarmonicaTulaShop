@@ -16,6 +16,6 @@ public interface AdminDaoC {
     @Query("DELETE FROM admin")
     void delete();
 
-    @Query("SELECT * FROM admin WHERE ID LIKE 1")
+    @Query("SELECT * FROM admin")
     Admin getAdmin();
 }

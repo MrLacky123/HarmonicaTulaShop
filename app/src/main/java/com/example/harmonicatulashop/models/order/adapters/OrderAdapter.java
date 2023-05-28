@@ -28,10 +28,10 @@ public class OrderAdapter extends ListAdapter<Order, OrderViewHolder> {
 
         Order current = getItem(position);
 
-        String name = Order.NAME + " №" + current.getNumber();
+        String name = Order.NAME + " №" + current.getId();
         holder.bindName(name);
 
-        String price = String.valueOf(current.getPrice());
+        String price = current.getPrice() + " ₽";
         holder.bindPrice(price);
 
         holder.itemView.setTag(current.getId());
@@ -54,7 +54,7 @@ public class OrderAdapter extends ListAdapter<Order, OrderViewHolder> {
 
         @Override
         public boolean areContentsTheSame(@NonNull Order oldItem, @NonNull Order newItem) {
-            return oldItem.getNumber() == oldItem.getNumber();
+            return oldItem.getId() == oldItem.getId();
         }
     }
 }

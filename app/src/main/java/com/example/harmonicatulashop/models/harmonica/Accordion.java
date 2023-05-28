@@ -10,11 +10,11 @@ import java.util.Arrays;
 @Entity(tableName = "accordion_list")
 public class Accordion {
 
-    public static final String ID = "com.example.harmonicatulashop.ID";
-    public static final String ICON = "com.example.harmonicatulashop.ICON";
-    public static final String RANGE = "com.example.harmonicatulashop.RANGE";
-    public static final String PRICE = "com.example.harmonicatulashop.PRICE";
-    public static final String OPTIONS = "com.example.harmonicatulashop.OPTIONS";
+    public static final String ID = "com.example.harmonicatulashop.models.harmonica.Accordion.ID";
+    public static final String ICON = "com.example.harmonicatulashop.models.harmonica.Accordion.ICON";
+    public static final String RANGE = "com.example.harmonicatulashop.models.harmonica.Accordion.RANGE";
+    public static final String PRICE = "com.example.harmonicatulashop.models.harmonica.Accordion.PRICE";
+    public static final String OPTIONS = "com.example.harmonicatulashop.models.harmonica.Accordion.OPTIONS";
 
     public static final String NAME = "Аккордеон ТУЛА";
 

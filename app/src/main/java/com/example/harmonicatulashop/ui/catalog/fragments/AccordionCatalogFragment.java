@@ -7,7 +7,6 @@ import static com.example.harmonicatulashop.models.harmonica.Accordion.PRICE;
 import static com.example.harmonicatulashop.models.harmonica.Accordion.RANGE;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,6 +80,9 @@ public class AccordionCatalogFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        MainActivity.INSTANCE.getSupportActionBar().setTitle(R.string.title_accordion);
+        ActionBar actionBar =  MainActivity.INSTANCE.getSupportActionBar();
+
+        assert actionBar != null;
+        actionBar.setTitle(R.string.title_accordion);
     }
 }

@@ -55,11 +55,22 @@
     <string name="harmonica">Гармонь</string>
     <string name="bayan">Баян</string>
     <string name="accordion">Аккордеон</string>
+
     <string name="settings_name">Имя:</string>
     <string name="settings_lastname">Фамилия:</string>
     <string name="settings_login">Логин:</string>
     <string name="save_changes">Сохранить изменения</string>
     <string name="settings_address">Адрес:</string>
     <string name="confirm_changes">Подтвердите изменения</string>
+    <string name="wrong_password">Введен неверный пароль!</string>
+    <string name="harmonica_model">Модель гармони:</string>
+    <string name="add_harmonica_to_catalog">Добавить гармонь в каталог</string>
+    <string name="input_price">Цена:</string>
+    <string name="add_bayan_to_catalog">Добавить баян в каталог</string>
+    <string name="add_accordion_to_catalog">Добавить аккордеон в каталог</string>
+    <string name="delivery_address">Адрес доставки:</string>
+    <string name="pickup">Самовывоз</string>
+    <string name="order_information">Информация о заказе:</string>
+    <string name="order">Заказ №</string>
 
 </resources>

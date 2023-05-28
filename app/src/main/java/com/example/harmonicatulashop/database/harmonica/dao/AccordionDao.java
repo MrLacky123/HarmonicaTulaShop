@@ -26,4 +26,7 @@ public interface AccordionDao {
 
     @Query("SELECT * FROM accordion_list WHERE id LIKE :id")
     Accordion findById(int id);
+
+    @Query("SELECT * FROM accordion_list ORDER BY id")
+    List<Accordion> getAccordionList();
 }

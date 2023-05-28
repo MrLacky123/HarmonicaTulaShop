@@ -36,7 +36,7 @@ public abstract class CatalogRoomDatabase extends RoomDatabase {
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static CatalogRoomDatabase getDatabase(final Context context) {
+    public static CatalogRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (CatalogRoomDatabase.class) {
                 if (INSTANCE == null) {
@@ -61,26 +61,6 @@ public abstract class CatalogRoomDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 HarmonicaDao dao = INSTANCE.harmonicaDao();
                 dao.deleteAll();
-
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-
-                Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.INSTANCE.getApplicationContext().getResources(), R.drawable.kulikovopole);
-                bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
-                byte[] blob = bos.toByteArray();
-
-                Harmonica harmonica = new Harmonica(blob, "Куликово поле", "До мажор", "27/25", 67000, "Регулировка ремня металлическим колёсиком");
-                dao.insert(harmonica);
-
-                bos = new ByteArrayOutputStream();
-
-                bitmap = BitmapFactory.decodeResource(MainActivity.INSTANCE.getApplicationContext().getResources(), R.drawable.kulikovopole);
-                bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
-                blob = bos.toByteArray();
-
-                harmonica = new Harmonica(blob, "Тульская 301М", "До мажор", "25/25", 49000, "Итальянский ледерин");
-                dao.insert(harmonica);
             });
         }
     };
@@ -94,22 +74,6 @@ public abstract class CatalogRoomDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 BayanDao dao = INSTANCE.bayanDao();
                 dao.deleteAll();
-
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-
-                Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.INSTANCE.getApplicationContext().getResources(), R.drawable.bayan);
-                bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
-                byte[] blob = bos.toByteArray();
-
-                try {
-                    bos.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-                Bayan bayan = new Bayan(blob, "Этюд", "80/100", 75000, "");
-                dao.insert(bayan);
             });
         }
     };
@@ -123,22 +87,6 @@ public abstract class CatalogRoomDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 AccordionDao dao = INSTANCE.accordionDao();
                 dao.deleteAll();
-
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-
-                Bitmap bitmap = BitmapFactory.decodeResource(MainActivity.INSTANCE.getApplicationContext().getResources(), R.drawable.accordion);
-                bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
-                byte[] blob = bos.toByteArray();
-
-                try {
-                    bos.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-                Accordion accordion = new Accordion(blob, "55/100", 115000, "пять регистров");
-                dao.insert(accordion);
             });
         }
     };

@@ -12,11 +12,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -72,7 +70,9 @@ public class HarmonicaCatalogFragment extends Fragment {
             bundle.putInt(PRICE, harmonica.getPrice());
             bundle.putString(OPTIONS, harmonica.getOptions());
 
-            MainActivity.INSTANCE.setFragment(HarmonicaFragment.class, R.id.harmonica_catalog_layout, bundle, title, HarmonicaCatalogFragment.class);
+            MainActivity.INSTANCE.setFragment(HarmonicaFragment.class,
+                    R.id.harmonica_catalog_layout, bundle,
+                    title, HarmonicaCatalogFragment.class);
 
         });
 

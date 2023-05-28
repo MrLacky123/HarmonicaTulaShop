@@ -1,13 +1,5 @@
 package com.example.harmonicatulashop.ui.favourite;
 
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.ICON;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.ID;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.OPTIONS;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.PRICE;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.RANGE;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.TONE;
-import static com.example.harmonicatulashop.models.harmonica.Harmonica.TYPE;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.database.harmonica.room.cart.CartRepository;
 import com.example.harmonicatulashop.database.harmonica.room.favourite.FavouriteRepository;
 import com.example.harmonicatulashop.databinding.FragmentFavouriteBinding;
 import com.example.harmonicatulashop.models.harmonica.Accordion;
@@ -32,14 +22,9 @@ import com.example.harmonicatulashop.models.harmonica.Harmonica;
 import com.example.harmonicatulashop.models.harmonica.adapters.AccordionAdapter;
 import com.example.harmonicatulashop.models.harmonica.adapters.BayanAdapter;
 import com.example.harmonicatulashop.models.harmonica.adapters.HarmonicaAdapter;
-import com.example.harmonicatulashop.ui.catalog.fragments.AccordionCatalogFragment;
-import com.example.harmonicatulashop.ui.catalog.fragments.BayanCatalogFragment;
-import com.example.harmonicatulashop.ui.catalog.fragments.HarmonicaCatalogFragment;
 import com.example.harmonicatulashop.ui.fragments.AccordionFragment;
 import com.example.harmonicatulashop.ui.fragments.BayanFragment;
 import com.example.harmonicatulashop.ui.fragments.HarmonicaFragment;
-
-import java.util.List;
 
 public class FavouriteFragment extends Fragment {
 
@@ -62,9 +47,7 @@ public class FavouriteFragment extends Fragment {
         viewModel.setBinding(binding);
 
         setHarmonicaListView();
-
         setBayanListView();
-
         setAccordionListView();
 
         return binding.getRoot();
@@ -86,13 +69,13 @@ public class FavouriteFragment extends Fragment {
 
             Bundle bundle = new Bundle();
 
-            bundle.putInt(ID, harmonica.getId());
-            bundle.putByteArray(ICON, harmonica.getIcon());
-            bundle.putString(TYPE, harmonica.getType());
-            bundle.putString(TONE, harmonica.getTone());
-            bundle.putString(RANGE, harmonica.getRange());
-            bundle.putInt(PRICE, harmonica.getPrice());
-            bundle.putString(OPTIONS, harmonica.getOptions());
+            bundle.putInt(Harmonica.ID, harmonica.getId());
+            bundle.putByteArray(Harmonica.ICON, harmonica.getIcon());
+            bundle.putString(Harmonica.TYPE, harmonica.getType());
+            bundle.putString(Harmonica.TONE, harmonica.getTone());
+            bundle.putString(Harmonica.RANGE, harmonica.getRange());
+            bundle.putInt(Harmonica.PRICE, harmonica.getPrice());
+            bundle.putString(Harmonica.OPTIONS, harmonica.getOptions());
 
             MainActivity.INSTANCE.setFragment(HarmonicaFragment.class, R.id.favourite_layout, bundle, title, FavouriteFragment.class);
 

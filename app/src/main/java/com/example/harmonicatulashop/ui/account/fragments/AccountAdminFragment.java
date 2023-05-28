@@ -35,8 +35,8 @@ public class AccountAdminFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         binding = null;
     }
 
@@ -60,6 +60,7 @@ public class AccountAdminFragment extends Fragment {
         if (image == null) {
             return;
         }
+
         binding.profileImageAdmin.setImageBitmap(BitmapFactory.decodeByteArray(image, 0, image.length));
 
     }

@@ -27,4 +27,7 @@ public interface HarmonicaDao {
 
     @Query("SELECT * FROM harmonica_list WHERE id LIKE :id")
     Harmonica findById(int id);
+
+    @Query("SELECT * FROM harmonica_list ORDER BY id")
+    List<Harmonica> getHarmonicaList();
 }

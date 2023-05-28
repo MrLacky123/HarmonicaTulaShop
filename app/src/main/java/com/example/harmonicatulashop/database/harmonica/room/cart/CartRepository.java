@@ -80,4 +80,12 @@ public class CartRepository {
     public void deleteAccordion(int id) {
         CartRoomDatabase.databaseWriteExecutor.execute(() -> accordionDao.delete(accordionDao.findById(id)));
     }
+
+    public void deleteEverything() {
+        CartRoomDatabase.databaseWriteExecutor.execute(() -> {
+            harmonicaDao.deleteAll();
+            bayanDao.deleteAll();
+            accordionDao.deleteAll();
+        });
+    }
 }

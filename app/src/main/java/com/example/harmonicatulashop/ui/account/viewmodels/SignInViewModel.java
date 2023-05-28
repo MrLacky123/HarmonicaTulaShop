@@ -7,12 +7,9 @@ import android.widget.TextView;
 import androidx.lifecycle.ViewModel;
 
 import com.example.harmonicatulashop.MainActivity;
-import com.example.harmonicatulashop.database.account.current.room.AdminRepositoryC;
-import com.example.harmonicatulashop.database.account.current.room.AdminRoomDatabaseC;
-import com.example.harmonicatulashop.database.account.current.room.UserRepositoryC;
-import com.example.harmonicatulashop.database.account.current.room.UserRoomDatabaseC;
-import com.example.harmonicatulashop.database.account.room.AdminRoomDatabase;
-import com.example.harmonicatulashop.database.account.room.UserRoomDatabase;
+import com.example.harmonicatulashop.R;
+import com.example.harmonicatulashop.database.account.current.room.CurrentRepository;
+import com.example.harmonicatulashop.database.account.room.AccountRoomDatabase;
 import com.example.harmonicatulashop.databinding.ActivitySignInBinding;
 import com.example.harmonicatulashop.models.account.Admin;
 import com.example.harmonicatulashop.models.account.User;
@@ -84,7 +81,7 @@ public class SignInViewModel extends ViewModel {
 
             if (password == admin.getHashPassword()) {
 
-                new AdminRepositoryC(SignInActivity.INSTANCE.getApplication()).setCurrentAdmin(admin);
+                new CurrentRepository(SignInActivity.INSTANCE.getApplication()).setCurrentAdmin(admin);
                 MainActivity.currentAdmin = admin;
                 SignInActivity.INSTANCE.finish();
 
@@ -101,13 +98,13 @@ public class SignInViewModel extends ViewModel {
 
             if (password == user.getHashPassword()) {
 
-                new UserRepositoryC(SignInActivity.INSTANCE.getApplication()).setCurrentUser(user);
+                new CurrentRepository(SignInActivity.INSTANCE.getApplication()).setCurrentUser(user);
                 MainActivity.currentUser = user;
                 SignInActivity.INSTANCE.finish();
 
             } else {
 
-                passwordRed.setText("Введен неверный пароль");
+                passwordRed.setText(MainActivity.INSTANCE.getResources().getString(R.string.wrong_password));
                 passwordRed.setVisibility(View.VISIBLE);
                 editTextPassword.setText("");
 
@@ -134,7 +131,7 @@ public class SignInViewModel extends ViewModel {
         @Override
         public void run() {
             try {
-                admin = AdminRoomDatabase.getDatabase(MainActivity.INSTANCE.getApplication()).adminDao().getAdminByLogin(login);
+                admin = AccountRoomDatabase.getDatabase(SignInActivity.INSTANCE.getApplication()).adminDao().getAdminByLogin(login);
                 admin = exchanger.exchange(admin);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -156,7 +153,7 @@ public class SignInViewModel extends ViewModel {
         @Override
         public void run() {
             try {
-                user = UserRoomDatabase.getDatabase(SignInActivity.INSTANCE.getApplication()).userDao().getUserByLogin(login);
+                user = AccountRoomDatabase.getDatabase(SignInActivity.INSTANCE.getApplication()).userDao().getUserByLogin(login);
                 user = exchanger.exchange(user);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

@@ -27,4 +27,7 @@ public interface BayanDao {
 
     @Query("SELECT * FROM bayan_list WHERE id LIKE :id")
     Bayan findById(int id);
+
+    @Query("SELECT * FROM bayan_list ORDER BY id")
+    List<Bayan> getBayanList();
 }

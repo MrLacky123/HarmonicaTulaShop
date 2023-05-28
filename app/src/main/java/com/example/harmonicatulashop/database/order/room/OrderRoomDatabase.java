@@ -9,12 +9,15 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.harmonicatulashop.database.order.dao.OrderDao;
+import com.example.harmonicatulashop.models.harmonica.Accordion;
+import com.example.harmonicatulashop.models.harmonica.Bayan;
+import com.example.harmonicatulashop.models.harmonica.Harmonica;
 import com.example.harmonicatulashop.models.order.Order;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Order.class}, version = 1, exportSchema = false)
+@Database(entities = {Order.class}, version = 2, exportSchema = false)
 public abstract class OrderRoomDatabase extends RoomDatabase {
 
     public abstract OrderDao orderDao();

@@ -31,7 +31,7 @@ public class SignInActivity extends AppCompatActivity {
 
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         binding.setViewModel(viewModel);
-        binding.executePendingBindings();
+        binding.setLifecycleOwner(this);
 
         viewModel.setBinding(binding);
 

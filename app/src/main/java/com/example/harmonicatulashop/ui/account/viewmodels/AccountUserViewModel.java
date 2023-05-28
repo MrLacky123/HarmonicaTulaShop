@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.database.account.current.room.UserRepositoryC;
+import com.example.harmonicatulashop.database.account.current.room.CurrentRepository;
 import com.example.harmonicatulashop.ui.account.fragments.AccountUserFragment;
 import com.example.harmonicatulashop.ui.account.fragments.OrderListFragment;
 import com.example.harmonicatulashop.ui.account.fragments.UserSettingsFragment;
@@ -44,7 +44,7 @@ public class AccountUserViewModel extends ViewModel {
     public void exit() {
 
         MainActivity.currentUser = null;
-        new UserRepositoryC(MainActivity.INSTANCE.getApplication()).delete();
+        new CurrentRepository(MainActivity.INSTANCE.getApplication()).deleteCurrentUser();
         MainActivity.INSTANCE.load();
 
     }

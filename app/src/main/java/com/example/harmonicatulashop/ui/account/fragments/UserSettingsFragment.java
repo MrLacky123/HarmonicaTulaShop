@@ -27,13 +27,15 @@ public class UserSettingsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        MainActivity.currentLayout = R.id.user_settings_layout;
+        MainActivity.currentLayout = getId();
 
         viewModel = new ViewModelProvider(MainActivity.INSTANCE).get(UserSettingsViewModel.class);
 
         binding = FragmentUserSettingsBinding.inflate(inflater, container, false);
         binding.setViewModel(viewModel);
         binding.setLifecycleOwner(this);
+
+        viewModel.setBinding(binding);
 
         bindView(MainActivity.currentUser);
 
@@ -43,8 +45,8 @@ public class UserSettingsFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         binding = null;
     }
 

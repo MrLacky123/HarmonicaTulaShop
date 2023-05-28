@@ -9,28 +9,32 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.harmonicatulashop.database.account.dao.AdminDao;
+import com.example.harmonicatulashop.database.account.dao.UserDao;
 import com.example.harmonicatulashop.models.account.Admin;
+import com.example.harmonicatulashop.models.account.User;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Admin.class}, version = 1, exportSchema = false)
-public abstract class AdminRoomDatabase extends RoomDatabase {
+@Database(entities = {Admin.class, User.class}, version = 1, exportSchema = false)
+public abstract class AccountRoomDatabase extends RoomDatabase {
 
     public abstract AdminDao adminDao();
+    public abstract UserDao userDao();
 
-    private static volatile AdminRoomDatabase INSTANCE;
+    private static volatile AccountRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    public static AdminRoomDatabase getDatabase(final Context context){
+    public static AccountRoomDatabase getDatabase(final Context context){
         if (INSTANCE == null) {
-            synchronized (AdminRoomDatabase.class) {
+            synchronized (AccountRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    AdminRoomDatabase.class, "admin_database")
-                            .addCallback(sRoomDatabaseCallback)
+                                    AccountRoomDatabase.class, "account_database")
+                            .addCallback(aRoomDatabaseCallback)
+                            .addCallback(uRoomDatabaseCallback)
                             .build();
                 }
             }
@@ -39,7 +43,7 @@ public abstract class AdminRoomDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+    private static final RoomDatabase.Callback aRoomDatabaseCallback = new RoomDatabase.Callback() {
 
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -52,6 +56,19 @@ public abstract class AdminRoomDatabase extends RoomDatabase {
                 String password = "changeYourPassword";
                 Admin admin = new Admin(null, "firstadmin", password.hashCode(), "Admin1", null);
                 dao.insert(admin);
+            });
+        }
+    };
+
+    private static final RoomDatabase.Callback uRoomDatabaseCallback = new RoomDatabase.Callback() {
+
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+
+            databaseWriteExecutor.execute(() -> {
+                UserDao dao = INSTANCE.userDao();
+                dao.deleteAll();
             });
         }
     };
