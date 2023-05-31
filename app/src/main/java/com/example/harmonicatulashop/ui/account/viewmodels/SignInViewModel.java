@@ -87,7 +87,7 @@ public class SignInViewModel extends ViewModel {
 
             } else {
 
-                passwordRed.setText("Введен неверный пароль");
+                passwordRed.setText(MainActivity.INSTANCE.getResources().getString(R.string.wrong_password));
                 passwordRed.setVisibility(View.VISIBLE);
                 editTextPassword.setText("");
 
