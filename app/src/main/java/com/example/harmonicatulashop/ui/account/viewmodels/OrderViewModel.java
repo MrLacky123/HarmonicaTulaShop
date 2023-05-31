@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
-import com.example.harmonicatulashop.database.harmonica.room.catalog.CatalogRoomDatabase;
+import com.example.harmonicatulashop.database.order.room.OrderRoomDatabase;
 import com.example.harmonicatulashop.databinding.FragmentOrderBinding;
 import com.example.harmonicatulashop.models.harmonica.Accordion;
 import com.example.harmonicatulashop.models.harmonica.Bayan;
@@ -169,7 +169,7 @@ public class OrderViewModel extends AndroidViewModel {
 
         @Override
         public void run() {
-            harmonica = CatalogRoomDatabase.getDatabase(MainActivity.INSTANCE.getApplication()).harmonicaDao().findById(id);
+            harmonica = OrderRoomDatabase.getDatabase(MainActivity.INSTANCE.getApplication()).harmonicaDao().findById(id);
             try {
                 harmonica = exchanger.exchange(harmonica);
             } catch (InterruptedException e) {
@@ -191,7 +191,7 @@ public class OrderViewModel extends AndroidViewModel {
 
         @Override
         public void run() {
-            bayan = CatalogRoomDatabase.getDatabase(MainActivity.INSTANCE.getApplication()).bayanDao().findById(id);
+            bayan = OrderRoomDatabase.getDatabase(MainActivity.INSTANCE.getApplication()).bayanDao().findById(id);
             try {
                 bayan = exchanger.exchange(bayan);
             } catch (InterruptedException e) {
@@ -213,7 +213,7 @@ public class OrderViewModel extends AndroidViewModel {
 
         @Override
         public void run() {
-            accordion = CatalogRoomDatabase.getDatabase(MainActivity.INSTANCE.getApplication()).accordionDao().findById(id);
+            accordion = OrderRoomDatabase.getDatabase(MainActivity.INSTANCE.getApplication()).accordionDao().findById(id);
             try {
                 accordion = exchanger.exchange(accordion);
             } catch (InterruptedException e) {

@@ -73,24 +73,6 @@ public class MakeOrderFragment extends Fragment {
                 binding.harmonicaMakeOrderCategory.setVisibility(View.GONE);
             }
         });
-
-        harmonicaAdapter.setOnItemClickListener(harmonica -> {
-
-            String title = Harmonica.NAME + " \"" + harmonica.getType() + "\"";
-
-            Bundle bundle = new Bundle();
-
-            bundle.putInt(Harmonica.ID, harmonica.getId());
-            bundle.putByteArray(Harmonica.ICON, harmonica.getIcon());
-            bundle.putString(Harmonica.TYPE, harmonica.getType());
-            bundle.putString(Harmonica.TONE, harmonica.getTone());
-            bundle.putString(Harmonica.RANGE, harmonica.getRange());
-            bundle.putInt(Harmonica.PRICE, harmonica.getPrice());
-            bundle.putString(Harmonica.OPTIONS, harmonica.getOptions());
-
-            MainActivity.INSTANCE.setFragment(HarmonicaFragment.class, R.id.favourite_layout, bundle, title, CartFragment.class);
-
-        });
     }
 
     public void setBayanListView() {
@@ -107,23 +89,6 @@ public class MakeOrderFragment extends Fragment {
                 binding.bayanMakeOrderCategory.setVisibility(View.GONE);
             }
         });
-
-        bayanAdapter.setOnItemClickListener(bayan -> {
-
-            String title = Bayan.NAME + " \"" + bayan.getType() + "\"";
-
-            Bundle bundle = new Bundle();
-
-            bundle.putInt(Bayan.ID, bayan.getId());
-            bundle.putByteArray(Bayan.ICON, bayan.getIcon());
-            bundle.putString(Bayan.TYPE, bayan.getType());
-            bundle.putString(Bayan.RANGE, bayan.getRange());
-            bundle.putInt(Bayan.PRICE, bayan.getPrice());
-            bundle.putString(Bayan.OPTIONS, bayan.getOptions());
-
-            MainActivity.INSTANCE.setFragment(BayanFragment.class, R.id.favourite_layout, bundle, title, CartFragment.class);
-
-        });
     }
 
     public void setAccordionListView() {
@@ -139,22 +104,6 @@ public class MakeOrderFragment extends Fragment {
             if (accordionList.isEmpty()) {
                 binding.accordionMakeOrderCategory.setVisibility(View.GONE);
             }
-        });
-
-        accordionAdapter.setOnItemClickListener(accordion -> {
-
-            String title = Accordion.NAME + " " + accordion.getRange();
-
-            Bundle bundle = new Bundle();
-
-            bundle.putInt(Accordion.ID, accordion.getId());
-            bundle.putByteArray(Accordion.ICON, accordion.getIcon());
-            bundle.putString(Accordion.RANGE, accordion.getRange());
-            bundle.putInt(Accordion.PRICE, accordion.getPrice());
-            bundle.putString(Accordion.OPTIONS, accordion.getOptions());
-
-            MainActivity.INSTANCE.setFragment(AccordionFragment.class, R.id.favourite_layout, bundle, title, CartFragment.class);
-
         });
     }
 

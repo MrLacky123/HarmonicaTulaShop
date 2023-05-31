@@ -6,7 +6,6 @@ import android.view.View;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.ColumnInfo;
 
 import com.example.harmonicatulashop.MainActivity;
 import com.example.harmonicatulashop.R;
@@ -19,8 +18,6 @@ import com.example.harmonicatulashop.models.harmonica.Harmonica;
 import com.example.harmonicatulashop.models.order.Order;
 import com.example.harmonicatulashop.ui.cart.fragments.CartFragment;
 import com.example.harmonicatulashop.ui.cart.fragments.MakeOrderFragment;
-
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.List;
 
@@ -131,7 +128,21 @@ public class MakeOrderViewModel extends AndroidViewModel {
 
         Order order = new Order(harmonicaIds, bayanIds, accordionIds, price, MainActivity.currentUser.getId(), pickup, deliveryAddress);
 
-        new OrderRepository(MainActivity.INSTANCE.getApplication()).insert(order);
+        OrderRepository repository = new OrderRepository(MainActivity.INSTANCE.getApplication());
+
+        repository.insertOrder(order);
+
+        for (Harmonica harmonica: harmonicas.getValue()) {
+            repository.insertHarmonica(harmonica);
+        }
+
+        for (Bayan bayan : bayans.getValue()) {
+            repository.insertBayan(bayan);
+        }
+
+        for (Accordion accordion: accordions.getValue()) {
+            repository.insertAccordion(accordion);
+        }
 
         new CartRepository(MainActivity.INSTANCE.getApplication()).deleteEverything();
 
@@ -146,6 +157,7 @@ public class MakeOrderViewModel extends AndroidViewModel {
 
         int price = 0;
 
+        assert harmonicas.getValue() != null;
         if (!harmonicas.getValue().isEmpty()) {
             for (Harmonica harmonica: harmonicas.getValue()) {
                 price += harmonica.getPrice();
@@ -159,6 +171,7 @@ public class MakeOrderViewModel extends AndroidViewModel {
 
         int price = 0;
 
+        assert bayans.getValue() != null;
         if (!bayans.getValue().isEmpty()) {
             for (Bayan bayan: bayans.getValue()) {
                 price += bayan.getPrice();
@@ -172,6 +185,7 @@ public class MakeOrderViewModel extends AndroidViewModel {
 
         int price = 0;
 
+        assert accordions.getValue() != null;
         if (!accordions.getValue().isEmpty()) {
             for (Accordion accordion: accordions.getValue()) {
                 price += accordion.getPrice();
