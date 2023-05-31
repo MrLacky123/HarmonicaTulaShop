@@ -31,7 +31,35 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="1279122522">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi&#10; Redmi 8A" value="120" />
+                  <entry key="f68697c20307" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="1696518608">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi&#10; Redmi 8A" value="120" />
+                  <entry key="f68697c20307" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1992713693">
           <value>
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
