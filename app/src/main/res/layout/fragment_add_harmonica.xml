@@ -155,6 +155,7 @@
                     app:layout_constraintTop_toBottomOf="@id/options_harmonica_title" />
 
                 <Button
+                    android:id="@+id/add_harmonica_to_catalog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
