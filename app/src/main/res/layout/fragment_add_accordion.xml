@@ -110,6 +110,7 @@
                     app:layout_constraintTop_toBottomOf="@id/options_accordion_title" />
 
                 <Button
+                    android:id="@+id/add_accordion_to_catalog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"

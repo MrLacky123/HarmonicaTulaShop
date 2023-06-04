@@ -48,6 +48,13 @@ public class CatalogRepository {
         CatalogRoomDatabase.databaseWriteExecutor.execute(() -> harmonicaDao.delete(harmonica));
     }
 
+    public void replaceHarmonica(int id, Harmonica harmonica) {
+        CatalogRoomDatabase.databaseWriteExecutor.execute(() -> {
+            harmonicaDao.delete(harmonicaDao.findById(id));
+            harmonicaDao.insert(harmonica);
+        });
+    }
+
     public LiveData<List<Bayan>> getAllBayans() {
         return allBayans;
     }
@@ -60,6 +67,13 @@ public class CatalogRepository {
         CatalogRoomDatabase.databaseWriteExecutor.execute(() -> bayanDao.delete(bayan));
     }
 
+    public void replaceBayan(int id, Bayan bayan) {
+        CatalogRoomDatabase.databaseWriteExecutor.execute(() -> {
+            bayanDao.delete(bayanDao.findById(id));
+            bayanDao.insert(bayan);
+        });
+    }
+
     public LiveData<List<Accordion>> getAllAccordions() {
         return allAccordions;
     }
@@ -70,5 +84,12 @@ public class CatalogRepository {
 
     public void deleteAccordion(Accordion accordion) {
         CatalogRoomDatabase.databaseWriteExecutor.execute(() -> accordionDao.delete(accordion));
+    }
+
+    public void replaceAccordion(int id, Accordion accordion) {
+        CatalogRoomDatabase.databaseWriteExecutor.execute(() -> {
+            accordionDao.delete(accordionDao.findById(id));
+            accordionDao.insert(accordion);
+        });
     }
 }

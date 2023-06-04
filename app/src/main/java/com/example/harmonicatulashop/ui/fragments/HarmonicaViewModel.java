@@ -71,7 +71,7 @@ public class HarmonicaViewModel extends ViewModel {
             bundle.putString(OPTIONS, harmonica.getOptions());
 
             MainActivity.INSTANCE.setFragment(AddHarmonicaFragment.class,
-                    R.id.harmonica_layout, bundle,
+                    MainActivity.currentLayout, bundle,
                     "Редактировать гармонь",
                     HarmonicaFragment.class);
 
