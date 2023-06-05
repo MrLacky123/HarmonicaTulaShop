@@ -12,13 +12,14 @@ import android.widget.Toast;
 import androidx.lifecycle.ViewModel;
 
 import com.example.harmonicatulashop.MainActivity;
+import com.example.harmonicatulashop.R;
 import com.example.harmonicatulashop.database.harmonica.room.cart.CartRepository;
 import com.example.harmonicatulashop.database.harmonica.room.catalog.CatalogRepository;
 import com.example.harmonicatulashop.database.harmonica.room.favourite.FavouriteRepository;
 import com.example.harmonicatulashop.databinding.FragmentAccordionBinding;
 import com.example.harmonicatulashop.models.harmonica.Accordion;
 import com.example.harmonicatulashop.ui.account.fragments.AddAccordionFragment;
-import com.example.harmonicatulashop.ui.account.fragments.AddHarmonicaFragment;
+import com.example.harmonicatulashop.ui.catalog.fragments.AccordionCatalogFragment;
 
 public class AccordionViewModel extends ViewModel {
 
@@ -38,6 +39,12 @@ public class AccordionViewModel extends ViewModel {
         if (MainActivity.currentAdmin != null) {
 
             new CatalogRepository(MainActivity.INSTANCE.getApplication()).deleteAccordion(accordion);
+
+            MainActivity.INSTANCE.setFragment(AccordionCatalogFragment.class,
+                    MainActivity.currentLayout, null,
+                    MainActivity.INSTANCE.getResources().getString(R.string.title_accordion),
+                    null);
+
             return;
         }
 

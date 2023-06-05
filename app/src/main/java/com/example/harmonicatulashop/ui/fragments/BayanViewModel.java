@@ -20,7 +20,7 @@ import com.example.harmonicatulashop.database.harmonica.room.favourite.Favourite
 import com.example.harmonicatulashop.databinding.FragmentBayanBinding;
 import com.example.harmonicatulashop.models.harmonica.Bayan;
 import com.example.harmonicatulashop.ui.account.fragments.AddBayanFragment;
-import com.example.harmonicatulashop.ui.account.fragments.AddHarmonicaFragment;
+import com.example.harmonicatulashop.ui.catalog.fragments.BayanCatalogFragment;
 
 public class BayanViewModel extends ViewModel {
 
@@ -40,6 +40,12 @@ public class BayanViewModel extends ViewModel {
         if (MainActivity.currentAdmin != null) {
 
             new CatalogRepository(MainActivity.INSTANCE.getApplication()).deleteBayan(bayan);
+
+            MainActivity.INSTANCE.setFragment(BayanCatalogFragment.class,
+                    MainActivity.currentLayout, null,
+                    MainActivity.INSTANCE.getResources().getString(R.string.title_bayan),
+                    null);
+
             return;
         }
 
